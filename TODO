@@ -1,0 +1,15 @@
+* ne pas intégrer les librairies externes
+
+
+
+Je veux pouvoir intégrer coco aux tests unitaires (test/unit ou rspec).
+
+Je veux pouvoir lancer coco en standalone, avec une ligne du genre:
+  coco repertoire
+et qu'il reconnaisse tout seul si on a affaire à unit ou rspec.
+
+Je veux qu'il sorte sur la console les fichiers qui ne sont pas couvert au moins à 90%. Je veux
+aussi une option pour changer ce seuil.
+
+Pour savoir quelles lignes ne sont pas couvertes, je veux qu'il fabrique un html de chaque fichier
+pas assez couvert, en surlignant en rouge les lignes non-couvertes.

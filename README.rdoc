@@ -1,0 +1,20 @@
+= COde COverage
+
+Coco est un outil de couverture de test pour ruby 1.9.
+
+== Documentation
+TODO
+
+== Dépendances
+TODO
+
+== Installation
+TODO
+
+== License
+GPLv3, voir le fichier COPYING.
+
+== Questions et/ou Commentaires
+
+N'hésitez à m'envoyer un email à {Xavier Nayrac}[mailto:xavier.nayrac@gmail.com]
+avec toutes vos questions.
