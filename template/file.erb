@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title><%= @filename %></title>
+    <link rel="stylesheet" href="coco.css" type="text/css" />
+  </head>
+  <body>
+    <h2><%= @filename %></h2>
+    <table>
+      
+      <% @lines.each do |num, text, hit|%>
+      <%   if hit.nil? %>
+        <tr class="never">
+      <%   elsif hit.zero? %>
+        <tr class="miss">
+      <%   elsif hit > 0 %>
+        <tr class="hit" %>
+      <%   end %>
+
+      <%= "<td>#{num}</td><td><pre>#{text}</pre></td>" %>
+
+        </tr>
+      <% end%>
+      
+    </table>
+  </body>
+</html>

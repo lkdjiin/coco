@@ -1,0 +1,14 @@
+tr.never
+{
+  background-color: #eee;
+}
+
+tr.hit
+{
+  background-color: #efe;
+}
+
+tr.miss
+{
+   background-color: #fbb;
+}

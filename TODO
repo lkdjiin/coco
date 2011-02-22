@@ -1,5 +1,3 @@
-
-
 Je veux pouvoir intégrer coco aux tests unitaires (test/unit ou rspec).
 
 Je veux pouvoir lancer coco en standalone, avec une ligne du genre:
@@ -11,3 +9,25 @@ aussi une option pour changer ce seuil.
 
 Pour savoir quelles lignes ne sont pas couvertes, je veux qu'il fabrique un html de chaque fichier
 pas assez couvert, en surlignant en rouge les lignes non-couvertes.
+
+ok* utiliser coco depuis rspec
+ok* sortie console fichier < 90%
+
+
+* html 
+  + uniquement des fichiers pas assez couverts
+    - dans coverage, avec css
+    - supprimer coverage avant de commencer
+    - ajouter la date
+  + deux fichiers peuvent avoir le même nom (dossier différents)
+  + fichier index
+  + améliorer css
+* option pour le threeshold (peut être plus de 100% pour tout voir)
+* splitter Rakefile en fichiers task
+* task gem > uninstall avant install
+* utiliser coco depuis test/unit
+* intégrer coco à rspec
+* intégrer coco à test/unit
+* lancer coco en standalone
+  + reconnaitre test/unit
+  + reconnaire rspec

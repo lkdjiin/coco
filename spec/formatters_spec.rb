@@ -25,3 +25,16 @@ describe ConsoleFormatter do
   end
   
 end
+
+describe HtmlFormatter do
+
+  before :each do
+    @formatter = HtmlFormatter.new COVERAGE_90
+  end
+
+  #~ it "must return html file" do
+    #~ result = @formatter.format
+    #~ puts result
+  #~ end
+  
+end
