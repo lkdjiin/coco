@@ -3,6 +3,8 @@ require 'fileutils'
 
 module Coco
   
+  # My childs will format coverages information if the covered
+  # percentage are under a certain threeshold.
   # @abstract
   class Formatter
     # @param [Hash] raw_coverages The hash from Coverage.result
@@ -42,40 +44,42 @@ module Coco
     def initialize raw_coverages
       super(raw_coverages)
       @formatted_output_files = {}
-      @context = Context.new
+      @context = nil
+      @template = Template.open File.join($COCO_PATH,'template/file.erb')
     end
     
     def format
-      template = Template.open File.join($COCO_PATH,'template/file.erb')
       @raw_coverages.map do |filename, coverage|
         percent = CoverageStat.coverage_percent coverage
         if percent < @threeshold
-          @context.filename = filename
-          source = File.readlines filename
-          lines = []
-          source.each_with_index do |line, index|
-            lines << [index+1, line.chomp, coverage[index]]
-          end
-          @context.lines = lines
-          
-          @formatted_output_files[filename] = template.result(@context.get_binding)
+          build_html filename, coverage
         end
       end
       @formatted_output_files
+    end
+    
+    private
+    
+    def build_html filename, coverage
+      source = File.readlines filename
+      lines = []
+      source.each_with_index do |line, index|
+        lines << [index+1, line.chomp, coverage[index]]
+      end
+      @context = Context.new filename, lines
+      @formatted_output_files[filename] = @template.result(@context.get_binding)
     end
     
   end
   
   # Contextual information for ERB template.
   class Context
-    # Name of the source file
-    attr_accessor :filename
-    # Array of lines description (a line is : [num, text, hit])
-    attr_accessor :lines
-    
-		def initialize
-			@filename = 'no filename'
-      @lines = []
+  
+    # @param [String] filename Name of the source file
+    # @param [Array] lines Lines description (a line is : [num, text, hit])
+		def initialize filename, lines
+			@filename = filename
+      @lines = lines
 		end
 		
 		def get_binding
