@@ -1,17 +1,21 @@
 module Coco
-
+  
+  # I format coverages information for console output
   class ConsoleFormatter
-    def self.format coverages
-      ret = ''
-      coverages.each do |filename, coverage|
-        coverable_lines = coverage.select {|e| not e.nil?}
-        one_percent = 100.0 / coverable_lines.size
-        covered_lines = coverable_lines.select {|e| e > 0}
-        coverage_percent = (covered_lines.size * one_percent).to_i
-        ret << "#{coverage_percent}% #{filename}\n"
-      end
-      ret
+    
+    # @param [Hash] raw_coverages The hash from Coverage.result
+    def initialize raw_coverages
+      @raw_coverages = raw_coverages
+      @formatted_output = ''
     end
+  
+    def format 
+      @raw_coverages.each do |filename, coverage|
+        @formatted_output << "#{CoverageStat.coverage_percent coverage}% #{filename}\n"
+      end
+      @formatted_output
+    end
+    
   end
   
 end
