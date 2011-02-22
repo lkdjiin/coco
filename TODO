@@ -19,7 +19,8 @@ ok  + uniquement des fichiers pas assez couverts
 ok    - dans coverage, avec css
 ok    - supprimer coverage avant de commencer
     - ajouter la date
-  + deux fichiers peuvent avoir le même nom (dossier différents)
+ok  + deux fichiers peuvent avoir le même nom (dossier différents)
+    - suivre les dossiers du projet (plutôt que des _)
   + fichier index
   + améliorer css
 * option pour le threeshold (peut être plus de 100% pour tout voir)

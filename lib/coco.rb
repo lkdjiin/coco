@@ -28,7 +28,7 @@ at_exit do
   FileUtils.makedirs 'coverage'
   FileUtils.copy File.join($COCO_PATH, 'template/coco.css'), 'coverage'
   html_files.each do |filename, html|
-    f = File.new(File.join('coverage', File.basename(filename) + '.html'), "w")
+    f = File.new(File.join('coverage', filename.sub(Dir.pwd, '').tr('/\\', '_') + '.html'), "w")
     f.write html
     f.close
   end

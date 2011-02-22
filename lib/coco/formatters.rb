@@ -14,7 +14,7 @@ module Coco
     end
     
     def format
-      "Please implement me in a child!"
+      "Implement me in child"
     end
   end
   
@@ -29,7 +29,7 @@ module Coco
     # return [string] percent covered and associated filenames 
     #   if percent < threeshold (default 90%)
     def format 
-      @raw_coverages.each do |filename, coverage|
+      @raw_coverages.each do |filename, coverage| 
         percent = CoverageStat.coverage_percent coverage
         @formatted_output << "#{percent}% #{filename}\n" if percent < @threeshold
       end
