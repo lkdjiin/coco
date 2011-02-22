@@ -1,15 +1,27 @@
+require 'erb'
 require 'fileutils'
 
 module Coco
   
-  # I format coverages information for console output
-  class ConsoleFormatter
-    
+  # @abstract
+  class Formatter
     # @param [Hash] raw_coverages The hash from Coverage.result
     def initialize raw_coverages
       @raw_coverages = raw_coverages
-      @formatted_output = ''
       @threeshold = 90
+    end
+    
+    def format
+      "Please implement me in a child!"
+    end
+  end
+  
+  # I format coverages information for console output
+  class ConsoleFormatter < Formatter
+    
+    def initialize raw_coverages
+      super(raw_coverages)
+      @formatted_output = ''
     end
   
     # return [string] percent covered and associated filenames 
@@ -24,49 +36,43 @@ module Coco
     
   end
   
-  class HtmlFormatter
+  # I format coverages information into html files.
+  class HtmlFormatter < Formatter
     
-    # @param [Hash] raw_coverages The hash from Coverage.result
     def initialize raw_coverages
-      @raw_coverages = raw_coverages
-      @formatted_output = ''
-      @threeshold = 90
+      super(raw_coverages)
+      @formatted_output_files = {}
       @context = Context.new
-      FileUtils.makedirs 'coverage'
-      FileUtils.copy File.join($COCO_PATH, 'template/coco.css'), 'coverage'
     end
     
     def format
-      template = get_template File.join($COCO_PATH,'template/file.erb')
+      template = Template.open File.join($COCO_PATH,'template/file.erb')
       @raw_coverages.map do |filename, coverage|
-        @context.filename = filename
-        source = File.readlines filename
-        lines = []
-        source.each_with_index do |line, index|
-          lines << [index+1, line.chomp, coverage[index]]
+        percent = CoverageStat.coverage_percent coverage
+        if percent < @threeshold
+          @context.filename = filename
+          source = File.readlines filename
+          lines = []
+          source.each_with_index do |line, index|
+            lines << [index+1, line.chomp, coverage[index]]
+          end
+          @context.lines = lines
+          
+          @formatted_output_files[filename] = template.result(@context.get_binding)
         end
-        @context.lines = lines
-        html = template.result(@context.get_binding)
-        f = File.new(File.join('coverage', File.basename(filename) + '.html'), "w")
-        f.write html
-        f.close
       end
+      @formatted_output_files
     end
     
-    def get_binding
-			binding
-		end
-    
-    private
-    
-    def get_template filename
-			io = IO.readlines(filename, nil)
-			return ERB.new(io[0], nil, '><')
-		end
   end
   
+  # Contextual information for ERB template.
   class Context
-    attr_accessor :filename, :lines
+    # Name of the source file
+    attr_accessor :filename
+    # Array of lines description (a line is : [num, text, hit])
+    attr_accessor :lines
+    
 		def initialize
 			@filename = 'no filename'
       @lines = []
@@ -75,7 +81,16 @@ module Coco
 		def get_binding
 			binding
 		end
-
 	end
+  
+  # From me, you can obtain ERB templates.
+  class Template
+    # @param [String] filename An ERB template
+    # @return [ERB]
+    def self.open filename
+      io = IO.readlines(filename, nil)
+			return ERB.new(io[0], nil, '><')
+    end
+  end
 
 end

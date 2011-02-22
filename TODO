@@ -15,9 +15,9 @@ ok* sortie console fichier < 90%
 
 
 * html 
-  + uniquement des fichiers pas assez couverts
-    - dans coverage, avec css
-    - supprimer coverage avant de commencer
+ok  + uniquement des fichiers pas assez couverts
+ok    - dans coverage, avec css
+ok    - supprimer coverage avant de commencer
     - ajouter la date
   + deux fichiers peuvent avoir le même nom (dossier différents)
   + fichier index
@@ -25,9 +25,10 @@ ok* sortie console fichier < 90%
 * option pour le threeshold (peut être plus de 100% pour tout voir)
 * splitter Rakefile en fichiers task
 * task gem > uninstall avant install
+* pouvoir exclure des fichiers de la couverture
 * utiliser coco depuis test/unit
-* intégrer coco à rspec
-* intégrer coco à test/unit
+* intégrer coco à rspec (rake task ?)
+* intégrer coco à test/unit (rake task ?)
 * lancer coco en standalone
   + reconnaitre test/unit
   + reconnaire rspec
