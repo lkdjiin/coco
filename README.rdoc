@@ -3,13 +3,22 @@
 Coco est un outil de couverture de test pour ruby 1.9.
 
 == Documentation
-TODO
+
+ require 'coco'
+au début des tests.
 
 == Dépendances
-TODO
+
+ruby >= 1.9.2
+
+Pour contribuer:
+
+* reek
+* rspec
 
 == Installation
-TODO
+
+rake install
 
 == License
 GPLv3, voir le fichier COPYING.

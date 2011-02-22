@@ -1,14 +1,14 @@
-Je veux pouvoir intégrer coco aux tests unitaires (test/unit ou rspec).
-
-Je veux pouvoir lancer coco en standalone, avec une ligne du genre:
-  coco repertoire
-et qu'il reconnaisse tout seul si on a affaire à unit ou rspec.
+Je veux pouvoir intégrer coco aux tests unitaires (test/unit ou rspec) avec un simple require 'coco'.
 
 Je veux qu'il sorte sur la console les fichiers qui ne sont pas couvert au moins à 90%. Je veux
 aussi une option pour changer ce seuil.
 
 Pour savoir quelles lignes ne sont pas couvertes, je veux qu'il fabrique un html de chaque fichier
 pas assez couvert, en surlignant en rouge les lignes non-couvertes.
+
+Je veux pouvoir lancer coco en standalone, avec une ligne du genre:
+  coco repertoire
+et qu'il reconnaisse tout seul si on a affaire à unit ou rspec.
 
 ok* utiliser coco depuis rspec
 ok* sortie console fichier < 90%
@@ -18,7 +18,7 @@ ok* sortie console fichier < 90%
 ok  + uniquement des fichiers pas assez couverts
 ok    - dans coverage, avec css
 ok    - supprimer coverage avant de commencer
-    - ajouter la date
+ok    - ajouter la date
 ok  + deux fichiers peuvent avoir le même nom (dossier différents)
     - suivre les dossiers du projet (plutôt que des _)
   + fichier index
@@ -28,8 +28,8 @@ ok  + deux fichiers peuvent avoir le même nom (dossier différents)
 * task gem > uninstall avant install
 * pouvoir exclure des fichiers de la couverture
 * utiliser coco depuis test/unit
-* intégrer coco à rspec (rake task ?)
-* intégrer coco à test/unit (rake task ?)
 * lancer coco en standalone
   + reconnaitre test/unit
-  + reconnaire rspec
+  + reconnaitre rspec
+* intégrer coco à rspec (rake task ?)
+* intégrer coco à test/unit (rake task ?)
