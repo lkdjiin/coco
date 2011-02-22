@@ -1,10 +1,5 @@
 
 
-
-* ne pas intégrer les librairies externes
-
-
-
 Je veux pouvoir intégrer coco aux tests unitaires (test/unit ou rspec).
 
 Je veux pouvoir lancer coco en standalone, avec une ligne du genre:

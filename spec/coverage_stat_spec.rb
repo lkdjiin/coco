@@ -1,10 +1,11 @@
-require './lib/coco'
+require './spec/helper'
+
 HITS = [nil, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-describe Coco::CoverageStat do
+describe CoverageStat do
 
   it "must give the cover percents" do
-    Coco::CoverageStat.coverage_percent(HITS).should == 90
+    CoverageStat.coverage_percent(HITS).should == 90
   end
 
 end
