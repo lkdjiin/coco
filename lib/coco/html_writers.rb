@@ -1,4 +1,3 @@
-require 'coco/filename'
 
 module Coco
 
@@ -29,7 +28,6 @@ module Coco
   
   # I populate the html directory with files if any.
   class HtmlFilesWriter
-    include Filename
   
     # @param [Hash] html_files Key is filename, value is html content
     def initialize html_files
@@ -49,7 +47,7 @@ module Coco
     
     def write_each_file
       @html_files.each do |filename, html|
-        FileWriter.write File.join('coverage', rb2html(filename)), html
+        FileWriter.write File.join('coverage', Filename.rb2html(filename)), html
       end
     end
     
@@ -68,10 +66,13 @@ module Coco
   class HtmlIndexWriter
     def initialize index
       @index = index
+      @dir = HtmlDirectory.new.coverage_dir
     end
     
     def write
-      FileWriter.write File.join(HtmlDirectory.new.coverage_dir, 'index.html'), @index
+      if File.exist?(@dir)
+        FileWriter.write File.join(@dir, 'index.html'), @index
+      end
     end
   end
   

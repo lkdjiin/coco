@@ -1,6 +1,5 @@
 require 'erb'
 require 'fileutils'
-require 'coco/filename'
 
 module Coco
   
@@ -66,8 +65,8 @@ module Coco
     
   end
   
+  # I format the index.html
   class HtmlIndexFormatter < Formatter
-    include Filename
     
     def initialize raw_coverages
       super(raw_coverages)
@@ -77,12 +76,19 @@ module Coco
     end
     
     def format
+      @context = Context.new '', build_lines_for_context
+      @template.result(@context.get_binding)
+    end
+    
+    private
+    
+    def build_lines_for_context
       lines = []
       @raw_coverages.each do |filename, coverage| 
-        lines << [CoverageStat.coverage_percent(coverage), File.expand_path(filename), rb2html(File.expand_path(filename))]
+        filename = File.expand_path(filename)
+        lines << [CoverageStat.coverage_percent(coverage), filename, Filename.rb2html(filename)]
       end
-      @context = Context.new '', lines
-      @template.result(@context.get_binding)
+      lines
     end
     
   end
@@ -91,7 +97,7 @@ module Coco
   class Context
   
     # @param [String] filename Name of the source file
-    # @param [Array] lines Lines description (a line is : [num, text, hit])
+    # @param [Array] lines 
 		def initialize filename, lines
 			@filename = filename
       @lines = lines

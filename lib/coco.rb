@@ -4,6 +4,7 @@ require 'coco/formatters'
 require 'coco/coverage_stat'
 require 'coco/coverage_result'
 require 'coco/html_writers'
+require 'coco/filename'
 require 'coverage'
 
 module Coco
