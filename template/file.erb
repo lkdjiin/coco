@@ -5,9 +5,8 @@
   </head>
   <body>
     <h2><%= @filename %></h2>
-    <p>
-      <%= "#{Time.now}" %>
-    </p>
+    <p><%= "#{Time.now}" %></p>
+    <p><a href="index.html">Index</a></p>
     <table class="source">
       
       <% @lines.each do |num, text, hit|%>
