@@ -18,9 +18,7 @@ Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
 
 ok* utiliser coco depuis rspec
 ok* sortie console fichier < 90%
-
-
-* html 
+ok* html 
 ok  + uniquement des fichiers pas assez couverts
 ok    - dans coverage, avec css
 ok    - supprimer coverage avant de commencer
@@ -30,8 +28,9 @@ ok  + fichier index
 ok  + améliorer css
 ok  + COde COverage for ??? en titre de index
 ok  + code couleur dans index (>80: jaune, >70: orange, >50: rose, autre: rouge)
-  + mettre lien sur index dans les fichiers
-* option pour le threeshold (peut être plus de 100% pour tout voir)
+ok  + mettre lien sur index dans les fichiers
+
+* option pour le threeshold (possible plus de 100% pour tout voir)
 * UTF8
 * trier index sur %
 * prise en compte des fichiers qui n'ont pas de tests

@@ -1,29 +1,37 @@
-= COde COverage
+= coco
 
-Coco est un outil de couverture de test pour ruby 1.9.
+Another COde COverage for ruby 1.9. This one suits my needs.
+
+== Features
+* Use it from rspec with a simple <code>require 'coco'</code>
+* Display files covered < 90% on console
+* Build <em>simple</em> html report <em>only</em> for files covered < 90%
+
+More features to come, see TODO.
 
 == Documentation
 
  require 'coco'
-au début des tests.
+ 
+at the beginning of your tests, usually in a *helper*.rb file.
 
-== Dépendances
+== Dependencies
 
 ruby >= 1.9.2
 
-Pour contribuer:
+To contribute:
 
 * reek
 * rspec
 
-== Installation
-
-rake install
+== Installing coco
+Download and
+ rake install
 
 == License
-GPLv3, voir le fichier COPYING.
+GPLv3, see COPYING.
 
-== Questions et/ou Commentaires
+== Questions and/or Comments
 
-N'hésitez à m'envoyer un email à {Xavier Nayrac}[mailto:xavier.nayrac@gmail.com]
-avec toutes vos questions.
+Feel free to email {Xavier Nayrac}[mailto:xavier.nayrac@gmail.com]
+with any questions.
