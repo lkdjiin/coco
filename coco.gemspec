@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 		list.exclude(/(^|[^.a-z])[a-z]+/)
 		list.exclude('TODO')
 	end.to_a
-  s.files = FileList['lib/**/*.rb', 'template/*', '[A-Z]*'].to_a + readmes
+  s.files = FileList['lib/**/*.rb', 'template/**/*', '[A-Z]*'].to_a + readmes
 	s.license = 'GPL-3'
 	s.required_ruby_version = '>= 1.9.2'
 end

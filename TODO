@@ -44,3 +44,4 @@ ok  + code couleur dans index (>80: jaune, >70: orange, >50: rose, autre: rouge)
   + reconnaitre rspec
 * intégrer coco à rspec (rake task ?)
 * intégrer coco à test/unit (rake task ?)
+* put version in index.html

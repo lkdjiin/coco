@@ -1,5 +1,5 @@
 $LOAD_PATH.unshift File.dirname(__FILE__)
-$COCO_PATH = File.expand_path(File.dirname(__FILE__)) + '/..'
+$COCO_PATH = File.expand_path(File.expand_path(File.dirname(__FILE__)) + '/..')
 require 'coco/formatters'
 require 'coco/coverage_stat'
 require 'coco/coverage_result'
