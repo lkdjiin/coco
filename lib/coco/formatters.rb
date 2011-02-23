@@ -3,14 +3,12 @@ require 'fileutils'
 
 module Coco
   
-  # My childs will format coverages information if the covered
-  # percentage are under a certain threeshold.
+  # My childs will format coverages information.
   # @abstract
   class Formatter
     # @param [Hash] raw_coverages The hash from Coverage.result
     def initialize raw_coverages
       @raw_coverages = raw_coverages
-      @threeshold = 90
     end
     
     def format
@@ -27,11 +25,9 @@ module Coco
     end
   
     # return [string] percent covered and associated filenames 
-    #   if percent < threeshold (default 90%)
     def format 
       @raw_coverages.each do |filename, coverage| 
-        percent = CoverageStat.coverage_percent coverage
-        @formatted_output << "#{percent}% #{filename}\n" if percent < @threeshold
+        @formatted_output << "#{CoverageStat.coverage_percent(coverage)}% #{filename}\n"
       end
       @formatted_output
     end
@@ -49,11 +45,8 @@ module Coco
     end
     
     def format
-      @raw_coverages.map do |filename, coverage|
-        percent = CoverageStat.coverage_percent coverage
-        if percent < @threeshold
-          build_html filename, coverage
-        end
+      @raw_coverages.each do |filename, coverage|
+        build_html filename, coverage
       end
       @formatted_output_files
     end

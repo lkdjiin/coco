@@ -6,9 +6,13 @@ aussi une option pour changer ce seuil.
 Pour savoir quelles lignes ne sont pas couvertes, je veux qu'il fabrique un html de chaque fichier
 pas assez couvert, en surlignant en rouge les lignes non-couvertes.
 
+Je veux qu'il prenne en compte les fichier qui ne sont pas du tout couvert (qui n'ont pas de tests).
+
 Je veux pouvoir lancer coco en standalone, avec une ligne du genre:
   coco repertoire
 et qu'il reconnaisse tout seul si on a affaire à unit ou rspec.
+
+Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
 
 ok* utiliser coco depuis rspec
 ok* sortie console fichier < 90%
@@ -20,7 +24,6 @@ ok    - dans coverage, avec css
 ok    - supprimer coverage avant de commencer
 ok    - ajouter la date
 ok  + deux fichiers peuvent avoir le même nom (dossier différents)
-    - suivre les dossiers du projet (plutôt que des _)
   + fichier index
   + améliorer css
 * option pour le threeshold (peut être plus de 100% pour tout voir)
