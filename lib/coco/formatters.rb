@@ -76,7 +76,7 @@ module Coco
     end
     
     def format
-      @context = Context.new '', build_lines_for_context
+      @context = Context.new File.basename(Dir.pwd), build_lines_for_context
       @template.result(@context.get_binding)
     end
     

@@ -1,17 +1,27 @@
 <html>
   <head>
-    <title>COde COverage</title>
-    <link rel="stylesheet" href="coco.css" type="text/css" />
+    <title>COde COverage for <%= @filename %></title>
+    <link rel="stylesheet" href="css/coco.css" type="text/css" />
   </head>
   <body>
-    <h2>Index</h2>
+    <h2>COde COverage for <%= @filename %></h2>
     <p>
       <%= "#{Time.now}" %>
     </p>
     <table>
       
       <% @lines.each do |percentage, filename, href| %>
-      <%= "<tr><td>#{percentage}%</td><td><a href=\"#{href}\">#{filename}</a></td></tr>\n" %>
+        <tr>
+      <% if percentage > 80 %>
+        <td class ="yellow">
+      <% elsif percentage > 70 %>
+        <td class="orange">
+      <% elsif percentage > 50 %>
+        <td class="pink">
+      <% else %>
+        <td class="red">
+      <% end %>
+      <%= "#{percentage}%</td><td><a href=\"#{href}\">#{filename}</a></td></tr>\n" %>
       <% end%>
       
     </table>

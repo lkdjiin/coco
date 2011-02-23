@@ -20,9 +20,10 @@ describe HtmlDirectory do
     File.exist?(@coverage_dir).should == false
   end
   
-  it "must create coverage dir and css file" do
+  it "must create coverage and css dir and css files" do
     HtmlDirectory.new.setup
-    File.exist?('coverage/coco.css').should == true
+    File.exist?('coverage/css/coco.css').should == true
+    File.exist?('coverage/css/reset-min.css').should == true
   end
   
   def make_fake_dir
@@ -56,7 +57,7 @@ describe HtmlFilesWriter do
   it "must write all files" do
     writer = HtmlFilesWriter.new @hash
     writer.write
-    File.exist?('coverage/coco.css').should == true
+    File.exist?('coverage/css/coco.css').should == true
     File.exist?('coverage/a.html').should == true
     File.exist?('coverage/q.html').should == true
   end

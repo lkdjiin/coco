@@ -7,7 +7,8 @@ module Coco
     
     def initialize
       @coverage_dir = 'coverage'
-      @css = File.join($COCO_PATH, 'template/coco.css')
+      @css_dir = 'coverage/css'
+      @css_files = Dir.glob('template/css/*').map {|file| File.join($COCO_PATH, file)}
     end
     
     def clean
@@ -15,8 +16,8 @@ module Coco
     end
     
     def setup
-      FileUtils.makedirs @coverage_dir
-      FileUtils.copy @css, @coverage_dir
+      FileUtils.makedirs @css_dir
+      FileUtils.cp_r @css_files, @css_dir
     end
     
     # I list the html files from the coverage directory
@@ -24,6 +25,7 @@ module Coco
       files = Dir.glob("#{@coverage_dir}/*.html")
       files.map {|file| File.basename(file)}
     end
+    
   end
   
   # I populate the html directory with files if any.

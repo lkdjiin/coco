@@ -1,0 +1,23 @@
+#header_bottom2
+{
+	-moz-border-radius: 0 20px 0 0;
+	border-radius: 0 20px 0 0;
+}
+
+#left_side ul.menu
+{
+	-moz-border-radius: 0 5px 0 0;
+	border-radius: 0 5px 0 0;
+}
+
+#footer
+{
+	-moz-border-radius: 0 20px 0 0;
+	border-radius: 0 20px 0 0;
+}
+
+fieldset
+{
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}

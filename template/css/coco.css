@@ -1,0 +1,50 @@
+@charset "UTF-8";
+@import url("reset-min.css");
+@import url("base-min.css");
+@import url("font-min.css");
+@import url("ext.css");
+
+table td
+{
+  border-width: 0;
+}
+
+table.source td
+{
+  padding: 0;
+}
+
+tr.never
+{
+  background-color: #eee;
+}
+
+tr.hit
+{
+  background-color: #efe;
+}
+
+tr.miss
+{
+   background-color: #fbb;
+}
+
+tr.yellow
+{
+  background-color: #fffead;
+}
+
+tr.orange
+{
+  background-color: #ffcd84;
+}
+
+tr.pink
+{
+  background-color: #ffcd84;
+}
+
+tr.red
+{
+  background-color: #ff4747;
+}

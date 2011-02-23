@@ -26,8 +26,13 @@ ok    - dans coverage, avec css
 ok    - supprimer coverage avant de commencer
 ok    - ajouter la date
 ok  + deux fichiers peuvent avoir le même nom (dossier différents)
-  + fichier index
+ok  + fichier index
   + améliorer css
+ok  + COde COverage for ??? en titre de index
+ok  + code couleur dans index (>80: jaune, >70: orange, >50: rose, autre: rouge)
+  + trier index sur %
+  + mettre lien sur index dans les fichiers
+* UTF8
 * option pour le threeshold (peut être plus de 100% pour tout voir)
 * prise en compte des fichiers qui n'ont pas de tests
 * splitter Rakefile en fichiers task

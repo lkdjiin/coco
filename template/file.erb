@@ -1,14 +1,14 @@
 <html>
   <head>
     <title><%= @filename %></title>
-    <link rel="stylesheet" href="coco.css" type="text/css" />
+    <link rel="stylesheet" href="css/coco.css" type="text/css" />
   </head>
   <body>
     <h2><%= @filename %></h2>
     <p>
       <%= "#{Time.now}" %>
     </p>
-    <table>
+    <table class="source">
       
       <% @lines.each do |num, text, hit|%>
       <%   if hit.nil? %>
@@ -19,7 +19,7 @@
         <tr class="hit" %>
       <%   end %>
 
-      <%= "<td>#{num}</td><td><pre>#{text}</pre></td>" %>
+      <%= "<td><pre>#{num}</pre></td><td><pre>#{text}</pre></td>" %>
 
         </tr>
       <% end%>
