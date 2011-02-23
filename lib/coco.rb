@@ -16,4 +16,6 @@ at_exit do
   puts Coco::ConsoleFormatter.new(result).format
   html_files = Coco::HtmlFormatter.new(result).format
   Coco::HtmlFilesWriter.new(html_files).write
+  index = Coco::HtmlIndexFormatter.new(result).format
+  Coco::HtmlIndexWriter.new(index).write
 end

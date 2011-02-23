@@ -1,7 +1,11 @@
+require 'coco/filename'
+
 module Coco
 
   # I prepare the directory for html files.
   class HtmlDirectory
+    attr_reader :coverage_dir
+    
     def initialize
       @coverage_dir = 'coverage'
       @css = File.join($COCO_PATH, 'template/coco.css')
@@ -15,10 +19,17 @@ module Coco
       FileUtils.makedirs @coverage_dir
       FileUtils.copy @css, @coverage_dir
     end
+    
+    # I list the html files from the coverage directory
+    def list
+      files = Dir.glob("#{@coverage_dir}/*.html")
+      files.map {|file| File.basename(file)}
+    end
   end
   
   # I populate the html directory with files if any.
   class HtmlFilesWriter
+    include Filename
   
     # @param [Hash] html_files Key is filename, value is html content
     def initialize html_files
@@ -38,8 +49,7 @@ module Coco
     
     def write_each_file
       @html_files.each do |filename, html|
-        name = File.join('coverage', filename.sub(Dir.pwd, '').tr('/\\', '_') + '.html')
-        FileWriter.write name, html
+        FileWriter.write File.join('coverage', rb2html(filename)), html
       end
     end
     
@@ -54,10 +64,15 @@ module Coco
     end
   end
   
-  # I build and write the html index.
-  # @todo bad, class do 2 things !
+  # I write the html index.
   class HtmlIndexWriter
-  
+    def initialize index
+      @index = index
+    end
+    
+    def write
+      FileWriter.write File.join(HtmlDirectory.new.coverage_dir, 'index.html'), @index
+    end
   end
   
 end

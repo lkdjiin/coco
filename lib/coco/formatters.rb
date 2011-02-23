@@ -1,5 +1,6 @@
 require 'erb'
 require 'fileutils'
+require 'coco/filename'
 
 module Coco
   
@@ -61,6 +62,27 @@ module Coco
       end
       @context = Context.new filename, lines
       @formatted_output_files[filename] = @template.result(@context.get_binding)
+    end
+    
+  end
+  
+  class HtmlIndexFormatter < Formatter
+    include Filename
+    
+    def initialize raw_coverages
+      super(raw_coverages)
+      @context = nil
+      @formatted_output = ''
+      @template = Template.open File.join($COCO_PATH,'template/index.erb')
+    end
+    
+    def format
+      lines = []
+      @raw_coverages.each do |filename, coverage| 
+        lines << [CoverageStat.coverage_percent(coverage), File.expand_path(filename), rb2html(File.expand_path(filename))]
+      end
+      @context = Context.new '', lines
+      @template.result(@context.get_binding)
     end
     
   end

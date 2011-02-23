@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>COde COverage</title>
+    <link rel="stylesheet" href="coco.css" type="text/css" />
+  </head>
+  <body>
+    <h2>Index</h2>
+    <p>
+      <%= "#{Time.now}" %>
+    </p>
+    <table>
+      
+      <% @lines.each do |percentage, filename, href| %>
+      <%= "<tr><td>#{percentage}%</td><td><a href=\"#{href}\">#{filename}</a></td></tr>\n" %>
+      <% end%>
+      
+    </table>
+  </body>
+</html>

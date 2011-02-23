@@ -40,3 +40,15 @@ describe HtmlFormatter do
   end
   
 end
+
+describe HtmlIndexFormatter do
+  it "must respond to format" do
+    formatter = HtmlIndexFormatter.new(COVERAGE_30_70)
+    formatter.respond_to?(:format).should == true
+  end
+  
+  it "must build the index.html" do
+    formatter = HtmlIndexFormatter.new(COVERAGE_30_70)
+    formatter.format.start_with?('<html>').should == true
+  end
+end
