@@ -7,7 +7,7 @@ Another COde COverage for ruby 1.9. This one suits my needs.
 * Display files covered < 90% on console
 * Build <em>simple</em> html report <em>only</em> for files covered < 90%
 
-More features to come, see TODO.
+More features to come, see {issues}[https://github.com/lkdjiin/coco/issues]
 
 == Documentation
 

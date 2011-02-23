@@ -19,7 +19,6 @@ module Coco
     def setup
       FileUtils.makedirs @css_dir
       FileUtils.cp @css_files, @css_dir
-      @css_files.each{|e| puts e}
     end
     
     # I list the html files from the coverage directory
