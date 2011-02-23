@@ -19,6 +19,7 @@ module Coco
     
     def CoverageStat.coverage_percent hits
       hits = CoverageStat.remove_nil_from hits
+      return 0 if hits.empty?
       one_percent = 100.0 / hits.size
       (CoverageStat.number_of_covered_lines(hits) * one_percent).to_i
     end
