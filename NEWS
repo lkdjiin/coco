@@ -1,0 +1,7 @@
+v0.2  (2011-02-24)
+
+  * Use coco from rspec with a simple require 'coco'
+  
+  * Display filenames covered < 90% on console
+  
+  * Build simple html report only for files covered < 90%

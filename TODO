@@ -16,20 +16,11 @@ et qu'il reconnaisse tout seul si on a affaire à unit ou rspec.
 
 Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
 
-ok* utiliser coco depuis rspec
-ok* sortie console fichier < 90%
-ok* html 
-ok  + uniquement des fichiers pas assez couverts
-ok    - dans coverage, avec css
-ok    - supprimer coverage avant de commencer
-ok    - ajouter la date
-ok  + deux fichiers peuvent avoir le même nom (dossier différents)
-ok  + fichier index
-ok  + améliorer css
-ok  + COde COverage for ??? en titre de index
-ok  + code couleur dans index (>80: jaune, >70: orange, >50: rose, autre: rouge)
-ok  + mettre lien sur index dans les fichiers
-* put version in index.html
+
+ok* put version in index.html
+* threeshold
+* utf8
+* sort index
 
 
 * splitter Rakefile en fichiers task

@@ -76,7 +76,7 @@ module Coco
     end
     
     def format
-      @context = Context.new File.basename(Dir.pwd), build_lines_for_context
+      @context = Context.new Helpers.index_title, build_lines_for_context
       @template.result(@context.get_binding)
     end
     
@@ -86,7 +86,7 @@ module Coco
       lines = []
       @raw_coverages.each do |filename, coverage| 
         filename = File.expand_path(filename)
-        lines << [CoverageStat.coverage_percent(coverage), filename, Filename.rb2html(filename)]
+        lines << [CoverageStat.coverage_percent(coverage), filename, Helpers.rb2html(filename)]
       end
       lines
     end

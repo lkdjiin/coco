@@ -4,7 +4,7 @@ Another COde COverage for ruby 1.9. This one suits my needs.
 
 == Features
 * Use it from rspec with a simple <code>require 'coco'</code>
-* Display files covered < 90% on console
+* Display filenames covered < 90% on console
 * Build <em>simple</em> html report <em>only</em> for files covered < 90%
 
 More features to come, see {issues}[https://github.com/lkdjiin/coco/issues]
