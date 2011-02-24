@@ -6,13 +6,9 @@ aussi une option pour changer ce seuil.
 Pour savoir quelles lignes ne sont pas couvertes, je veux qu'il fabrique un html de chaque fichier
 pas assez couvert, en surlignant en rouge les lignes non-couvertes.
 
-Je veux que ce coco soit "utf8 compliant".
+Je veux que coco soit "utf8 compliant".
 
 Je veux qu'il prenne en compte les fichier qui ne sont pas du tout couvert (qui n'ont pas de tests).
-
-Je veux pouvoir lancer coco en standalone, avec une ligne du genre:
-  coco repertoire
-et qu'il reconnaisse tout seul si on a affaire à unit ou rspec.
 
 Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
 
@@ -20,7 +16,7 @@ Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
 ok* put version in index.html
 ok* threeshold
 ok* sort index (in console too)
-* utf8
+ok* utf8
 * splitter Rakefile en fichiers task
 * task gem > uninstall avant install
 * intégrer coco à rspec (rake task ?)

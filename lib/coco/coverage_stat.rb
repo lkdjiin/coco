@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 module Coco
 
   # Give statistics about an array of lines hit.

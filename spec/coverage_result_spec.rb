@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 require './spec/helper'
 
 RAW_RESULT = {

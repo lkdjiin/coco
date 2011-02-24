@@ -1,6 +1,6 @@
+# -*- encoding: utf-8 -*-
+
 require './spec/helper'
-
-
 
 describe ConsoleFormatter do
   
@@ -15,13 +15,13 @@ describe ConsoleFormatter do
   it "must return percents and filename if percent < 90%" do
     formatter = ConsoleFormatter.new COVERAGE_80
     result = formatter.format
-    result.should == "80% the/filename/80\n"
+    result.should == "80% the/filename/80"
   end
   
   it "must sort by percentage" do
     formatter = ConsoleFormatter.new COVERAGE_100_90_80
     result = formatter.format
-    result.should == "80% the/filename/80\n90% the/filename/90\n100% the/filename/100\n"
+    result.should == "80% the/filename/80\n90% the/filename/90\n100% the/filename/100"
   end
   
 end

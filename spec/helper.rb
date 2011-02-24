@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 require './lib/coco'
 require 'fileutils'
 include Coco

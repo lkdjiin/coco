@@ -4,6 +4,18 @@
 @import url("font-min.css");
 @import url("ext.css");
 
+html
+{
+  background-color: #fcfcff;
+}
+
+h2
+{
+  padding: 10px;
+  background-color: #668;
+  color: #fcfcff;
+}
+
 table td
 {
   border-width: 0;

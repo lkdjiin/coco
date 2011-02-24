@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 require 'erb'
 require 'fileutils'
 
@@ -27,9 +29,9 @@ module Coco
     # return [string] percent covered and associated filenames 
     def format 
       @raw_coverages.each do |filename, coverage| 
-        @formatted_output << "#{CoverageStat.coverage_percent(coverage)}% #{filename}\n"
+        @formatted_output << "#{CoverageStat.coverage_percent(coverage)}% #{filename}"
       end
-      @formatted_output.sort_by {|line| line =~ /^\d+/}.join
+      @formatted_output.sort_by {|line| line =~ /^\d+/}.join("\n")
     end
     
   end

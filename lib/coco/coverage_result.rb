@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 module Coco
 
   # Only keep the results of interest from the big results (from Coverage.result)
