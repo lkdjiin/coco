@@ -4,8 +4,11 @@ require 'rake'
 require 'rspec/core/rake_task'
 
 desc 'Test coco'
+task :default => :spec
+
+desc 'Test coco'
 RSpec::Core::RakeTask.new(:spec) do |t|
-  t.rspec_opts = ['--color', '--format documentation']
+  t.rspec_opts = ['--color']
 end
 
 desc 'Check for code smells'

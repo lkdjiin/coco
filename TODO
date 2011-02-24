@@ -17,7 +17,7 @@ ok* put version in index.html
 ok* threeshold
 ok* sort index (in console too)
 ok* utf8
-* splitter Rakefile en fichiers task
-* task gem > uninstall avant install
+* report sources that have no tests
+  + option for directories to search into
 * intégrer coco à rspec (rake task ?)
 * intégrer coco à test/unit (rake task ?)

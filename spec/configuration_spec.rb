@@ -26,4 +26,9 @@ describe Configuration do
     config[:threeshold].should == 50
   end
   
+  it "must give a default list of directories" do
+    config = Configuration.new
+    config[:directories].should == ['lib']
+  end
+  
 end

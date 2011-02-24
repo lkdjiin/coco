@@ -8,6 +8,7 @@ require 'coco/coverage_result'
 require 'coco/html_writers'
 require 'coco/helpers'
 require 'coco/configuration'
+require 'coco/source_lister'
 require 'coverage'
 
 module Coco
