@@ -5,6 +5,7 @@ require 'coco/coverage_stat'
 require 'coco/coverage_result'
 require 'coco/html_writers'
 require 'coco/helpers'
+require 'coco/configuration'
 require 'coverage'
 
 module Coco

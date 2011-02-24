@@ -1,4 +1,5 @@
 require './lib/coco'
+require 'fileutils'
 include Coco
 
 COVERAGE_100 = {'the/filename/100' => [nil, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
