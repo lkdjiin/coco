@@ -88,7 +88,8 @@ module Coco
         filename = File.expand_path(filename)
         lines << [CoverageStat.coverage_percent(coverage), filename, Helpers.rb2html(filename)]
       end
-      lines
+      # Sort by percentage
+      lines.sort_by {|line| line[0]}
     end
     
   end

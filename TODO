@@ -19,10 +19,8 @@ Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
 
 ok* put version in index.html
 ok* threeshold
+* sort index (in console too)
 * utf8
-* sort index
-
-
 * splitter Rakefile en fichiers task
 * task gem > uninstall avant install
 * intégrer coco à rspec (rake task ?)
