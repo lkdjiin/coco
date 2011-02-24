@@ -21,7 +21,7 @@ module Coco
     
     def initialize raw_coverages
       super(raw_coverages)
-      @formatted_output = ''
+      @formatted_output = []
     end
   
     # return [string] percent covered and associated filenames 
@@ -29,7 +29,7 @@ module Coco
       @raw_coverages.each do |filename, coverage| 
         @formatted_output << "#{CoverageStat.coverage_percent(coverage)}% #{filename}\n"
       end
-      @formatted_output
+      @formatted_output.sort_by {|line| line =~ /^\d+/}.join
     end
     
   end

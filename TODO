@@ -19,7 +19,7 @@ Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
 
 ok* put version in index.html
 ok* threeshold
-* sort index (in console too)
+ok* sort index (in console too)
 * utf8
 * splitter Rakefile en fichiers task
 * task gem > uninstall avant install

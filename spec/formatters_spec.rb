@@ -18,6 +18,12 @@ describe ConsoleFormatter do
     result.should == "80% the/filename/80\n"
   end
   
+  it "must sort by percentage" do
+    formatter = ConsoleFormatter.new COVERAGE_100_90_80
+    result = formatter.format
+    result.should == "80% the/filename/80\n90% the/filename/90\n100% the/filename/100\n"
+  end
+  
 end
 
 describe HtmlFormatter do
