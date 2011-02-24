@@ -5,6 +5,9 @@ module Coco
   # Only keep the results of interest from the big results (from Coverage.result)
   class CoverageResult
   
+    # @param [Fixnum] threeshold Under this threeshold, a file is considered as uncovered.
+    #   You can set the threeshold above 100% (to be sure to see all files) but you
+    #   cannot set it under 0.
     def initialize threeshold
       raise ArgumentError if threeshold < 0
       @threeshold = threeshold
