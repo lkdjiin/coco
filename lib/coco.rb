@@ -2,13 +2,12 @@
 
 $LOAD_PATH.unshift File.dirname(__FILE__)
 $COCO_PATH = File.expand_path(File.expand_path(File.dirname(__FILE__)) + '/..')
-require 'coco/formatters'
-require 'coco/coverage_stat'
-require 'coco/coverage_result'
-require 'coco/html_writers'
+require 'coco/formatter'
+require 'coco/cover'
+require 'coco/writer'
 require 'coco/helpers'
 require 'coco/configuration'
-require 'coco/source_lister'
+require 'coco/lister'
 require 'coverage'
 
 module Coco

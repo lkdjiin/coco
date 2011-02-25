@@ -19,5 +19,3 @@ ok* sort index (in console too)
 ok* utf8
 * report sources that have no tests
   + option for directories to search into
-* intégrer coco à rspec (rake task ?)
-* intégrer coco à test/unit (rake task ?)
