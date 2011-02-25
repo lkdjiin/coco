@@ -12,25 +12,32 @@ describe ConsoleFormatter do
   it "must return percents and filename" do
     formatter = ConsoleFormatter.new(COVERAGE_80, [])
     result = formatter.format
-    result.should == "80% the/filename/80"
+    result.should == "\e[33m80% the/filename/80\e[0m"
   end
   
   it "must return percents and filename and uncovered" do
     formatter = ConsoleFormatter.new(COVERAGE_80, ['a'])
     result = formatter.format
-    result.should == "0% a\n80% the/filename/80"
+    result.should == "\e[31m0% a\e[0m\n" +
+                     "\e[33m80% the/filename/80\e[0m"
   end
   
   it "must sort by percentage" do
     formatter = ConsoleFormatter.new(COVERAGE_100_90_80, [])
     result = formatter.format
-    result.should == "80% the/filename/80\n90% the/filename/90\n100% the/filename/100"
+    result.should == "\e[33m80% the/filename/80\e[0m\n" +
+                     "\e[33m90% the/filename/90\e[0m\n" +
+                     "\e[33m100% the/filename/100\e[0m"
   end
   
   it "must sort by percentage uncovered too" do
     formatter = ConsoleFormatter.new(COVERAGE_100_90_80, ['a', 'b'])
     result = formatter.format
-    result.should == "0% a\n0% b\n80% the/filename/80\n90% the/filename/90\n100% the/filename/100"
+    result.should == "\e[31m0% a\e[0m\n" +
+                     "\e[31m0% b\e[0m\n" +
+                     "\e[33m80% the/filename/80\e[0m\n" +
+                     "\e[33m90% the/filename/90\e[0m\n" +
+                     "\e[33m100% the/filename/100\e[0m"
   end
   
 end
