@@ -19,6 +19,8 @@ More features to come, see {issues}[https://github.com/lkdjiin/coco/issues]
  
 at the beginning of your tests, usually in a \*helper\*.rb file.
 
+See {the wiki}[https://github.com/lkdjiin/coco/wiki] for more information.
+
 == Dependencies
 
 ruby >= 1.9.2
