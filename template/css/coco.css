@@ -68,3 +68,10 @@ td.red
   color: #fff;
   font-weight: bold;
 }
+
+td.black
+{
+  background-color: #002;
+  color: #fff;
+  font-weight: bold;
+}

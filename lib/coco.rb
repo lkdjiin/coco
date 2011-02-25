@@ -27,6 +27,7 @@ at_exit do
   
   html_files = Coco::HtmlFormatter.new(covered).format
   Coco::HtmlFilesWriter.new(html_files).write
-  index = Coco::HtmlIndexFormatter.new(covered).format
+  
+  index = Coco::HtmlIndexFormatter.new(covered, uncovered).format
   Coco::HtmlIndexWriter.new(index).write
 end

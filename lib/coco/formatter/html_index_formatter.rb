@@ -7,8 +7,8 @@ module Coco
   # I format the index.html
   class HtmlIndexFormatter < Formatter
     
-    def initialize raw_coverages
-      super(raw_coverages)
+    def initialize raw_coverages, uncovered
+      super(raw_coverages, uncovered)
       @context = nil
       @template = Template.open File.join($COCO_PATH,'template/index.erb')
       @lines = []
@@ -16,7 +16,7 @@ module Coco
     end
     
     def format
-      @context = Context.new Helpers.index_title, @lines
+      @context = IndexContext.new Helpers.index_title, @lines, @uncovered
       @template.result(@context.get_binding)
     end
     

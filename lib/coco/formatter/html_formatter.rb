@@ -8,7 +8,7 @@ module Coco
   class HtmlFormatter < Formatter
     
     def initialize raw_coverages
-      super(raw_coverages)
+      super(raw_coverages, [])
       @formatted_output_files = {}
       @context = nil
       @template = Template.open File.join($COCO_PATH,'template/file.erb')

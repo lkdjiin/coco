@@ -8,8 +8,7 @@ module Coco
     # @param [Hash] covered
     # @param [Array] uncovered
     def initialize covered, uncovered
-      super(covered)
-      @uncovered = uncovered
+      super(covered, uncovered)
       @formatted_output = []
     end
   

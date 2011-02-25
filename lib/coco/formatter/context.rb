@@ -2,7 +2,7 @@
 
 module Coco
   
-  # Contextual information for ERB template.
+  # Contextual information for ERB template, representing each covered files.
   class Context
   
     # @param [String] filename Name of the source file
@@ -10,6 +10,22 @@ module Coco
 		def initialize filename, lines
 			@filename = filename
       @lines = lines
+		end
+		
+		def get_binding
+			binding
+		end
+	end
+  
+  # Contextual information for ERB template, representing index.html.
+  class IndexContext
+  
+    # @param [String] filename Name of the source file
+    # @param [Array] lines 
+		def initialize title, covered, uncovered
+			@title = title
+      @covered = covered
+      @uncovered = uncovered
 		end
 		
 		def get_binding

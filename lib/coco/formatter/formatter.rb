@@ -6,8 +6,10 @@ module Coco
   # @abstract
   class Formatter
     # @param [Hash] raw_coverages The hash from Coverage.result
-    def initialize raw_coverages
+    # @param [Array] uncovered List on uncovered files
+    def initialize raw_coverages, uncovered
       @raw_coverages = raw_coverages
+      @uncovered = uncovered
     end
     
     def format

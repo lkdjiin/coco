@@ -1,17 +1,21 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <title><%= @filename %></title>
+    <title><%= @title %></title>
     <link rel="stylesheet" href="css/coco.css" type="text/css" />
   </head>
   <body>
-    <h2><%= @filename %></h2>
+    <h2><%= @title %></h2>
     <p>
       <%= "#{Time.now}" %>
     </p>
     <table>
+    
+      <% @uncovered.each do |filename| %>
+        <%= "<tr><td class=\"black\">0%</td><td>#{filename}</td></tr>\n" %>
+      <% end %>
       
-      <% @lines.each do |percentage, filename, href| %>
+      <% @covered.each do |percentage, filename, href| %>
         <tr>
       <% if percentage > 80 %>
         <td class ="yellow">
