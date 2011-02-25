@@ -8,6 +8,9 @@ pas assez couvert, en surlignant en rouge les lignes non-couvertes.
 
 Je veux que coco soit "utf8 compliant".
 
-Je veux qu'il prenne en compte les fichier qui ne sont pas du tout couvert (qui n'ont pas de tests).
+Je veux qu'il prenne en compte les fichiers qui ne sont pas du tout couvert (qui n'ont pas de tests).
 
 Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
+
+* option to exclude files from the coverage
+* add colors to console output
