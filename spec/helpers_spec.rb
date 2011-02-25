@@ -15,4 +15,9 @@ describe Helpers do
     title.match(/^COde COverage \d\.\d/).should_not == nil
   end
   
+  it "must expand a list of filenames" do
+    list = Helpers.expand ['a', 'b']
+    list.should == [File.join(Dir.pwd, 'a'), File.join(Dir.pwd, 'b')]
+  end
+  
 end

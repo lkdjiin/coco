@@ -14,7 +14,6 @@ describe UncoveredLister do
   it "must give the list of uncovered files" do
     uncov = UncoveredLister.new(SOURCE_FILES_1, COVERAGE_30_70)
     list = uncov.list
-    puts list
     list.include?(File.join($COCO_PATH, 'spec/project/uncovered1.rb')).should == true
     list.include?(File.join($COCO_PATH, 'spec/project/uncovered2.rb')).should == true
   end

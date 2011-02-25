@@ -5,17 +5,25 @@ module Coco
   # I format coverages information for console output
   class ConsoleFormatter < Formatter
     
-    def initialize raw_coverages
-      super(raw_coverages)
+    # @param [Hash] covered
+    # @param [Array] uncovered
+    def initialize covered, uncovered
+      super(covered)
+      @uncovered = uncovered
       @formatted_output = []
     end
   
     # return [string] percent covered and associated filenames 
     def format 
       @raw_coverages.each do |filename, coverage| 
-        @formatted_output << "#{CoverageStat.coverage_percent(coverage)}% #{filename}"
+        @formatted_output << [CoverageStat.coverage_percent(coverage), filename]
       end
-      @formatted_output.sort_by {|line| line =~ /^\d+/}.join("\n")
+      @uncovered.each do |filename|
+        @formatted_output << [0, filename]
+      end
+      @formatted_output.sort!
+      @formatted_output.map! {|elem| "#{elem[0]}% #{elem[1]}"}
+      @formatted_output.join("\n")
     end
     
   end

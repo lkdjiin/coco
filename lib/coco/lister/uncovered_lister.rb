@@ -8,8 +8,8 @@ module Coco
     # @param [Array<String>] sources List of filenames
     # @param [Hash] covered Raw coverage from the domain
     def initialize sources, covered
-      @source_files = sources
-      @covered_files = covered.keys
+      @source_files = Helpers.expand(sources)
+      @covered_files = Helpers.expand(covered.keys)
     end
     
     def list

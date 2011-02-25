@@ -17,10 +17,16 @@ Coverage.start
 
 at_exit do
   config = Coco::Configuration.new
-  result = Coco::CoverageResult.new(config[:threeshold]).result(Coverage.result)
-  puts Coco::ConsoleFormatter.new(result).format
-  html_files = Coco::HtmlFormatter.new(result).format
+  result = Coco::CoverageResult.new(config[:threeshold], Coverage.result)
+  covered = result.covered_from_domain
+  
+  sources = Coco::SourceLister.new(config[:directories]).list
+  uncovered = Coco::UncoveredLister.new(sources, result.all_from_domain).list
+  
+  puts Coco::ConsoleFormatter.new(covered, uncovered).format
+  
+  html_files = Coco::HtmlFormatter.new(covered).format
   Coco::HtmlFilesWriter.new(html_files).write
-  index = Coco::HtmlIndexFormatter.new(result).format
+  index = Coco::HtmlIndexFormatter.new(covered).format
   Coco::HtmlIndexWriter.new(index).write
 end
