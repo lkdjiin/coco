@@ -74,3 +74,25 @@ describe HtmlIndexFormatter do
     formatter.format.start_with?('<html>').should == true
   end
 end
+
+describe ColoredString do
+  it "must act as a string" do
+    instance = ColoredString.new
+    instance.kind_of?(String).should == true
+  end
+  
+  it "must accept a string on instanciation" do
+    instance = ColoredString.new 'azerty'
+    instance.should == 'azerty'
+  end
+  
+  it "must redify a string" do
+    string = ColoredString.new 'azerty'
+    string.red.should == "\e[31mazerty\e[0m"
+  end
+  
+  it "must yellowify a string" do
+    string = ColoredString.new 'azerty'
+    string.yellow.should == "\e[33mazerty\e[0m"
+  end
+end

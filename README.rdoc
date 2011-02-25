@@ -10,8 +10,7 @@ This one suits my needs.
 * Report sources that have no tests
 * UTF-8 compliant
 * Configuration could be done via a simple yaml file
-
-More features to come, see {issues}[https://github.com/lkdjiin/coco/issues]
+* Colorized console output (*nix only)
 
 == Documentation
 
