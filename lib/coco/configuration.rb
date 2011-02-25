@@ -20,6 +20,7 @@ module Coco
     def initialize
       self[:threeshold] = 90
       self[:directories] = ['lib']
+      self[:excludes] = []
       if File.exist?('.coco')
         conf = YAML.load_file '.coco'
         self.merge!(conf)

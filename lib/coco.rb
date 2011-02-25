@@ -17,10 +17,10 @@ Coverage.start
 
 at_exit do
   config = Coco::Configuration.new
-  result = Coco::CoverageResult.new(config[:threeshold], Coverage.result)
+  result = Coco::CoverageResult.new(config, Coverage.result)
   covered = result.covered_from_domain
   
-  sources = Coco::SourceLister.new(config[:directories]).list
+  sources = Coco::SourceLister.new(config).list
   uncovered = Coco::UncoveredLister.new(sources, result.all_from_domain).list
   
   puts Coco::ConsoleFormatter.new(covered, uncovered).format

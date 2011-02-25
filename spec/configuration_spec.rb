@@ -9,10 +9,8 @@ describe Configuration do
     FileUtils.rm '.coco', :force => true
   end
   
-  def create_config options
-    f = File.new('.coco', "w")
-    f.write options.to_yaml
-		f.close
+  after :each do
+    FileUtils.rm '.coco', :force => true
   end
   
   it "must give a default threeshold of 90%" do
@@ -29,6 +27,17 @@ describe Configuration do
   it "must give a default list of directories" do
     config = Configuration.new
     config[:directories].should == ['lib']
+  end
+  
+  it "must give an empty default list of files to excludes" do
+    config = Configuration.new
+    config[:excludes].should == []
+  end
+  
+  it "must read the excludes files from .coco file" do
+    create_config({:excludes => ['a', 'b']})
+    config = Configuration.new
+    config[:excludes].should == ['a', 'b']
   end
   
 end

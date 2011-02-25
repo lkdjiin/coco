@@ -12,5 +12,5 @@ Je veux qu'il prenne en compte les fichiers qui ne sont pas du tout couvert (qui
 
 Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
 
-* option to exclude files from the coverage
+ok* option to exclude files from the coverage
 ok* add colors to console output (*nix only)

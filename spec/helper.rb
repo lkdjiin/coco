@@ -11,3 +11,9 @@ COVERAGE_70 = {File.join($COCO_PATH, 'spec/project/ten_lines.rb') => [0, 0, 0, 3
 COVERAGE_30 = {File.join($COCO_PATH, 'spec/project/six_lines.rb') => [0, 0, 0, 4, 5, 6]}
 COVERAGE_30_70 = COVERAGE_30.merge(COVERAGE_70)
 COVERAGE_100_90_80 = COVERAGE_80.merge(COVERAGE_90).merge(COVERAGE_100)
+
+def create_config options
+    f = File.new('.coco', "w")
+    f.write options.to_yaml
+		f.close
+  end
