@@ -1,6 +1,6 @@
 = coco
 
-Another COde COverage for ruby 1.9 from the famous post of 
+Another COde COverage for ruby 1.9 (from the famous post of Aaron Patterson).
 This one suits my needs.
 
 == Features
