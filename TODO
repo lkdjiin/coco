@@ -11,11 +11,3 @@ Je veux que coco soit "utf8 compliant".
 Je veux qu'il prenne en compte les fichier qui ne sont pas du tout couvert (qui n'ont pas de tests).
 
 Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
-
-
-ok* put version in index.html
-ok* threeshold
-ok* sort index (in console too)
-ok* utf8
-* report sources that have no tests
-  + option for directories to search into

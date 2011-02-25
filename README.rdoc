@@ -1,11 +1,15 @@
 = coco
 
-Another COde COverage for ruby 1.9. This one suits my needs.
+Another COde COverage for ruby 1.9 from the famous post of 
+This one suits my needs.
 
 == Features
 * Use it from rspec with a simple <code>require 'coco'</code>
 * Display filenames covered < 90% on console
 * Build <em>simple</em> html report <em>only</em> for files covered < 90%
+* Report sources that have no tests
+* UTF-8 compliant
+* Configuration could be done via a simple yaml file
 
 More features to come, see {issues}[https://github.com/lkdjiin/coco/issues]
 
@@ -13,7 +17,7 @@ More features to come, see {issues}[https://github.com/lkdjiin/coco/issues]
 
  require 'coco'
  
-at the beginning of your tests, usually in a *helper*.rb file.
+at the beginning of your tests, usually in a \*helper\*.rb file.
 
 == Dependencies
 

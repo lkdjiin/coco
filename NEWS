@@ -1,3 +1,18 @@
+v0.3  (2011-02-25)
+
+  * Report sources not covered at all
+  
+  * Configurable via a simple yaml file
+    + threeshold
+    + source directories
+  
+  * UTF-8 compliant
+  
+  * Misc
+    + sort index.html and console output by percentage
+    + display coco's version in index.html
+
+
 v0.2  (2011-02-24)
 
   * Use coco from rspec with a simple require 'coco'
