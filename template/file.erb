@@ -5,9 +5,15 @@
     <link rel="stylesheet" href="css/coco.css" type="text/css" />
   </head>
   <body>
+    <p class="menu">
+      <a href="index.html">Index</a> |
+      <a href="https://github.com/lkdjiin/coco/wiki">Wiki</a> |
+      <a href="https://github.com/lkdjiin/coco">Source</a> |
+      <a href="#">Web site</a>
+    </p>
     <h2><%= @filename %></h2>
-    <p><%= "#{Time.now}" %></p>
-    <p><a href="index.html">Index</a></p>
+    <p class="date"><%= "#{Time.now}" %></p>
+    
     <table class="source">
       
       <% @lines.each do |num, text, hit|%>

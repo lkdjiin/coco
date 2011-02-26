@@ -22,12 +22,22 @@ a
   text-decoration: none;
 }
 
+p.menu a
+{
+  font-weight: bold;
+}
+
 p.license
 {
   color: #888;
   margin-top: 20px;
   padding-top: 5px;
   border-top: 1px solid #888;
+  font-size: 80%;
+}
+
+p.date
+{
   font-size: 80%;
 }
 
