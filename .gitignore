@@ -1,3 +1,5 @@
 *.gem
 coverage/
 .coco
+.yardoc/
+doc/

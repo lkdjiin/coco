@@ -25,3 +25,8 @@ task :install do
 	f = FileList['coco*gem'].to_a
 	sh "gem install #{f.first} --no-rdoc --no-ri"
 end
+
+desc 'Generate yard documentation for developpers'
+task :doc do 
+	exec 'yardoc --title "Coco Documentation" - NEWS COPYING VERSION'
+end

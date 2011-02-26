@@ -15,5 +15,7 @@ Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
 ok* option to exclude files from the coverage
 ok* add colors to console output (*nix only)
 
-* readme: tested only with debian and rspec
-* doc task, yard
+ok* readme: tested only with debian and rspec
+ok* doc task, yard
+* news
+* rubygem

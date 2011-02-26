@@ -12,13 +12,19 @@ This one suits my needs.
 * Configuration could be done via a simple yaml file
 * Colorized console output (*nix only)
 
+<em>Note: I have tested coco only on debian linux. I have not tested it with the test/unit
+framework.</em>
+
 == Documentation
 
  require 'coco'
  
 at the beginning of your tests, usually in a \*helper\*.rb file.
 
-See {the wiki}[https://github.com/lkdjiin/coco/wiki] for more information.
+See {the wiki}[https://github.com/lkdjiin/coco/wiki] for more information on using coco.
+
+To generate the developper's documentation in YARD format:
+ rake doc
 
 == Dependencies
 
