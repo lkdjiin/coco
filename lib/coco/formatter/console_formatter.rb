@@ -20,7 +20,7 @@ module Coco
       @formatted_output.sort!
       @formatted_output.map! do |percentage, filename| 
         text = ColoredString.new "#{percentage}% #{filename}"
-        if percentage <=50
+        if percentage <= 50
           text.red
         else
           text.yellow
@@ -32,7 +32,8 @@ module Coco
     
     def compute_percentage
       @raw_coverages.each do |filename, coverage| 
-        @formatted_output << [CoverageStat.coverage_percent(coverage), filename]
+        percentage = CoverageStat.coverage_percent(coverage)
+        @formatted_output << [percentage, filename]
       end
     end
     

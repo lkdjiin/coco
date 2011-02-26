@@ -5,6 +5,7 @@ require 'erb'
 module Coco
   
   # I format coverages information into html files.
+  # @todo document
   class HtmlFormatter < Formatter
     
     def initialize raw_coverages

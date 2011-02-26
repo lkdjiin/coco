@@ -2,8 +2,9 @@
 
 module Coco
   
-  # I write the html index.
+  # I write the index.html
   class HtmlIndexWriter
+  
     def initialize index
       @index = index
       @dir = HtmlDirectory.new.coverage_dir
@@ -14,6 +15,7 @@ module Coco
         FileWriter.write File.join(@dir, 'index.html'), @index
       end
     end
+    
   end
   
 end

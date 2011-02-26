@@ -5,6 +5,7 @@ require 'erb'
 module Coco
   
   # I format the index.html
+  # @todo document
   class HtmlIndexFormatter < Formatter
     
     def initialize raw_coverages, uncovered

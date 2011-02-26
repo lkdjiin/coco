@@ -2,7 +2,7 @@
 
 module Coco
   
-  # I populate the html directory with files if any.
+  # I populate the coverage/ directory with files, if any.
   class HtmlFilesWriter
   
     # @param [Hash] html_files Key is filename, value is html content

@@ -2,7 +2,7 @@
 
 module Coco
 
-  # I retrieve the list of uncovered .rb files
+  # I retrieve the list of uncovered (0%) .rb files.
   class UncoveredLister
     
     # @param [Array<String>] sources List of filenames
@@ -12,6 +12,7 @@ module Coco
       @covered_files = Helpers.expand(covered.keys)
     end
     
+    # @return [Array<String>] List of uncovered filenames
     def list
       list = []
       @source_files.each do |elem|

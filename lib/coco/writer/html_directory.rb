@@ -2,7 +2,7 @@
 
 module Coco
 
-  # I prepare the directory for html files.
+  # I prepare the coverage/ directory for html files.
   class HtmlDirectory
     attr_reader :coverage_dir
     
@@ -13,6 +13,7 @@ module Coco
       @css_files = Dir.glob(css + '/*')
     end
     
+    # Delete the coverage/ directory
     def clean
       FileUtils.remove_dir @coverage_dir if File.exist? @coverage_dir
     end

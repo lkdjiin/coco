@@ -10,7 +10,7 @@ module Coco
     # @return [ERB]
     def self.open filename
       io = IO.readlines(filename, nil)
-			return ERB.new(io[0], nil, '><')
+			ERB.new(io[0], nil, '><')
     end
   end
 

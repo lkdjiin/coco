@@ -3,6 +3,7 @@
 module Coco
 
   # Extend String with ANSI colorization.
+  # Do nothing on Windows.
   class ColoredString < String
     
     def initialize(str="")
@@ -26,6 +27,7 @@ module Coco
         "#{color_code}#{self}\033[0m"
       end
     end
+    
   end
   
 end

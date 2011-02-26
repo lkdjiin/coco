@@ -5,7 +5,9 @@ module Coco
   # Give statistics about an array of lines hit.
   #
   # An "array of lines hit" is an array of integers, possibly nil.
-  # Each integer represents the state of a source line:
+  # Such array is obtain from Coverage.result.
+  #
+  # Each integer represent the state of a source line:
   # * nil: source line will never be reached (like comments)
   # * 0: source line could be reached, but was not
   # * 1 and above: number of time the source line has been reached

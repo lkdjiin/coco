@@ -4,13 +4,15 @@ module Coco
 
   # Compute results of interest from the big results information (from Coverage.result)
   class CoverageResult
+    # @return [Hash] Coverage for all the sources that live in the root project folder.
     attr_reader :all_from_domain
+    # @return [Hash] Coverage for sources that are not sufficiently covered.
+    #   More technically, the sources that live in the root project folder and for
+    #   which the coverage percentage is under the threeshold. 
     attr_reader :covered_from_domain
   
     # @param [Hash] config
-    # @param [Hash] raw_results Must be the result from Coverage.result
-    # @note You can set the threeshold above 100% (to be sure to see all files) but you
-    #   cannot set it under 0.
+    # @param [Hash] raw_results Results obtained from Coverage.result
     def initialize config, raw_results
       @exclude_files = config[:excludes]
       @threeshold = config[:threeshold]

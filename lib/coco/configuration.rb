@@ -15,6 +15,9 @@ module Coco
   # in YAML format in the project root directory.
   # @example to override the threeshold put this line in a '.coco' file:
   #   :threeshold: 70
+  #
+  # @note You can set the threeshold above 100% (to be sure to see all files) but you
+  #   cannot set it under 0.
   class Configuration < Hash
   
     def initialize
