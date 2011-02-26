@@ -12,7 +12,7 @@ describe Helpers do
   
   it "must give the index html title" do
     title = Helpers.index_title
-    title.match(/^COde COverage \d\.\d/).should_not == nil
+    title.match(/^Coco \d\.\d/).should_not == nil
   end
   
   it "must expand a list of filenames" do
