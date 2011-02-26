@@ -25,10 +25,10 @@ module Coco
     def build_lines_for_context
       @raw_coverages.each do |filename, coverage| 
         filename = File.expand_path(filename)
-        @lines << [CoverageStat.coverage_percent(coverage), filename, Helpers.rb2html(filename)]
+        percentage = CoverageStat.coverage_percent(coverage)
+        @lines << [percentage, filename, Helpers.rb2html(filename)]
       end
-      # Sort by percentage
-      @lines.sort_by! {|line| line[0]}
+      @lines.sort!
     end
     
   end

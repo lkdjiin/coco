@@ -20,8 +20,7 @@ module Coco
   # Contextual information for ERB template, representing index.html.
   class IndexContext
   
-    # @param [String] filename Name of the source file
-    # @param [Array] lines 
+    # @todo doc, inheritance (with Context)
 		def initialize title, covered, uncovered
 			@title = title
       @covered = covered
