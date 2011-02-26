@@ -7,9 +7,18 @@ Gem::Specification.new do |s|
   s.version = File.read('VERSION').strip
   s.authors = ['Xavier Nayrac']
   s.email = 'xavier.nayrac@gmail.com'
-  s.summary = 'Code coverage tool.'
-  #s.homepage = 'https://github.com/lkdjiin/coco/wiki'
-  s.description = %q{"Code coverage tool.}
+  s.summary = 'Code coverage tool for ruby 1.9.'
+  s.homepage = 'https://github.com/lkdjiin/coco'
+  s.description = %q{"Another code coverage tool for ruby 1.9
+(from the famous post of Aaron Patterson).
+This one suits my needs:
+* Use it from rspec with a simple <code>require 'coco'</code>
+* Display filenames covered < 90% on console
+* Build simple html report only for files covered < 90%
+* Report sources that have no tests
+* UTF-8 compliant
+* Configuration could be done via a simple yaml file
+* Colorized console output (*nix only)}
 	
 	readmes = FileList.new('*') do |list|
 		list.exclude(/(^|[^.a-z])[a-z]+/)
