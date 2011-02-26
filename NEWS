@@ -1,3 +1,10 @@
+v0.4  (2011-02-26)
+
+  * add colors to console output (*nix only)
+  
+  * it can exclude unwanted files from the report
+
+
 v0.3  (2011-02-25)
 
   * Report sources not covered at all

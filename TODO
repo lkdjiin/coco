@@ -1,21 +1,2 @@
-Je veux pouvoir intégrer coco aux tests unitaires (test/unit ou rspec) avec un simple require 'coco'.
 
-Je veux qu'il sorte sur la console les fichiers qui ne sont pas couvert au moins à 90%. Je veux
-aussi une option pour changer ce seuil.
-
-Pour savoir quelles lignes ne sont pas couvertes, je veux qu'il fabrique un html de chaque fichier
-pas assez couvert, en surlignant en rouge les lignes non-couvertes.
-
-Je veux que coco soit "utf8 compliant".
-
-Je veux qu'il prenne en compte les fichiers qui ne sont pas du tout couvert (qui n'ont pas de tests).
-
-Je voudrais qu'il ouvre le navigateur tout seul (que ce soit une option).
-
-ok* option to exclude files from the coverage
-ok* add colors to console output (*nix only)
-
-ok* readme: tested only with debian and rspec
-ok* doc task, yard
-* news
 * rubygem
