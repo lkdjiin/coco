@@ -24,15 +24,35 @@
       </div>
 			
       <div id="content">
-        <p><img src="img/screenshots.jpg" width="623" height="311" /></p>
+        <p>
+          <img src="img/screenshots.jpg" width="623" height="311" />
+          <ul>
+            <li>Simply <code>require 'coco'</code> from rspec</li>
+            <li>Display filenames covered less than 90% on console</li>
+            <li><em>Simple</em> html report <em>only</em> for files covered less than 90%</li>
+            <li>Report sources with no tests</li>
+            <li>UTF-8 compliant</li>
+            <li>Configurable with a simple yaml file</li>
+            <li>Colorized console output (*nix only)</li>
+          </ul>
+        </p>
+        
+        <div class="clear"/>
+        <p>
+          <em>Note: I have tested coco only on debian linux. I have not (yet) tested it with the test/unit framework.</em>
+        </p>
+          
+        <h2>Install Coco</h2>
         
         <p>
           To install coco with rubygem:<br/>
           <code><pre>gem install coco</pre></code>
-        </p>
-        <p>
-          To install coco from the sources, first download it and then:
+          To install coco from the sources, first download it and then:<br/>
           <code><pre>rake install</pre></code>
+        </p>
+        
+        <p>
+        See <a href="https://github.com/lkdjiin/coco/wiki">the wiki</a> for more information on using coco. 
         </p>
       </div>	
       

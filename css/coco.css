@@ -9,15 +9,20 @@ html
   background-color: #fcfcff;
 }
 
-h1
+h1, h2
 {
   color: #668;
+}
+
+h2 
+{
+  border-bottom: 2px solid #668;
 }
 
 a
 { 
 	color:#446;
-  text-decoration: none;
+  font-weight: bold;
 }
 
 /******************************************************************************/
@@ -29,18 +34,38 @@ a
   padding: 10px;
 }
 
-/******************************************************************************/
-
 #menu 
 {
   border-bottom: 3px solid #668;
 }
 
+#menu a
+{
+  font-weight: bold;
+}
+
+#content img
+{
+  float: right;
+  padding-left: 40px;
+}
+
+#content ul
+{
+  line-height: 150%
+}
+
 #footer
 {
   color: #888;
-  /*margin-top: 20px;*/
   padding-top: 5px;
   border-top: 1px solid #888;
   font-size: 80%;
+}
+
+/******************************************************************************/
+
+div.clear
+{
+  clear: both;
 }
