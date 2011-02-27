@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@import url("reset-min.css");
+@import url("base-min.css");
+@import url("font-min.css");
+@import url("ext.css");
+
+html
+{
+  background-color: #fcfcff;
+}
+
+h1
+{
+  color: #668;
+}
+
+a
+{ 
+	color:#446;
+  text-decoration: none;
+}
+
+/******************************************************************************/
+
+#container
+{
+	margin: auto;
+	width: 950px;
+  padding: 10px;
+}
+
+/******************************************************************************/
+
+#menu 
+{
+  border-bottom: 3px solid #668;
+}
+
+#footer
+{
+  color: #888;
+  /*margin-top: 20px;*/
+  padding-top: 5px;
+  border-top: 1px solid #888;
+  font-size: 80%;
+}
