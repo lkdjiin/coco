@@ -1,3 +1,11 @@
+v0.4.2  (2011-03-01)
+
+  * Minor bug fixes 
+    #14: sometimes text exit on the right from table in html report
+    #13: '<' and '>' are not escaped in hml report
+    #12: no link to web site in html files
+  
+  
 v0.4.1  (2011-02-27)
 
   * Quick fix, add forgotten images for html menu
