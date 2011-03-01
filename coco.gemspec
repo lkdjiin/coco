@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors = ['Xavier Nayrac']
   s.email = 'xavier.nayrac@gmail.com'
   s.summary = 'Code coverage tool for ruby 1.9.'
-  s.homepage = 'https://github.com/lkdjiin/coco'
+  s.homepage = 'http://lkdjiin.github.com/coco/'
   s.description = %q{"Another code coverage tool for ruby 1.9
 (from the famous post of Aaron Patterson).
 This one suits my needs:
