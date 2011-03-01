@@ -41,6 +41,11 @@ p.date
   font-size: 80%;
 }
 
+table
+{
+  width: 100%;
+}
+
 table td
 {
   border-width: 0;
@@ -64,6 +69,11 @@ tr.hit
 tr.miss
 {
    background-color: #fbb;
+}
+
+td.yellow, td.orange, td.pink, td.red, td.black
+{
+  width: 45px;
 }
 
 td.yellow
