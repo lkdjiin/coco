@@ -5,11 +5,11 @@ This one suits my needs.
 
 == Features
 * Use it from rspec with a simple <code>require 'coco'</code>
-* Display filenames covered < 90% on console
-* Build <em>simple</em> html report <em>only</em> for files covered < 90%
+* Display filenames covered less than 90% on console
+* <em>Simple</em> html report <em>only</em> for files covered less than 90%
 * Report sources that have no tests
 * UTF-8 compliant
-* Configuration could be done via a simple yaml file
+* Configurable via a simple yaml file
 * Colorized console output (*nix only)
 
 <em>Note: I have tested coco only on debian linux. I have not tested it with the test/unit
@@ -36,8 +36,11 @@ To contribute:
 * rspec
 
 == Installing coco
-Download and
+From the sources:
  rake install
+ 
+From rubygems:
+ gem install coco
 
 == License
 GPLv3, see COPYING.
