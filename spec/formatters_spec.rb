@@ -61,6 +61,16 @@ describe HtmlFormatter do
     result.each {|k, v| v.start_with?('<html>').should == true }
   end
   
+  # Bug 13
+  it "must produce html entities for < and >" do
+    file = File.join($COCO_PATH, 'spec/project/html_entities.rb')
+    coverage = {file => [1, 1, 0, nil, 1, 1, nil, nil]}
+    formatter = HtmlFormatter.new coverage
+    result = formatter.format[file]
+    result.match(/a &lt; b<\/pre><\/td>/).should_not == nil
+    result.match(/a &gt; b<\/pre><\/td>/).should_not == nil
+  end
+  
 end
 
 describe HtmlIndexFormatter do
