@@ -12,12 +12,12 @@ Gem::Specification.new do |s|
   s.description = %q{"Another code coverage tool for ruby 1.9
 (from the famous post of Aaron Patterson).
 This one suits my needs:
-* Use it from rspec with a simple <code>require 'coco'</code>
-* Display filenames covered < 90% on console
-* Build simple html report only for files covered < 90%
+* Simple "require 'coco'" from rspec
+* Display filenames covered less than 90% on console
+* Build simple html report only for files covered less than 90%
 * Report sources that have no tests
 * UTF-8 compliant
-* Configuration could be done via a simple yaml file
+* Configurable with a simple yaml file
 * Colorized console output (*nix only)}
 	
 	readmes = FileList.new('*') do |list|
