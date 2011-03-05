@@ -36,7 +36,7 @@ module Coco
     end
     
     def exclude_files_user_dont_want
-      return if  @exclude_files.nil?
+      return if @exclude_files.nil?
       @exclude_files.each do |filename|
         @list.delete File.expand_path(filename)
       end
