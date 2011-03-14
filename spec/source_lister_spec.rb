@@ -47,6 +47,17 @@ describe SourceLister do
     end
   end
   
+  it "must exclude a whole directory" do
+    create_config(:directories => 'spec/project', :excludes => ['spec/project/3_rb_files', 'spec/project/4_rb_files'])
+    lister = SourceLister.new(Configuration.new)
+    list = lister.list
+    list.size.should == 3
+    list.map {|x| File.basename(x)}
+    list.include?('html_entities.rb')
+    list.include?('six_lines.rb')
+    list.include?('ten_lines.rb')
+  end
+  
   it "must list the rb sources from a list of folders" do
     create_config(:directories => ['spec/project/3_rb_files', 'spec/project/4_rb_files'])
     lister = SourceLister.new(Configuration.new)

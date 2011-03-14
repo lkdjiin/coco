@@ -29,16 +29,25 @@ module Coco
     private
     
     def look_for_sources
-      @folders.each do |folder|
-        rb_files = File.join(folder, "**", "*.rb")
-        @list += Dir.glob(rb_files)
-      end
+      @folders.each {|folder| @list += Helpers.rb_files_from folder }
     end
     
     def exclude_files_user_dont_want
       return if @exclude_files.nil?
+      
       @exclude_files.each do |filename|
-        @list.delete File.expand_path(filename)
+        full_path = File.expand_path(filename)
+        if File.file?(full_path)
+          @list.delete full_path 
+        elsif File.directory?(full_path)
+          exclude_all_from_dir full_path
+        end
+      end
+    end
+    
+    def exclude_all_from_dir full_path
+      Helpers.rb_files_from(full_path).each do |file|
+        @list.delete File.expand_path(file)
       end
     end
     

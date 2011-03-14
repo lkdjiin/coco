@@ -31,6 +31,12 @@ module Coco
       files.map {|file| File.expand_path file}
     end
     
+    # @return [Array<String>] The list of ruby source files from +directory+. Recursive.
+    def Helpers.rb_files_from directory
+      rb_files = File.join(directory, "**", "*.rb")
+      Dir.glob(rb_files)
+    end
+    
   end
   
 end

@@ -1,10 +1,9 @@
 = coco
 
-Another COde COverage for ruby 1.9 (from the famous post of Aaron Patterson).
-This one suits my needs.
+Another code coverage for ruby 1.9 (from the famous post of Aaron Patterson).
 
 == Features
-* Use it from rspec with a simple <code>require 'coco'</code>
+* Use it from rspec or test/unit with a simple <code>require 'coco'</code>
 * Display filenames covered less than 90% on console
 * <em>Simple</em> html report <em>only</em> for files covered less than 90%
 * Report sources that have no tests
@@ -12,8 +11,7 @@ This one suits my needs.
 * Configurable via a simple yaml file
 * Colorized console output (*nix only)
 
-<em>Note: I have tested coco only on debian linux. I have not tested it with the test/unit
-framework.</em>
+<em>Note: I have tested coco only on debian linux.</em>
 
 == Documentation
 
