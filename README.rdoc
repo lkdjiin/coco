@@ -30,8 +30,9 @@ ruby >= 1.9.2
 
 To contribute:
 
-* reek
 * rspec
+* reek
+* flay
 
 == Installing coco
 From the sources:

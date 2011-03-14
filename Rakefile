@@ -3,6 +3,11 @@
 require 'rake'
 require 'rspec/core/rake_task'
 
+def ruby_files_for_shell
+  files = Dir.glob 'lib/**/*.rb'
+  files.join(' ')
+end
+
 desc 'Test coco'
 task :default => :spec
 
@@ -14,9 +19,15 @@ end
 desc 'Check for code smells'
 task :reek do
   puts 'Checking for code smells...'
-  files = Dir.glob 'lib/**/*.rb'
-  args = files.join(' ')
+  args = ruby_files_for_shell
   sh "reek --quiet #{args} | ./reek.sed"
+end
+
+desc 'Check for duplicate code'
+task :flay do
+  puts 'Check for duplicate code...'
+  args = ruby_files_for_shell
+  exec "flay #{args}"
 end
 
 desc 'Build the gem & install it'
