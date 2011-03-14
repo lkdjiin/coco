@@ -11,8 +11,7 @@ Gem::Specification.new do |s|
   s.homepage = 'http://lkdjiin.github.com/coco/'
   s.description = %q{"Another code coverage tool for ruby 1.9
 (from the famous post of Aaron Patterson).
-This one suits my needs:
-* Simple "require 'coco'" from rspec
+* Simply "require 'coco'" from rspec or unit/test
 * Display filenames covered less than 90% on console
 * Build simple html report only for files covered less than 90%
 * Report sources that have no tests
