@@ -23,7 +23,7 @@ module Coco
     
     def write_each_file
       @html_files.each do |filename, html|
-        FileWriter.write File.join('coverage', Helpers.rb2html(filename)), html
+        FileWriter.write File.join(@html_dir.coverage_dir, Helpers.rb2html(filename)), html
       end
     end
     
