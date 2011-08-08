@@ -1,3 +1,8 @@
+v0.5.1  (2011-08-08)
+
+  * Fix a bug where excluding a whole folder from the report does not worked
+
+
 v0.5  (2011-03-14)
 
   * can exclude a whole folder of ruby files from the report
