@@ -4,6 +4,7 @@ Another code coverage for ruby 1.9 (from the famous post of Aaron Patterson).
 
 == Features
 * Use it from rspec or test/unit with a simple <code>require 'coco'</code>
+* Works with Rails
 * Display filenames covered less than 90% on console
 * <em>Simple</em> html report <em>only</em> for files covered less than 90%
 * Report sources that have no tests
