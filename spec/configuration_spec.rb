@@ -40,4 +40,18 @@ describe Configuration do
     config[:excludes].should == ['a', 'b']
   end
   
+  it "must read the excludes whole dirs from .coco file" do
+    create_config({:directories => ['spec/project'], 
+      :excludes => ['spec/project/3_rb_files', 'spec/project/4_rb_files']})
+    config = Configuration.new
+    config[:excludes].size.should == 7
+  end
+  
+  it "must read the excludes whole dirs and files from .coco file" do
+    create_config({:directories => ['spec/project'], 
+      :excludes => ['spec/project/3_rb_files', 'spec/project/six_lines.rb']})
+    config = Configuration.new
+    config[:excludes].size.should == 4
+  end
+  
 end

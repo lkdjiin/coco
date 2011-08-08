@@ -52,10 +52,10 @@ describe SourceLister do
     lister = SourceLister.new(Configuration.new)
     list = lister.list
     list.size.should == 3
-    list.map {|x| File.basename(x)}
-    list.include?('html_entities.rb')
-    list.include?('six_lines.rb')
-    list.include?('ten_lines.rb')
+    list.map! {|x| File.basename(x)}
+    list.include?('html_entities.rb').should == true
+    list.include?('six_lines.rb').should == true
+    list.include?('ten_lines.rb').should == true
   end
   
   it "must list the rb sources from a list of folders" do

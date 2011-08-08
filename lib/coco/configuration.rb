@@ -28,6 +28,24 @@ module Coco
         conf = YAML.load_file '.coco'
         self.merge!(conf)
       end
+      expand_directories
+      remove_directories
+    end
+    
+    private
+    
+    def expand_directories
+      self[:excludes].each do |file_or_dir|
+        add_files file_or_dir if File.directory?(file_or_dir)
+      end
+    end
+    
+    def add_files dir
+      Helpers.rb_files_from(dir).each {|file| self[:excludes] << file }
+    end
+    
+    def remove_directories
+      self[:excludes].delete_if {|file_or_dir| File.directory?(file_or_dir)}
     end
     
   end

@@ -1,3 +1,10 @@
+v0.5  (2011-03-14)
+
+  * can exclude a whole folder of ruby files from the report
+  
+  * works with unit/test framework
+  
+
 v0.4.2  (2011-03-01)
 
   * Minor bug fixes 

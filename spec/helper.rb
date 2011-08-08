@@ -13,7 +13,7 @@ COVERAGE_30_70 = COVERAGE_30.merge(COVERAGE_70)
 COVERAGE_100_90_80 = COVERAGE_80.merge(COVERAGE_90).merge(COVERAGE_100)
 
 def create_config options
-    f = File.new('.coco', "w")
-    f.write options.to_yaml
-		f.close
-  end
+  f = File.new('.coco', "w")
+  f.write options.to_yaml
+  f.close
+end
