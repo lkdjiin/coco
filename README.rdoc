@@ -48,3 +48,7 @@ GPLv3, see COPYING.
 
 Feel free to email {Xavier Nayrac}[mailto:xavier.nayrac@gmail.com]
 with any questions.
+
+== Contributors
+
+{sunaku (Suraj N. Kurapati)}[https://github.com/sunaku]
