@@ -3,26 +3,25 @@
 require './spec/helper'
 
 describe ConsoleFormatter do
-  
-  it "must respond to format" do
+  it "should respond to format" do
     formatter = ConsoleFormatter.new(COVERAGE_90, ['a', 'b', 'c'])
     formatter.respond_to?(:format).should == true
   end
   
-  it "must return percents and filename" do
+  it "should return percents and filename" do
     formatter = ConsoleFormatter.new(COVERAGE_80, [])
     result = formatter.format
     result.should == "\e[33m80% the/filename/80\e[0m"
   end
   
-  it "must return percents and filename and uncovered" do
+  it "should return percents and filename and uncovered" do
     formatter = ConsoleFormatter.new(COVERAGE_80, ['a'])
     result = formatter.format
     result.should == "\e[31m0% a\e[0m\n" +
                      "\e[33m80% the/filename/80\e[0m"
   end
   
-  it "must sort by percentage" do
+  it "should sort by percentage" do
     formatter = ConsoleFormatter.new(COVERAGE_100_90_80, [])
     result = formatter.format
     result.should == "\e[33m80% the/filename/80\e[0m\n" +
@@ -30,7 +29,7 @@ describe ConsoleFormatter do
                      "\e[33m100% the/filename/100\e[0m"
   end
   
-  it "must sort by percentage uncovered too" do
+  it "should sort by percentage uncovered too" do
     formatter = ConsoleFormatter.new(COVERAGE_100_90_80, ['a', 'b'])
     result = formatter.format
     result.should == "\e[31m0% a\e[0m\n" +
@@ -40,6 +39,22 @@ describe ConsoleFormatter do
                      "\e[33m100% the/filename/100\e[0m"
   end
   
+  context "when 'single_line_report' is true" do
+    context "and there is some uncovered files" do
+      it "should return a message" do
+        formatter = ConsoleFormatter.new(COVERAGE_90, ['a', 'b', 'c'])
+        result = formatter.format true
+        result.should == "\e[33mSome files are uncovered\e[0m"
+      end
+    end
+    context "and there is no uncovered files" do
+      it "should return nothing" do
+        formatter = ConsoleFormatter.new(COVERAGE_90, [])
+        result = formatter.format true
+        result.should be_empty
+      end
+    end
+  end
 end
 
 describe HtmlFormatter do

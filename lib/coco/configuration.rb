@@ -24,6 +24,7 @@ module Coco
       self[:threeshold] = 90
       self[:directories] = ['lib']
       self[:excludes] = []
+      self[:single_line_report] = false
       if File.exist?('.coco')
         conf = YAML.load_file '.coco'
         self.merge!(conf)

@@ -5,9 +5,15 @@ module Coco
   # I format coverages information for console output
   class ConsoleFormatter < Formatter
     
+    # @param [Boolean] single_line_report
+    #
     # return [string] percent covered and associated filenames 
-    def format 
-      @formatted_output.join("\n")
+    def format single_line_report = false
+      if single_line_report
+        single_line_message
+      else
+        @formatted_output.join("\n")
+      end
     end
     
     # @param [Hash] covered
@@ -39,6 +45,14 @@ module Coco
     
     def add_percentage_to_uncovered
       @uncovered.each do |filename| @formatted_output << [0, filename] end
+    end
+    
+    def single_line_message
+      if @formatted_output.empty?
+        "All files covered"
+      else
+        ColoredString.new("Some files are uncovered").yellow
+      end
     end
     
   end

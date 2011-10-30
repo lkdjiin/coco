@@ -23,7 +23,7 @@ at_exit do
   sources = Coco::SourceLister.new(config).list
   uncovered = Coco::UncoveredLister.new(sources, result.all_from_domain).list
   
-  puts Coco::ConsoleFormatter.new(covered, uncovered).format
+  puts Coco::ConsoleFormatter.new(covered, uncovered).format(config[:single_line_report])
   
   html_files = Coco::HtmlFormatter.new(covered).format
   Coco::HtmlFilesWriter.new(html_files).write

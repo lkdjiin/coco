@@ -1,3 +1,8 @@
+v0.6  (2011-10-30)
+
+  * Added an option 'single_line_report'
+
+
 v0.5.1  (2011-08-08)
 
   * Fix a bug where excluding a whole folder from the report does not worked
@@ -6,7 +11,6 @@ v0.5.1  (2011-08-08)
 v0.5  (2011-03-14)
 
   * can exclude a whole folder of ruby files from the report
-  
   * works with unit/test framework
   
 
@@ -26,20 +30,16 @@ v0.4.1  (2011-02-27)
 v0.4  (2011-02-26)
 
   * add colors to console output (*nix only)
-  
   * it can exclude unwanted files from the report
 
 
 v0.3  (2011-02-25)
 
   * Report sources not covered at all
-  
   * Configurable via a simple yaml file
     + threeshold
     + source directories
-  
   * UTF-8 compliant
-  
   * Misc
     + sort index.html and console output by percentage
     + display coco's version in index.html
@@ -48,7 +48,5 @@ v0.3  (2011-02-25)
 v0.2  (2011-02-24)
 
   * Use coco from rspec with a simple require 'coco'
-  
   * Display filenames covered < 90% on console
-  
   * Build simple html report only for files covered < 90%
