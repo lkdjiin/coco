@@ -12,8 +12,6 @@ Another code coverage for ruby 1.9 (from the famous post of Aaron Patterson).
 * Configurable via a simple yaml file
 * Colorized console output (*nix only)
 
-<em>Note: I have tested coco only on debian linux.</em>
-
 == Documentation
 
  require 'coco'
@@ -22,24 +20,12 @@ at the beginning of your tests, usually in a \*helper\*.rb file.
 
 See {the wiki}[https://github.com/lkdjiin/coco/wiki] for more information on using coco.
 
-To generate the developper's documentation in YARD format:
- rake doc
-
 == Dependencies
 
 ruby >= 1.9.2
 
-To contribute:
-
-* rspec
-* reek
-* flay
-
 == Installing coco
-From the sources:
- rake install
- 
-From rubygems:
+
  gem install coco
 
 == License
