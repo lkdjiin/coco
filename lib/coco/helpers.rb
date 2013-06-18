@@ -22,7 +22,9 @@ module Coco
     
     # @return [String] The title of the index.html file
     def Helpers.index_title
-      "Coco #{File.read(File.join($COCO_PATH, 'VERSION')).strip}, code coverage for #{File.basename(Dir.pwd)}"
+      project_name = File.basename(Dir.pwd)
+      version = File.read(File.join($COCO_PATH, 'VERSION')).strip
+      "#{project_name} - Code coverage (coco #{version})"
     end
     
     # @param [Array<String>] files List of filenames

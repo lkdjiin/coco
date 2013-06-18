@@ -1,34 +1,29 @@
 @charset "UTF-8";
 @import url("reset-min.css");
 @import url("base-min.css");
-@import url("font-min.css");
-@import url("ext.css");
+@import url("font-min.css")
 
-html
-{
-  background-color: #fcfcff;
+html {
+  background-color: #fff;
+  color: #222;
 }
 
-h2
-{
+h2 {
   padding: 10px;
-  background-color: #668;
-  color: #fcfcff;
+  background-color: #7658F8;
+  color: #fff;
 }
 
-a
-{ 
+a { 
 	color:#446;
   text-decoration: none;
 }
 
-p.menu a
-{
+p.menu a {
   font-weight: bold;
 }
 
-p.license
-{
+p.license {
   color: #888;
   margin-top: 20px;
   padding-top: 5px;
@@ -36,71 +31,67 @@ p.license
   font-size: 80%;
 }
 
-p.date
-{
+p.date {
   font-size: 80%;
 }
 
-table
-{
+table {
   width: 100%;
 }
 
-table td
-{
+table td {
   border-width: 0;
 }
 
-table.source td
-{
+table.source td {
   padding: 0;
 }
 
-tr.never
-{
+tr.never {
   background-color: #eee;
 }
 
-tr.hit
-{
-  background-color: #efe;
+tr.hit {
+  background-color: #5BD999;
 }
 
-tr.miss
-{
-   background-color: #fbb;
+tr.miss {
+   background-color: #E6567A;
 }
 
-td.yellow, td.orange, td.pink, td.red, td.black
-{
+td.yellow, td.orange, td.pink, td.red, td.black {
   width: 45px;
+  color: #fff;
 }
 
-td.yellow
-{
-  background-color: #fffead;
+td.yellow {
+  background-color: #EAC14D;
 }
 
-td.orange
-{
-  background-color: #ffcd84;
+td.orange {
+  background-color: #CB70D7;
 }
 
-td.pink
-{
-  background-color: #ffcd84;
+td.pink {
+  background-color: #CB70D7;
 }
 
-td.red
-{
-  background-color: #ff4747;
+td.red {
+  background-color: #E6567A;
+  font-weight: bold;
+}
+
+td.black {
+  background-color: #222;
   color: #fff;
   font-weight: bold;
 }
 
-td.black
-{
-  background-color: #002;
-  color: #fff;
-  font-weight: bold;
+td:first-child {
+  text-align: right;
+  padding-right: 20px;
+}
+
+pre {
+  margin: 6px 0;
 }

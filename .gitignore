@@ -3,3 +3,5 @@ coverage/
 .coco
 .yardoc/
 doc/
+TODO
+*.swp

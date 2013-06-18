@@ -1,1 +1,22 @@
+travis: 1.9.2, 1.9.3, 2.0.0
 
+restyler un poil le rapport html
+
+quand tout est couvert : ne rien écrire
+
+exclure spec et test par défaut
+
+le treeshold doit être à 100% par défaut
+
+le wiki dit que seul le dossier lib est inspecté par défaut, je pense
+que c'est en fait toute l'application.
+
+.coco doit être .coco.yml pour profiter de la coloration syntaxique
+
+sur le wiki faire une config Rails générale.
+
+améliorer un poil le site + analytics
+
+-----------------------
+
+Virer les css de yahoo
