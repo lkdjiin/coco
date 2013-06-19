@@ -21,7 +21,7 @@ module Coco
   class Configuration < Hash
   
     def initialize
-      self[:threeshold] = 90
+      self[:threeshold] = 100
       self[:directories] = ['lib']
       self[:excludes] = []
       self[:single_line_report] = false

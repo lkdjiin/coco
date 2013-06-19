@@ -1,9 +1,10 @@
 v0.7  ()
 =================================================
 
-* Improve report styling (a bit)
 * Bugfix: single_line_report option is now silent if there is nothing to
   report
+* Improve report styling (a bit)
+* Default threeshold is now 100%
 
 
 v0.6  (2011-10-30)

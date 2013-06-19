@@ -18,8 +18,8 @@ describe Configuration do
       @config = Configuration.new
     end
     
-    it "should give a default threeshold of 90%" do
-      @config[:threeshold].should == 90
+    it "should give a default threeshold of 100%" do
+      @config[:threeshold].should == 100
     end
     
     it "should give a default list of directories" do
