@@ -7,17 +7,14 @@ Gem::Specification.new do |s|
   s.version = File.read('VERSION').strip
   s.authors = ['Xavier Nayrac']
   s.email = 'xavier.nayrac@gmail.com'
-  s.summary = 'Code coverage tool for ruby 1.9.'
+  s.summary = 'Code coverage tool for ruby 1.9.2 to 2.0'
   s.homepage = 'http://lkdjiin.github.com/coco/'
-  s.description = %q{"Another code coverage tool for ruby 1.9
-(from the famous post of Aaron Patterson).
-* Simply "require 'coco'" from rspec or unit/test
-* Display filenames covered less than 90% on console
-* Build simple html report only for files covered less than 90%
-* Report sources that have no tests
-* UTF-8 compliant
-* Configurable with a simple yaml file
-* Colorized console output (*nix only)}
+  s.description = %q{"Code coverage tool for ruby 1.9.2 to 2.0.
+Use it by "require 'coco'" from rspec or unit/test.
+It display names of uncovered files on console.
+It builds simple html report.
+It reports sources that have no tests.
+It's configurable with a simple yaml file.}
 	
 	readmes = FileList.new('*') do |list|
 		list.exclude(/(^|[^.a-z])[a-z]+/)
