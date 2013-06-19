@@ -1,71 +1,69 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<meta name="description" content="Coco, code coverage for ruby 1.9"/>
-    <link rel="stylesheet" href="css/coco.css" type="text/css" />
-		<title>Coco, code coverage for ruby 1.9</title>
-	</head>
-	<body>
-		<div id="container">
-      
-			
-      <div id="menu">
-        <p class="menu">
-          <a href="index.html">Home</a> <img src="img/coconut16.png" width="16" height="16" />
-          <a href="https://github.com/lkdjiin/coco/wiki">Wiki</a> <img src="img/coconut16.png" width="16" height="16" />
-          <a href="https://github.com/lkdjiin/coco">Source</a> <img src="img/coconut16.png" width="16" height="16" />
-          <a href="https://github.com/lkdjiin/coco/issues">Bugtracker</a>
-        </p>
-      </div>
-      
-      <div id="header">
-        <h1><img src="img/coconut32.png" width="32" height="32" /> Coco, code coverage for ruby 1.9</h1>
-      </div>
-			
-      <div id="content">
-        <p>
-        <a href="https://github.com/lkdjiin/coco">Version 0.6</a> released on 2011-10-30.
-        </p>
-        
-        <h2>Features</h2>
-        <p>
-          <img src="img/screenshots.jpg" width="623" height="311" />
-          <ul>
-            <li>Simply <code>require 'coco'</code> from rspec</li>
-            <li>Display filenames covered less than 90% on console</li>
-            <li><em>Simple</em> html report <em>only</em> for files covered less than 90%</li>
-            <li>Report sources with no tests</li>
-            <li>UTF-8 compliant</li>
-            <li>Configurable with a simple yaml file</li>
-            <li>Colorized console output (*nix only)</li>
-          </ul>
-        </p>
-        
-        <div class="clear"/>
-        <p>
-          <em>Note: I have tested coco on linux, with test/unit and Rspec, in rails and standalone app.</em>
-        </p>
-          
-        <h2>Install Coco</h2>
-        
-        <p>
-          To install coco with rubygem:<br/>
-          <code><pre>gem install coco</pre></code>
-        </p>
-        
-        <p>
-        See <a href="https://github.com/lkdjiin/coco/wiki">the wiki</a> for more information on using coco. 
-        </p>
-      </div>	
-      
-      <div id="footer">
-        <p>
-          Coco, code coverage for ruby 1.9<br/>
-          Copyright 2011, Xavier Nayrac<br/>
-          GNU General Public License
-        </p>
-      </div>
-		</div>
-	</body>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta charset='UTF-8'>
+<title>Coco, code coverage for ruby 1.9.2, 1.9.3 and 2.0</title>
+<meta name="description" content="Code coverage tool for standalone ruby application or Rails."/>
+<link rel="stylesheet" href="css/coco.css" type="text/css" />
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+  <section class ="sec-features">
+    <h1>coco</h1>
+    <h2>code coverage for ruby 1.9.2, 1.9.3 and 2.0</h2>
+    <ul>
+      <li>Works with Rails</li>
+      <li>Console report</li>
+      <li>Simple html report</li>
+      <li>Configurable</li>
+    </ul>
+  </section>
+
+  <section class ="sec-photos">
+    <img src="./img/Capture-4.png" />
+  </section>
+
+  <section class ="sec-news">
+    <h1>Version 0.7</h1>
+    <h2>released on 2013-06-19</h2>
+  </section>
+
+  <section class ="sec-usage">
+    <h1>Usage</h1>
+    <code><pre>gem install coco</pre></code>
+    <p>Require the coco library at the beginning of your tests</p>
+    <code><pre>require 'coco'</pre></code>
+    <p>Usually you do this only once, by putting this line in an spec_helper.rb,
+       or test_helper.rb (or whatever you named it).</p>
+  </section>
+
+  <section class ="sec-photos">
+    <img src="./img/Capture-5.png" />
+  </section>
+
+  <section class ="sec-config">
+    <h1>Config</h1>
+    <p>Configuration is done via a YAML file.</p>
+    <h2>Sample config for a Rails project</h2>
+    <code><pre>:directories: 
+- app
+- lib
+:excludes:
+- spec
+- config/initializers
+:single_line_report: true</pre></code>
+  </section>
+
+  <section class ="sec-copy">
+    <h1><a href="">Download from Github</a></h1>
+    <h2>License GPLv3</h2>
+  </section>
+
+  <section class ="sec-contact">
+    <h1><a href="">@lkdjiin</a></h1>
+  </section>
+</body>
 </html>
