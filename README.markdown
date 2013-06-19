@@ -1,4 +1,4 @@
-coco
+coco [![Build Status](https://travis-ci.org/lkdjiin/coco.png)](https://travis-ci.org/lkdjiin/coco) [![Gem Version](https://badge.fury.io/rb/coco.png)](http://badge.fury.io/rb/coco)
 ==============================
 
 Code coverage tool for ruby 1.9.2, 1.9.3 and 2.0.
