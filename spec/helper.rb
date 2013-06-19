@@ -17,3 +17,9 @@ def create_config options
   f.write options.to_yaml
   f.close
 end
+
+def create_config_new_style options
+  f = File.new('.coco.yml', "w")
+  f.write options.to_yaml
+  f.close
+end

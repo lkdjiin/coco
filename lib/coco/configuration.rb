@@ -25,9 +25,12 @@ module Coco
       self[:directories] = ['lib']
       self[:excludes] = []
       self[:single_line_report] = false
-      if File.exist?('.coco')
-        conf = YAML.load_file '.coco'
-        self.merge!(conf)
+      if File.exist?('.coco.yml')
+        self.merge!(YAML.load_file('.coco.yml'))
+      # Deprecated: Support of '.coco' file will be remove in a future
+      # version.
+      elsif File.exist?('.coco')
+        self.merge!(YAML.load_file('.coco'))
       end
       expand_directories
       remove_directories

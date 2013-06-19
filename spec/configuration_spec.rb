@@ -7,10 +7,12 @@ describe Configuration do
 
   before :each do
     FileUtils.rm '.coco', force: true
+    FileUtils.rm '.coco.yml', force: true
   end
   
   after :each do
     FileUtils.rm '.coco', force: true
+    FileUtils.rm '.coco.yml', force: true
   end
   
   context "with no config file" do
@@ -36,6 +38,22 @@ describe Configuration do
   end
   
   context "with a config file" do
+
+    context "new style" do
+      it "should read the threeshold from .coco.yml file" do
+        create_config_new_style threeshold: 50
+        config = Configuration.new
+        config[:threeshold].should == 50
+      end
+
+      it "should ignore old version if new version exists" do
+        create_config threeshold: 70
+        create_config_new_style threeshold: 50
+        config = Configuration.new
+        config[:threeshold].should == 50
+      end
+    end
+
     it "should read the threeshold from .coco file" do
       create_config threeshold: 50
       config = Configuration.new

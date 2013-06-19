@@ -1,12 +1,12 @@
 = coco
 
-Another code coverage for ruby 1.9 (from the famous post of Aaron Patterson).
+Code coverage tool for ruby 1.9.2, 1.9.3 and 2.0.
 
 == Features
 * Use it from rspec or test/unit with a simple <code>require 'coco'</code>
 * Works with Rails
-* Display filenames covered less than 90% on console
-* <em>Simple</em> html report <em>only</em> for files covered less than 90%
+* Display names of uncovered files on console
+* <em>Simple</em> html report <em>only</em> for uncovered files
 * Report sources that have no tests
 * UTF-8 compliant
 * Configurable via a simple yaml file
