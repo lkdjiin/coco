@@ -5,6 +5,7 @@ Code coverage tool for ruby 1.9.2, 1.9.3 and 2.0.
 
 Features
 --------------------------------
+
 * Use it from rspec or test/unit with a simple `require 'coco'`
 * Works with Rails
 * Display names of uncovered files on console
@@ -56,20 +57,19 @@ Configuration
 
 Configuration is done via a YAML file. You can configure:
 
-    **threeshold**: the percentage threeshold
-
-    **directories**: the directories from where coco will search for untested source files
-
-    **excludes**: a list of files to exclude from the report
-
-    **single_line_report**: the report's style
+* __threeshold__: the percentage threeshold
+* __directories__: the directories from where coco will search for untested source files
+* __excludes__: a list of files to exclude from the report
+* __single_line_report__: the report's style
 
 By default, threeshold is set to 100 and directories is set to 'lib'.
 
 To change the default coco configuration, put a `.coco.yml` file at the root of your project.
 
-_Note: YAML is very punctilious with the syntax. In particular, paid attention
-to not put any leading spaces or tab at all._
+_Earlier versions of coco used to use `.coco` instead of `.coco.yml`, as of
+version 0.7, using `.coco` is deprecated. Reason is `.yml` extension allow
+for syntax highlighting._
+
 
 ###Sample config for a Rails project
 
@@ -80,6 +80,9 @@ to not put any leading spaces or tab at all._
     - spec
     - config/initializers
     :single_line_report: true
+
+_Note: YAML is very punctilious with the syntax. In particular, paid attention
+to not put any leading spaces or tab at all._
 
 See [more examples](https://github.com/lkdjiin/coco/wiki) on the wiki.
 

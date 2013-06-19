@@ -5,7 +5,7 @@ v0.7  ()
   report
 * Improve report styling (a bit)
 * Default threeshold is now 100%
-* The config file is named '.coco.yml', to benefit of syntax highlighting
+* Config file is renamed to '.coco.yml', to benefit of syntax highlighting
 
 
 v0.6  (2011-10-30)
