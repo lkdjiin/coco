@@ -1,4 +1,4 @@
-v0.7  ()
+v0.7  (2013-06-19)
 =================================================
 
 * Bugfix: single_line_report option is now silent if there is nothing to
