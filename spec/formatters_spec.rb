@@ -51,7 +51,7 @@ describe ConsoleFormatter do
       it "should return nothing" do
         formatter = ConsoleFormatter.new(COVERAGE_90, [])
         result = formatter.format true
-        result.should be_empty
+        result.should == ""
       end
     end
   end
