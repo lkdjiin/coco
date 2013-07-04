@@ -14,7 +14,11 @@ module Coco
       else
         @folders = dirs
       end
-      @folders.each {|folder| raise ArgumentError unless File.directory?(folder)}
+      @folders.each do |folder|
+        unless File.directory?(folder)
+          raise ArgumentError, "Not a folder: #{folder}"
+        end
+      end
       @list = []
     end
     
