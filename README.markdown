@@ -106,3 +106,4 @@ Contributors
 --------------------------------
 
 [sunaku (Suraj N. Kurapati)](https://github.com/sunaku)
+[Daniel Rice](https://github.com/BigNerdRanchDan)
