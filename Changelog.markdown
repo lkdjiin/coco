@@ -4,7 +4,7 @@ v0.7  (2013-06-19)
 * Bugfix: single_line_report option is now silent if there is nothing to
   report
 * Improve report styling (a bit)
-* Default threeshold is now 100%
+* Default threshold is now 100%
 * Config file is renamed to '.coco.yml', to benefit of syntax highlighting
 
 
@@ -54,7 +54,7 @@ v0.3  (2011-02-25)
 =================================================
 
 * Report sources not covered at all
-* Configurable via a simple yaml file: threeshold and source directories
+* Configurable via a simple yaml file: threshold and source directories
 * UTF-8 compliant
 * Misc: sort index.html and console output by percentage, Display
   version in index.html

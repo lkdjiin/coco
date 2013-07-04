@@ -6,22 +6,22 @@ module Coco
 
   # I know the configuration of coco.
   #
-  # @example read the threeshold value
+  # @example read the threshold value
   #   config = Configuration.new
-  #   config[:threeshold]
+  #   config[:threshold]
   #   => 90
   #
   # You can override the default configuration by putting a '.coco' file 
   # in YAML format in the project root directory.
-  # @example to override the threeshold put this line in a '.coco' file:
-  #   :threeshold: 70
+  # @example to override the threshold put this line in a '.coco' file:
+  #   :threshold: 70
   #
-  # @note You can set the threeshold above 100% (to be sure to see all files) but you
+  # @note You can set the threshold above 100% (to be sure to see all files) but you
   #   cannot set it under 0.
   class Configuration < Hash
   
     def initialize
-      self[:threeshold] = 100
+      self[:threshold] = 100
       self[:directories] = ['lib']
       self[:excludes] = []
       self[:single_line_report] = false
@@ -32,6 +32,8 @@ module Coco
       elsif File.exist?('.coco')
         self.merge!(YAML.load_file('.coco'))
       end
+
+      ensure_threeshold_compatibility
       expand_directories
       remove_directories
     end
@@ -50,6 +52,10 @@ module Coco
     
     def remove_directories
       self[:excludes].delete_if {|file_or_dir| File.directory?(file_or_dir)}
+    end
+
+    def ensure_threeshold_compatibility
+      self[:threshold] = self[:threeshold] unless self[:threeshold].nil?
     end
     
   end
