@@ -8,19 +8,19 @@ module Coco
     attr_reader :all_from_domain
     # @return [Hash] Coverage for sources that are not sufficiently covered.
     #   More technically, the sources that live in the root project folder and for
-    #   which the coverage percentage is under the threeshold. 
+    #   which the coverage percentage is under the threshold. 
     attr_reader :covered_from_domain
   
     # @param [Hash] config
     # @param [Hash] raw_results Results obtained from Coverage.result
     def initialize config, raw_results
       @exclude_files = config[:excludes]
-      @threeshold = config[:threeshold]
-      raise ArgumentError if @threeshold < 0
+      @threshold = config[:threshold]
+      raise ArgumentError if @threshold < 0
       @result = raw_results
       exclude_external_sources
       exclude_files_user_dont_want
-      exclude_sources_above_threeshold
+      exclude_sources_above_threshold
     end
     
     private
@@ -37,9 +37,9 @@ module Coco
       end
     end
     
-    def exclude_sources_above_threeshold 
+    def exclude_sources_above_threshold 
       @covered_from_domain = @all_from_domain.select {|key, value| 
-        CoverageStat.coverage_percent(value) < @threeshold
+        CoverageStat.coverage_percent(value) < @threshold
       }
     end
     
