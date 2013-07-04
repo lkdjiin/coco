@@ -20,8 +20,8 @@ describe Configuration do
       @config = Configuration.new
     end
     
-    it "should give a default threeshold of 100%" do
-      @config[:threeshold].should == 100
+    it "should give a default threshold of 100%" do
+      @config[:threshold].should == 100
     end
     
     it "should give a default list of directories" do
@@ -38,26 +38,34 @@ describe Configuration do
   end
   
   context "with a config file" do
+    let!(:threshold) { 50 }
 
     context "new style" do
-      it "should read the threeshold from .coco.yml file" do
-        create_config_new_style threeshold: 50
+
+      it "should still support the misspelled threeshold config item" do
+        create_config_new_style threeshold: threshold
         config = Configuration.new
-        config[:threeshold].should == 50
+        config[:threeshold].should == config[:threshold]
+        config[:threshold].should == threshold
+      end
+      it "should read the threshold from .coco.yml file" do
+        create_config_new_style threshold: threshold
+        config = Configuration.new
+        config[:threshold].should == threshold
       end
 
       it "should ignore old version if new version exists" do
-        create_config threeshold: 70
-        create_config_new_style threeshold: 50
+        create_config threshold: 70
+        create_config_new_style threshold: threshold
         config = Configuration.new
-        config[:threeshold].should == 50
+        config[:threshold].should == threshold
       end
     end
 
-    it "should read the threeshold from .coco file" do
-      create_config threeshold: 50
+    it "should read the threshold from .coco file" do
+      create_config threshold: threshold
       config = Configuration.new
-      config[:threeshold].should == 50
+      config[:threshold].should == threshold
     end
     
     it "should read the excludes files from .coco file" do
