@@ -66,10 +66,6 @@ By default, threshold is set to 100 and directories is set to 'lib'.
 
 To change the default coco configuration, put a `.coco.yml` file at the root of your project.
 
-_Earlier versions of coco used to use `.coco` instead of `.coco.yml`, as of
-version 0.7, using `.coco` is deprecated. Reason is `.yml` extension allow
-for syntax highlighting._
-
 
 ###Sample config for a Rails project
 
