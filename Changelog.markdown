@@ -1,3 +1,11 @@
+v0.7.1  (2013-07-05)
+=================================================
+
+* Bugfix: Output a nicer message on bad config
+* Bugfix: Threshold misspelling. Preserving compatibility for the
+  "threeshold" spelling too. 
+
+
 v0.7  (2013-06-19)
 =================================================
 
