@@ -421,7 +421,7 @@ li {
 }
 
 h1 {
-  margin-bottom: 1.6em;
+  margin-bottom: 1em;
 }
 
 h2 {
@@ -439,6 +439,10 @@ code, pre {
   text-align: left;
 }
 
+pre {
+  padding: 0.5em;
+}
+
 section {
   padding: 2em;
 }
@@ -447,13 +451,18 @@ section {
   color: white;
 }
 
+.sec-features a {
+  color: #0098FF;
+}
+
 .sec-photos {
   background-color: #0098FF;
+  color: #004C7F;
 }
 
 .sec-news, .sec-copy {
   background-color: #A1D9FF;
-  color: #222;
+  color: #444;
 }
 .sec-copy a {
   color: #004C7F;
@@ -480,11 +489,20 @@ section {
   h1 {
     font-size: 3em;
   }
+  a.btn {
+    background-color: #0079CC;
+    color: #004C7F;
+    padding: 0.4em;
+    text-decoration: none;
+  }
 }
 
 @media only screen and (min-width: 728px) {
   img {
     max-width: 660px;
+  }
+  .sec-photos, .sec-usage, .sec-config {
+    padding-bottom: 4em;
   }
 }
 
