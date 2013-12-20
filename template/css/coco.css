@@ -1,21 +1,33 @@
 @charset "UTF-8";
-@import url("reset-min.css");
-@import url("base-min.css");
+
+table {
+  border-collapse:collapse;
+  border-spacing: 0;
+}
 
 html {
   background-color: #fff;
   color: #222;
 }
 
+body {
+  margin: 0;
+}
+
 h2 {
   padding: 10px;
   background-color: #7658F8;
   color: #fff;
+  font-size: 1.1em;
 }
 
 a { 
 	color:#446;
   text-decoration: none;
+}
+
+p {
+  margin: 1em;
 }
 
 p.menu a {
