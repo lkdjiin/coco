@@ -1,3 +1,13 @@
+v0.8  (2013-12-21)
+=================================================
+
+* Html report
+  - Improve appearance of index page.
+	- Emphasize filenames in index page.
+	- No longer needs css files fro Yahoo.
+* Bugfix: Html files now have a doctype.
+
+
 v0.7.1  (2013-07-05)
 =================================================
 
