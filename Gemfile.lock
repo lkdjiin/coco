@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    coco (0.7.1)
+    coco (0.8)
 
 GEM
   remote: https://rubygems.org/
