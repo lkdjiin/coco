@@ -73,7 +73,7 @@ describe HtmlFormatter do
   it "must return html file(s)" do
     formatter = HtmlFormatter.new COVERAGE_70
     result = formatter.format
-    result.each {|k, v| v.start_with?('<html>').should == true }
+    result.each {|k, v| v.start_with?('<!DOCTYPE html>').should == true }
   end
   
   # Bug 13
@@ -96,7 +96,7 @@ describe HtmlIndexFormatter do
   
   it "must build the index.html" do
     formatter = HtmlIndexFormatter.new(COVERAGE_30_70, [])
-    formatter.format.start_with?('<html>').should == true
+    formatter.format.start_with?('<!DOCTYPE html>').should == true
   end
 end
 

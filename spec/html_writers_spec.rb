@@ -25,7 +25,6 @@ describe HtmlDirectory do
   it "must create coverage and css dir and css files" do
     HtmlDirectory.new.setup
     File.exist?('coverage/css/coco.css').should == true
-    File.exist?('coverage/css/reset-min.css').should == true
   end
   
   def make_fake_dir
