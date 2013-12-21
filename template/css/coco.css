@@ -1,8 +1,16 @@
 @charset "UTF-8";
 
-table {
+table.source {
   border-collapse:collapse;
   border-spacing: 0;
+}
+
+table.index tr {
+  height: 1.8em;
+}
+
+table.index td {
+  padding-left: 0.5em;
 }
 
 html {

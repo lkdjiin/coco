@@ -16,7 +16,7 @@
     <p class="date">
       <%= "#{Time.now}" %>
     </p>
-    <table>
+    <table class="index">
     
       <% @uncovered.each do |filename| %>
         <%= "<tr><td class=\"black\">0%</td><td>#{filename}</td></tr>\n" %>
