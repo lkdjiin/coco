@@ -59,25 +59,25 @@ end
 
 describe HtmlFormatter do
 
-  it "must respond to format" do
+  it "should respond to format" do
     formatter = HtmlFormatter.new COVERAGE_70
     formatter.respond_to?(:format).should == true
   end
   
-  it "must return the right number of html file(s)" do
+  it "should return the right number of html file(s)" do
     formatter = HtmlFormatter.new COVERAGE_30_70
     result = formatter.format
     result.size.should == 2
   end
   
-  it "must return html file(s)" do
+  it "should return html file(s)" do
     formatter = HtmlFormatter.new COVERAGE_70
     result = formatter.format
     result.each {|k, v| v.start_with?('<!DOCTYPE html>').should == true }
   end
   
   # Bug 13
-  it "must produce html entities for < and >" do
+  it "should produce html entities for < and >" do
     file = File.join($COCO_PATH, 'spec/project/html_entities.rb')
     coverage = {file => [1, 1, 0, nil, 1, 1, nil, nil]}
     formatter = HtmlFormatter.new coverage
@@ -89,34 +89,34 @@ describe HtmlFormatter do
 end
 
 describe HtmlIndexFormatter do
-  it "must respond to format" do
+  it "should respond to format" do
     formatter = HtmlIndexFormatter.new(COVERAGE_30_70, [])
     formatter.respond_to?(:format).should == true
   end
   
-  it "must build the index.html" do
+  it "should build the index.html" do
     formatter = HtmlIndexFormatter.new(COVERAGE_30_70, [])
     formatter.format.start_with?('<!DOCTYPE html>').should == true
   end
 end
 
 describe ColoredString do
-  it "must act as a string" do
+  it "should act as a string" do
     instance = ColoredString.new
     instance.kind_of?(String).should == true
   end
   
-  it "must accept a string on instanciation" do
+  it "should accept a string on instanciation" do
     instance = ColoredString.new 'azerty'
     instance.should == 'azerty'
   end
   
-  it "must redify a string" do
+  it "should redify a string" do
     string = ColoredString.new 'azerty'
     string.red.should == "\e[31mazerty\e[0m"
   end
   
-  it "must yellowify a string" do
+  it "should yellowify a string" do
     string = ColoredString.new 'azerty'
     string.yellow.should == "\e[33mazerty\e[0m"
   end
