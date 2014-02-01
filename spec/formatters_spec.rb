@@ -7,20 +7,20 @@ describe ConsoleFormatter do
     formatter = ConsoleFormatter.new(COVERAGE_90, ['a', 'b', 'c'])
     formatter.respond_to?(:format).should == true
   end
-  
+
   it "should return percents and filename" do
     formatter = ConsoleFormatter.new(COVERAGE_80, [])
     result = formatter.format
     result.should == "\e[33m80% the/filename/80\e[0m"
   end
-  
+
   it "should return percents and filename and uncovered" do
     formatter = ConsoleFormatter.new(COVERAGE_80, ['a'])
     result = formatter.format
     result.should == "\e[31m0% a\e[0m\n" +
                      "\e[33m80% the/filename/80\e[0m"
   end
-  
+
   it "should sort by percentage" do
     formatter = ConsoleFormatter.new(COVERAGE_100_90_80, [])
     result = formatter.format
@@ -28,7 +28,7 @@ describe ConsoleFormatter do
                      "\e[33m90% the/filename/90\e[0m\n" +
                      "\e[33m100% the/filename/100\e[0m"
   end
-  
+
   it "should sort by percentage uncovered too" do
     formatter = ConsoleFormatter.new(COVERAGE_100_90_80, ['a', 'b'])
     result = formatter.format
@@ -38,7 +38,7 @@ describe ConsoleFormatter do
                      "\e[33m90% the/filename/90\e[0m\n" +
                      "\e[33m100% the/filename/100\e[0m"
   end
-  
+
   context "when 'single_line_report' is true" do
     context "and there is some uncovered files" do
       it "should return a message" do
@@ -63,19 +63,19 @@ describe HtmlFormatter do
     formatter = HtmlFormatter.new COVERAGE_70
     formatter.respond_to?(:format).should == true
   end
-  
+
   it "should return the right number of html file(s)" do
     formatter = HtmlFormatter.new COVERAGE_30_70
     result = formatter.format
     result.size.should == 2
   end
-  
+
   it "should return html file(s)" do
     formatter = HtmlFormatter.new COVERAGE_70
     result = formatter.format
     result.each {|k, v| v.start_with?('<!DOCTYPE html>').should == true }
   end
-  
+
   # Bug 13
   it "should produce html entities for < and >" do
     file = File.join($COCO_PATH, 'spec/project/html_entities.rb')
@@ -85,7 +85,7 @@ describe HtmlFormatter do
     result.match(/a &lt; b<\/pre><\/td>/).should_not == nil
     result.match(/a &gt; b<\/pre><\/td>/).should_not == nil
   end
-  
+
 end
 
 describe HtmlIndexFormatter do
@@ -93,7 +93,7 @@ describe HtmlIndexFormatter do
     formatter = HtmlIndexFormatter.new(COVERAGE_30_70, [])
     formatter.respond_to?(:format).should == true
   end
-  
+
   it "should build the index.html" do
     formatter = HtmlIndexFormatter.new(COVERAGE_30_70, [])
     formatter.format.start_with?('<!DOCTYPE html>').should == true
@@ -105,17 +105,17 @@ describe ColoredString do
     instance = ColoredString.new
     instance.kind_of?(String).should == true
   end
-  
+
   it "should accept a string on instanciation" do
     instance = ColoredString.new 'azerty'
     instance.should == 'azerty'
   end
-  
+
   it "should redify a string" do
     string = ColoredString.new 'azerty'
     string.red.should == "\e[31mazerty\e[0m"
   end
-  
+
   it "should yellowify a string" do
     string = ColoredString.new 'azerty'
     string.yellow.should == "\e[33mazerty\e[0m"
