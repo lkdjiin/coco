@@ -85,6 +85,7 @@ See [more examples](https://github.com/lkdjiin/coco/wiki) on the wiki.
 Advanced configuration
 ---------------------------------
 
+### When to start coco, and when not to start it
 For projects whose complete test suite runs in a matter of seconds,
 running code coverage with every test is fine.
 But when the test suite takes longer to complete, we typically start to
@@ -100,7 +101,7 @@ If false, **coco** will run only when you explicitly set an
 environement variable named `COCO` with something other than `false`,
 `0` or the empty string.
 
-### Example
+#### Example
 
 Put this in your `.coco.yml` configuration file:
 
@@ -115,6 +116,26 @@ environement variable `COCO`, like this:
 
     COCO=1 rspec spec/
 
+### Index page URI in your terminal
+
+If your terminal supports opening an URI with a double-clic (or any
+other method), you may want to display the URI of the report's index
+page. For that, you have to set the __show_link_in_terminal__ key.
+
+#### Example
+
+Put this in your `.coco.yml` configuration file:
+
+    :show_link_in_terminal: true
+
+Now, when running tests, you will see something like the following:
+
+    $ rspec spec
+    .............
+    [...]
+
+    97% /path/to/bad/tested/file.rb
+    See file:///path/to/your/coverage/index.html
 
 
 Dependencies
