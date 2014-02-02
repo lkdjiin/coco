@@ -82,6 +82,41 @@ to not put any leading spaces or tab at all._
 
 See [more examples](https://github.com/lkdjiin/coco/wiki) on the wiki.
 
+Advanced configuration
+---------------------------------
+
+For projects whose complete test suite runs in a matter of seconds,
+running code coverage with every test is fine.
+But when the test suite takes longer to complete, we typically start to
+run a single test more often than the complete suite. In such cases,
+the behavior of **coco** could be really annoying: you run a single
+test and **coco** reports a infinite list of uncovered files. The
+problem here is this is a lie. To avoid this behavior, I recommend to
+run code coverage only from time to time, and with the entire test
+suite. To do so, **coco** provide the following configuration key:
+
+__always_run__: If true, **coco** will run every time you start a test.
+If false, **coco** will run only when you explicitly set an
+environement variable named `COCO` with something other than `false`,
+`0` or the empty string.
+
+### Example
+
+Put this in your `.coco.yml` configuration file:
+
+    :always_run: false
+
+Now, when you run:
+
+    rspec spec/
+
+**coco** will no start. To start it, you have to set the
+environement variable `COCO`, like this:
+
+    COCO=1 rspec spec/
+
+
+
 Dependencies
 --------------------------------
 
