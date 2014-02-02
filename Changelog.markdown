@@ -1,3 +1,15 @@
+v0.9  (2014-02-02)
+=================================================
+
+* New configuration option: `always_run`, to control when to start coco
+  and when to not start it.
++ ajouter link dans le terminal
+* New configuration option: `show_link_in_terminal`, to display the
+  report's index page URI in the terminal.
+* Partially converts developer's documentation in tomdoc format.
+* Update gemspec for ruby version 2.1
+
+
 v0.8  (2013-12-21)
 =================================================
 
