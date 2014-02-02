@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version = File.read('VERSION').strip
   s.authors = ['Xavier Nayrac']
   s.email = 'xavier.nayrac@gmail.com'
-  s.summary = 'Code coverage tool for ruby 1.9.2 to 2.0'
+  s.summary = 'Code coverage tool for ruby 1.9.2 to 2.1'
   s.homepage = 'http://lkdjiin.github.com/coco/'
-  s.description = %q{"Code coverage tool for ruby 1.9.2 to 2.0.
+  s.description = %q{"Code coverage tool for ruby 1.9.2 to 2.1.
 Use it by "require 'coco'" from rspec or unit/test.
 It display names of uncovered files on console.
 It builds simple html report.
