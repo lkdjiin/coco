@@ -4,22 +4,25 @@ require 'yaml'
 
 module Coco
 
-  # I know the configuration of coco.
+  # Public: I know the configuration of coco.
+  # You can override the default configuration by putting a '.coco.yml'
+  # file in YAML format in the project root directory.
   #
-  # @example read the threshold value
+  # Examples
+  #
+  #   # Read the threshold value
   #   config = Configuration.new
   #   config[:threshold]
-  #   => 90
+  #   # => 100
   #
-  # You can override the default configuration by putting a '.coco' file
-  # in YAML format in the project root directory.
-  # @example to override the threshold put this line in a '.coco' file:
-  #   :threshold: 70
+  #   # To override the threshold, put this line in '.coco.yml' file:
+  #   # :threshold: 70
   #
-  # @note You can set the threshold above 100% (to be sure to see all
+  # Note you can set the threshold above 100% (to be sure to see all
   # files) but you cannot set it under 0.
   class Configuration < Hash
 
+    # Public: Initialize a Configuration.
     def initialize
       self[:threshold] = 100
       self[:directories] = ['lib']
@@ -28,8 +31,7 @@ module Coco
       self[:always_run] = true
       if File.exist?('.coco.yml')
         self.merge!(YAML.load_file('.coco.yml'))
-      # Deprecated: Support of '.coco' file will be removed in a future
-      # version.
+      # Deprecated: Support of '.coco' file will be removed in v1.0.
       elsif File.exist?('.coco')
         self.merge!(YAML.load_file('.coco'))
       end
@@ -39,7 +41,7 @@ module Coco
       remove_directories
     end
 
-    # Code coverage not have to run with every test/spec runs.
+    # Public: Code coverage not have to run with every test/spec runs.
     #
     # Here are the rules:
     # If the configuration key :always_run is set to true, we always
