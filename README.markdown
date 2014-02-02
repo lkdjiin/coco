@@ -82,6 +82,62 @@ to not put any leading spaces or tab at all._
 
 See [more examples](https://github.com/lkdjiin/coco/wiki) on the wiki.
 
+Advanced configuration
+---------------------------------
+
+### When to start coco, and when not to start it
+For projects whose complete test suite runs in a matter of seconds,
+running code coverage with every test is fine.
+But when the test suite takes longer to complete, we typically start to
+run a single test more often than the complete suite. In such cases,
+the behavior of **coco** could be really annoying: you run a single
+test and **coco** reports a infinite list of uncovered files. The
+problem here is this is a lie. To avoid this behavior, I recommend to
+run code coverage only from time to time, and with the entire test
+suite. To do so, **coco** provide the following configuration key:
+
+__always_run__: If true, **coco** will run every time you start a test.
+If false, **coco** will run only when you explicitly set an
+environement variable named `COCO` with something other than `false`,
+`0` or the empty string.
+
+#### Example
+
+Put this in your `.coco.yml` configuration file:
+
+    :always_run: false
+
+Now, when you run:
+
+    rspec spec/
+
+**coco** will no start. To start it, you have to set the
+environement variable `COCO`, like this:
+
+    COCO=1 rspec spec/
+
+### Index page URI in your terminal
+
+If your terminal supports opening an URI with a double-clic (or any
+other method), you may want to display the URI of the report's index
+page. For that, you have to set the __show_link_in_terminal__ key.
+
+#### Example
+
+Put this in your `.coco.yml` configuration file:
+
+    :show_link_in_terminal: true
+
+Now, when running tests, you will see something like the following:
+
+    $ rspec spec
+    .............
+    [...]
+
+    97% /path/to/bad/tested/file.rb
+    See file:///path/to/your/coverage/index.html
+
+
 Dependencies
 --------------------------------
 
