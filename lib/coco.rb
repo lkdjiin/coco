@@ -24,8 +24,9 @@ at_exit do
     sources = Coco::SourceLister.new(config).list
     uncovered = Coco::UncoveredLister.new(sources, result.all_from_domain).list
 
-    puts Coco::ConsoleFormatter.new(covered, uncovered)
-      .format(config[:single_line_report])
+    cf = Coco::ConsoleFormatter.new(covered, uncovered)
+    puts cf.format(config[:single_line_report])
+    puts cf.link if config[:show_link_in_terminal]
 
     html_files = Coco::HtmlFormatter.new(covered).format
     Coco::HtmlFilesWriter.new(html_files).write

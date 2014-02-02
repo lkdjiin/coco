@@ -41,6 +41,12 @@ describe Configuration do
     specify '#user_wants_to_run? returns true' do
       @config.user_wants_to_run?.should be_true
     end
+
+    it "give false for 'show_link_in_terminal'" do
+      @config[:show_link_in_terminal].should be_false
+    end
+
+
   end
 
   shared_examples 'COCO environement variable false, zero or nil' do
