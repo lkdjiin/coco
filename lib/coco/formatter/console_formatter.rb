@@ -8,11 +8,20 @@ module Coco
     # @param [Boolean] single_line_report
     #
     # return [string] percent covered and associated filenames
-    def format single_line_report = false
+    def format(single_line_report = false)
       if single_line_report
         single_line_message
       else
         @formatted_output.join("\n")
+      end
+    end
+
+    # Returns String.
+    def link
+      unless @formatted_output.empty?
+        "See file://" +
+          File.expand_path(File.join(Coco::HtmlDirectory.new.coverage_dir,
+                                     'index.html'))
       end
     end
 

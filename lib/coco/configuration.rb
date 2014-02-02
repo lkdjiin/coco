@@ -29,6 +29,7 @@ module Coco
       self[:excludes] = []
       self[:single_line_report] = false
       self[:always_run] = true
+      self[:show_link_in_terminal] = false
       if File.exist?('.coco.yml')
         self.merge!(YAML.load_file('.coco.yml'))
       # Deprecated: Support of '.coco' file will be removed in v1.0.
