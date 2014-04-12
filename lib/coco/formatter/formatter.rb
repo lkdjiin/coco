@@ -3,11 +3,11 @@
 module Coco
   
   # My childs will format coverages information.
-  # @abstract
+  # Kind of abstract class.
   class Formatter
   
-    # @param [Hash] raw_coverages The hash from Coverage.result
-    # @param [Array] uncovered List on uncovered files
+    # raw_coverages - The Hash from Coverage.result.
+    # uncovered     - An Array list of uncovered files.
     # @todo I think covered is a better name than raw_coverages
     def initialize raw_coverages, uncovered
       @raw_coverages = raw_coverages
