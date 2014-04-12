@@ -5,14 +5,14 @@ module Coco
   # I retrieve the list of uncovered (0%) .rb files.
   class UncoveredLister
     
-    # @param [Array<String>] sources List of filenames
-    # @param [Hash] covered Raw coverage from the domain
+    # sources - Array of String list of filenames.
+    # covered - Hash raw coverage from the domain.
     def initialize sources, covered
       @source_files = Helpers.expand(sources)
       @covered_files = Helpers.expand(covered.keys)
     end
     
-    # @return [Array<String>] List of uncovered filenames
+    # Returns Array of String list of uncovered filenames.
     def list
       list = []
       @source_files.each do |elem|
