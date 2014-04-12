@@ -5,8 +5,8 @@ module Coco
   # Contextual information for ERB template, representing each covered files.
   class Context
   
-    # @param [String] filename Name of the source file
-    # @param [Array] lines 
+    # filename - A String name of the source file.
+    # lines    - An Array of lines.
 		def initialize filename, lines
 			@filename = filename
       @lines = lines

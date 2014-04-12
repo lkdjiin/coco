@@ -2,12 +2,12 @@
 
 module Coco
 
-  # I format coverages information for console output
+  # I format coverages information for console output.
   class ConsoleFormatter < Formatter
 
-    # @param [Boolean] single_line_report
+    # single_line_report - Boolean
     #
-    # return [string] percent covered and associated filenames
+    # Returns percent covered and associated filenames as a String.
     def format(single_line_report = false)
       if single_line_report
         single_line_message
@@ -25,8 +25,8 @@ module Coco
       end
     end
 
-    # @param [Hash] covered
-    # @param [Array] uncovered
+    # covered   - Hash
+    # uncovered - Array
     def initialize covered, uncovered
       super(covered, uncovered)
       @formatted_output = []
