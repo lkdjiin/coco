@@ -14,7 +14,7 @@ task :default => :spec
 
 desc 'Test coco'
 RSpec::Core::RakeTask.new(:spec) do |t|
-  t.rspec_opts = ['--color --format documentation']
+  t.rspec_opts = ['--color --order=random']
 end
 
 desc 'Check for code smells'
