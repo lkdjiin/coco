@@ -23,4 +23,5 @@ It's configurable with a simple yaml file.}
   s.files = FileList['lib/**/*.rb', 'template/**/*', '[A-Z]*'].to_a + readmes
 	s.license = 'GPL-3'
 	s.required_ruby_version = '>= 1.9.2'
+  s.add_development_dependency 'rspec', '~> 2.14'
 end
