@@ -17,18 +17,26 @@ RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = ['--color --order=random']
 end
 
-desc 'Check for code smells'
+desc 'Check for code smells with reek'
 task :reek do
-  puts 'Checking for code smells...'
-  args = ruby_files_for_shell
-  sh "reek --quiet #{args} | ./reek.sed"
+  puts 'Checking for code smells.'
+  puts '-------------------------'
+  system "reek #{ruby_files_for_shell}"
 end
 
-desc 'Check for duplicate code'
+desc 'Check for duplicate code with flay'
 task :flay do
-  puts 'Check for duplicate code...'
-  args = ruby_files_for_shell
-  exec "flay #{args}"
+  puts 'Checking for duplicate code.'
+  puts '----------------------------'
+  exec "flay lib"
+end
+
+desc 'Check various code metrics'
+task :metrics do
+  puts 'Checking various metrics.'
+  puts '========================='
+  Rake::Task['reek'].execute
+  Rake::Task['flay'].execute
 end
 
 desc 'Build the gem & install it'
