@@ -21,7 +21,9 @@
         <% hit_class = case hit; when nil; 'never'; when 0; 'miss'; else; 'hit'; end %>
 
         <tr class="<%= hit_class %>">
-          <td><pre><%= num %> </pre></td><td><pre><%= text %></pre></td><td><%= hit %></td>
+          <td class='line-num'><pre><%= num %> </pre></td>
+          <td class='line-source'><pre><%= text %></pre></td>
+          <td class='hits'><%= hit %></td>
         </tr>
       <% end%>
       
