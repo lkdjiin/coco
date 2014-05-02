@@ -39,6 +39,6 @@ task :install do
 end
 
 desc 'Generate yard documentation for developpers'
-task :doc do 
-  exec 'yardoc --title "Coco Documentation" - NEWS COPYING VERSION'
+task :doc do
+  exec 'yardoc'
 end
