@@ -18,16 +18,10 @@
     <table class="source">
       
       <% @lines.each do |num, text, hit|%>
-      <%   if hit.nil? %>
-        <tr class="never">
-      <%   elsif hit.zero? %>
-        <tr class="miss">
-      <%   elsif hit > 0 %>
-        <tr class="hit" %>
-      <%   end %>
+        <% hit_class = case hit; when nil; 'never'; when 0; 'miss'; else; 'hit'; end %>
 
+        <tr class="<%= hit_class %>">
       <%= "<td><pre>#{num} </pre></td><td><pre>#{text}</pre></td>" %>
-
         </tr>
       <% end%>
       
