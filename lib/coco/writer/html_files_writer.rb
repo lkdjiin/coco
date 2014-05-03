@@ -5,7 +5,7 @@ module Coco
   # I populate the coverage/ directory with files, if any.
   class HtmlFilesWriter
   
-    # @param [Hash] html_files Key is filename, value is html content
+    # html_files - Hash, key is filename, value is html content.
     def initialize html_files
       @html_files = html_files
       @html_dir = HtmlDirectory.new
@@ -23,7 +23,8 @@ module Coco
     
     def write_each_file
       @html_files.each do |filename, html|
-        FileWriter.write File.join(@html_dir.coverage_dir, Helpers.rb2html(filename)), html
+        FileWriter.write File.join(
+          @html_dir.coverage_dir, Helpers.rb2html(filename)), html
       end
     end
     

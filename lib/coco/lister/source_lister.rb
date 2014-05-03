@@ -5,7 +5,7 @@ module Coco
   # I retrieve the .rb files from a list of directories.
   class SourceLister
   
-    # @param [Hash] config
+    # config - Hash.
     def initialize config
       @exclude_files = config[:excludes]
       dirs = config[:directories]
@@ -22,7 +22,8 @@ module Coco
       @list = []
     end
     
-    # @return [Array<String>] A list of all .rb files from the directories found in configuration
+    # Returns Array of String, that is a list of all `.rb` files from
+    # the directories found in configuration.
     def list
       look_for_sources
       @list.map! {|file| File.expand_path(file)}
