@@ -24,6 +24,7 @@ It's configurable with a simple yaml file.}
 	s.license = 'GPL-3'
 	s.required_ruby_version = '>= 1.9.3'
   s.add_development_dependency 'rspec', '~> 2.14'
+  s.add_development_dependency 'rake', '>= 10.1.0'
   s.add_development_dependency 'reek', '~> 1.3'
   s.add_development_dependency 'flay', '~> 2.4'
 end
