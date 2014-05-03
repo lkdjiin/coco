@@ -1,9 +1,17 @@
+v0.10.0  (2014-05-03)
+=================================================
+
+* Drop support for Ruby 1.9.2.
+* Add some rake tasks for development.
+* Add a «Contributing» section in the README.
+
+
 v0.9  (2014-02-02)
 =================================================
 
 * New configuration option: `always_run`, to control when to start coco
   and when to not start it.
-+ ajouter link dans le terminal
+* Add link in the terminal.
 * New configuration option: `show_link_in_terminal`, to display the
   report's index page URI in the terminal.
 * Partially converts developer's documentation in tomdoc format.
