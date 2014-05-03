@@ -1,13 +1,14 @@
 # -*- encoding: utf-8 -*-
 
-$LOAD_PATH.unshift File.dirname(__FILE__)
-$COCO_PATH = File.expand_path(File.expand_path(File.dirname(__FILE__)) + '/..')
+$COCO_PATH = File.expand_path(File.dirname(__FILE__) + '/..')
+
 require 'coco/formatter'
 require 'coco/cover'
 require 'coco/writer'
 require 'coco/helpers'
 require 'coco/configuration'
 require 'coco/lister'
+
 require 'coverage'
 
 module Coco
