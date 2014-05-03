@@ -1,7 +1,7 @@
 coco [![Build Status](https://travis-ci.org/lkdjiin/coco.png)](https://travis-ci.org/lkdjiin/coco) [![Gem Version](https://badge.fury.io/rb/coco.png)](http://badge.fury.io/rb/coco) [![Inline docs](http://inch-pages.github.io/github/lkdjiin/coco.png)](http://inch-pages.github.io/github/lkdjiin/coco) [![Dependency Status](https://gemnasium.com/lkdjiin/coco.svg)](https://gemnasium.com/lkdjiin/coco)
 ==============================
 
-Code coverage tool for ruby 1.9.2, 1.9.3, 2.0 and 2.1.
+Code coverage tool for ruby 1.9.3, 2.0 and 2.1.
 
 Features
 --------------------------------
@@ -141,7 +141,7 @@ Now, when running tests, you will see something like the following:
 Dependencies
 --------------------------------
 
-ruby >= 1.9.2
+ruby >= 1.9.3
 
 
 License
