@@ -144,9 +144,23 @@ Dependencies
 ruby >= 1.9.3
 
 
+Contributing
+--------------------------------
+
+1. Fork it.
+2. Create your feature branch **from the development branch**:
+   - `git checkout development`
+   - `git pull origin development`
+   - `git checkout -b my-new-feature`
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a Pull Request.
+
+
 License
 --------------------------------
 GPLv3, see COPYING.
+
 
 Questions and/or Comments
 --------------------------------
