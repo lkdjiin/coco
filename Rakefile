@@ -46,7 +46,14 @@ task :install do
   sh "gem install #{f.first} --no-rdoc --no-ri"
 end
 
-desc 'Generate documentation for developpers'
-task :doc do 
-  exec 'yardoc --title "Coco Documentation" --plugin tomdoc - COPYING VERSION'
+namespace :doc do
+  desc 'Generate documentation for developpers'
+  task :create do 
+    exec 'yardoc --title "Coco Documentation" --plugin tomdoc - COPYING VERSION'
+  end
+
+  desc 'Delete documentation'
+  task :clean do
+    rm_rf 'doc'
+  end
 end
