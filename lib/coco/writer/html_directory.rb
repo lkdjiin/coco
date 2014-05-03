@@ -31,7 +31,7 @@ module Coco
     # I list the html files from the coverage directory
     def list
       files = Dir.glob("#{@coverage_dir}/*.html")
-      files.map {|file| File.basename(file)}
+      files.map {|file| File.basename(file) }
     end
     
   end

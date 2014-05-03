@@ -70,12 +70,12 @@ module Coco
       end
     end
 
-    def add_files dir
+    def add_files(dir)
       Helpers.rb_files_from(dir).each {|file| self[:excludes] << file }
     end
 
     def remove_directories
-      self[:excludes].delete_if {|file_or_dir| File.directory?(file_or_dir)}
+      self[:excludes].delete_if {|file_or_dir| File.directory?(file_or_dir) }
     end
 
     def ensure_threeshold_compatibility

@@ -21,7 +21,7 @@ module Coco
       #   #=> '_lib_source.rb.html'
       #
       # Returns String HTML filename.
-      def rb2html name
+      def rb2html(name)
         name.sub(Dir.pwd, '').tr('/\\', '_') + '.html'
       end
 
@@ -39,8 +39,8 @@ module Coco
       # files - List of filenames as an Array of String.
       #
       # Returns an Array of String.
-      def expand files
-        files.map {|file| File.expand_path file}
+      def expand(files)
+        files.map {|file| File.expand_path(file) }
       end
 
       # Public: Get all ruby files from a directory, including
@@ -49,7 +49,7 @@ module Coco
       # directory - String directory to look into.
       #
       # Returns an Array of String.
-      def rb_files_from directory
+      def rb_files_from(directory)
         rb_files = File.join(directory, "**", "*.rb")
         Dir.glob(rb_files)
       end

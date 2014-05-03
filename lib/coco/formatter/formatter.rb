@@ -9,7 +9,7 @@ module Coco
     # raw_coverages - The Hash from Coverage.result.
     # uncovered     - An Array list of uncovered files.
     # @todo I think covered is a better name than raw_coverages
-    def initialize raw_coverages, uncovered
+    def initialize(raw_coverages, uncovered)
       @raw_coverages = raw_coverages
       @uncovered = uncovered
     end

@@ -27,7 +27,7 @@ module Coco
 
     # covered   - Hash
     # uncovered - Array
-    def initialize covered, uncovered
+    def initialize(covered, uncovered)
       super(covered, uncovered)
       @formatted_output = []
       compute_percentage

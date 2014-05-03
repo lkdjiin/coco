@@ -5,7 +5,7 @@ module Coco
   # I write the index.html
   class HtmlIndexWriter
   
-    def initialize index
+    def initialize(index)
       @index = index
       @dir = HtmlDirectory.new.coverage_dir
     end

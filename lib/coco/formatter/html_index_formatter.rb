@@ -16,8 +16,9 @@ module Coco
     end
     
     def format
-      @context = IndexContext.new(Helpers.index_title, @lines,
-                                  @uncovered.map{|e| emphasize(e)})
+      @context = IndexContext.new(Helpers.index_title,
+                                  @lines,
+                                  @uncovered.map{|e| emphasize(e) })
       @template.result(@context.get_binding)
     end
     

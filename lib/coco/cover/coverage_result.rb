@@ -20,7 +20,7 @@ module Coco
     #
     # config      - Hash
     # raw_results - Hash results obtained from Coverage.result.
-    def initialize config, raw_results
+    def initialize(config, raw_results)
       @exclude_files = config[:excludes]
       @threshold = config[:threshold]
       raise ArgumentError if @threshold < 0
@@ -34,7 +34,7 @@ module Coco
     
     def exclude_external_sources
       here = Dir.pwd
-      @all_from_domain = @result.select {|key, value| key.start_with? here}
+      @all_from_domain = @result.select {|key, value| key.start_with?(here) }
     end
     
     def exclude_files_user_dont_want
@@ -45,9 +45,9 @@ module Coco
     end
     
     def exclude_sources_above_threshold 
-      @covered_from_domain = @all_from_domain.select {|key, value| 
+      @covered_from_domain = @all_from_domain.select do |key, value| 
         CoverageStat.coverage_percent(value) < @threshold
-      }
+      end
     end
     
   end

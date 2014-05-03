@@ -6,7 +6,7 @@ module Coco
   class SourceLister
   
     # config - Hash.
-    def initialize config
+    def initialize(config)
       @exclude_files = config[:excludes]
       dirs = config[:directories]
       unless dirs.is_a? Array
@@ -26,7 +26,7 @@ module Coco
     # the directories found in configuration.
     def list
       look_for_sources
-      @list.map! {|file| File.expand_path(file)}
+      @list.map! {|file| File.expand_path(file) }
       exclude_files_user_dont_want
       @list
     end
@@ -50,7 +50,7 @@ module Coco
       end
     end
     
-    def exclude_all_from_dir full_path
+    def exclude_all_from_dir(full_path)
       Helpers.rb_files_from(full_path).each do |file|
         @list.delete File.expand_path(file)
       end

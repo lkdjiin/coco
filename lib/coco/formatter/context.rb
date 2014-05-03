@@ -7,7 +7,7 @@ module Coco
   
     # filename - A String name of the source file.
     # lines    - An Array of lines.
-		def initialize filename, lines
+		def initialize(filename, lines)
 			@filename = filename
       @lines = lines
 		end
@@ -21,7 +21,7 @@ module Coco
   class IndexContext
   
     # @todo doc, inheritance (with Context)
-		def initialize title, covered, uncovered
+		def initialize(title, covered, uncovered)
 			@title = title
       @covered = covered
       @uncovered = uncovered

@@ -20,7 +20,7 @@ module Coco
     
     private
     
-    def colorize color_code
+    def colorize(color_code)
       if RUBY_PLATFORM =~ /win32/
         self
       else

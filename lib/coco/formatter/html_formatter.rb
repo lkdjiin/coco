@@ -9,7 +9,7 @@ module Coco
   # @todo document and change name to HtmlFilesFormatter
   class HtmlFormatter < Formatter
     
-    def initialize raw_coverages
+    def initialize(raw_coverages)
       super(raw_coverages, [])
       @formatted_output_files = {}
       @context = nil
@@ -25,7 +25,7 @@ module Coco
     
     private
     
-    def build_html filename, coverage
+    def build_html(filename, coverage)
       source = File.readlines filename
       lines = []
       source.each_with_index do |line, index|

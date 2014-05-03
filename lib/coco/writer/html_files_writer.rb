@@ -6,7 +6,7 @@ module Coco
   class HtmlFilesWriter
   
     # html_files - Hash, key is filename, value is html content.
-    def initialize html_files
+    def initialize(html_files)
       @html_files = html_files
       @html_dir = HtmlDirectory.new
     end
