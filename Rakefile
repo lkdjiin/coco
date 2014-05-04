@@ -49,7 +49,7 @@ end
 namespace :doc do
   desc 'Generate documentation for developpers'
   task :create do 
-    exec 'yardoc --title "Coco Documentation" --plugin tomdoc - COPYING VERSION'
+    exec 'yardoc'
   end
 
   desc 'Delete documentation'
