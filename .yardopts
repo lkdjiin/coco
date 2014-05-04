@@ -1,5 +1,6 @@
 --title "Coco Documentation"
 --plugin tomdoc
 -
+Changelog.markdown
 COPYING
 VERSION
