@@ -31,6 +31,11 @@ GEM
     ruby_parser (3.5.0)
       sexp_processor (~> 4.1)
     sexp_processor (4.4.3)
+    tomparse (0.4.2)
+    yard (0.8.7.3)
+    yard-tomdoc (0.7.1)
+      tomparse (>= 0.4.0)
+      yard
 
 PLATFORMS
   ruby
@@ -41,3 +46,4 @@ DEPENDENCIES
   rake (>= 10.1.0)
   reek (~> 1.3)
   rspec (~> 2.14)
+  yard-tomdoc
