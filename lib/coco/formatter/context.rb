@@ -15,6 +15,9 @@ module Coco
       @lines = lines
 		end
 		
+    # Public: Get the object's binding.
+    #
+    # Returns Binding.
 		def get_binding
 			binding
 		end
@@ -43,6 +46,9 @@ module Coco
       @uncovered = uncovered
 		end
 		
+    # Public: Get the object's binding.
+    #
+    # Returns Binding.
 		def get_binding
 			binding
 		end
