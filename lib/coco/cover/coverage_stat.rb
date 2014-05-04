@@ -13,22 +13,18 @@ module Coco
   # * 1 and above: number of time the source line has been reached
   module CoverageStat
     extend self
-    
-    def remove_nil_from(hits)
-      hits.select {|elem| not elem.nil? }
-    end
-    
+
     def number_of_covered_lines(hits)
       hits.select {|elem| elem > 0 }.size
     end
-    
+
     def coverage_percent(hits)
-      hits = remove_nil_from hits
+      hits = hits.compact
       return 0 if hits.empty?
       one_percent = 100.0 / hits.size
       (number_of_covered_lines(hits) * one_percent).to_i
     end
-    
+
   end
-  
+
 end
