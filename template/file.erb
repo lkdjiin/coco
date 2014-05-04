@@ -18,7 +18,8 @@
     <table class="source">
       
       <% @lines.each do |num, text, hit|%>
-        <% hit_class = case hit; when nil; 'never'; when 0; 'miss'; else; 'hit'; end %>
+        <% classes = { nil => 'never', 0 => 'miss' } %>
+        <% hit_class = classes[hit] || 'hit' %>
 
         <tr class="<%= hit_class %>">
           <td class='line-num'><pre><%= num %> </pre></td>
