@@ -15,7 +15,7 @@ module Coco
     extend self
 
     def number_of_covered_lines(hits)
-      hits.select {|elem| elem > 0 }.size
+      hits.select {|hit| hit > 0 }.size
     end
 
     def coverage_percent(hits)
