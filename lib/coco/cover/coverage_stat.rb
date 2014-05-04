@@ -14,10 +14,6 @@ module Coco
   module CoverageStat
     extend self
 
-    def number_of_covered_lines(hits)
-      hits.select {|hit| hit > 0 }.size
-    end
-
     def coverage_percent(hits)
       hits = hits.compact
       return 0 if hits.empty?
@@ -25,6 +21,9 @@ module Coco
       (number_of_covered_lines(hits) * one_percent).to_i
     end
 
-  end
+    def number_of_covered_lines(hits)
+      hits.select {|hit| hit > 0 }.size
+    end
 
+  end
 end
