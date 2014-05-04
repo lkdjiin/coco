@@ -39,7 +39,7 @@ v0.7.1  (2013-07-05)
 v0.7  (2013-06-19)
 =================================================
 
-* Bugfix: single_line_report option is now silent if there is nothing to
+* Bugfix: `single_line_report` option is now silent if there is nothing to
   report
 * Improve report styling (a bit)
 * Default threshold is now 100%
@@ -49,7 +49,7 @@ v0.7  (2013-06-19)
 v0.6  (2011-10-30)
 =================================================
 
-* Added an option 'single_line_report'
+* Added an option `single_line_report`
 
 
 v0.5.1  (2011-08-08)
@@ -68,11 +68,9 @@ v0.5  (2011-03-14)
 v0.4.2  (2011-03-01)
 =================================================
 
-Minor bug fixes 
----------------
-* #14: sometimes text exit on the right from table in html report
-* #13: '<' and '>' are not escaped in hml report
-* #12: no link to web site in html files
+* Fix bug #14 Sometimes text exit on the right from table in html report
+* Fix bug #13 '<' and '>' are not escaped in hml report
+* Fix bug #12 No link to web site in html files
 
 
 v0.4.1  (2011-02-27)
@@ -84,8 +82,8 @@ v0.4.1  (2011-02-27)
 v0.4  (2011-02-26)
 =================================================
 
-* add colors to console output (*nix only)
-* it can exclude unwanted files from the report
+* Add colors to console output (nix only)
+* It can exclude unwanted files from the report
 
 
 v0.3  (2011-02-25)
