@@ -19,7 +19,14 @@ Features
 Install
 --------------------------------
 
+In your Gemfile:
+
+    gem coco
+
+Or directly:
+
     gem install coco
+
 
 Usage
 --------------------------------
