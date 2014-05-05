@@ -51,13 +51,13 @@ describe Configuration do
 
   shared_examples 'COCO environement variable false, zero or nil' do
     it 'should be false if :always_run is false' do
-      create_config_new_style always_run: false
+      create_config always_run: false
       config = Configuration.new
       config.user_wants_to_run?.should be_false
     end
 
     it 'should be true if :always_run is true' do
-      create_config_new_style always_run: true
+      create_config always_run: true
       config = Configuration.new
       config.user_wants_to_run?.should be_true
     end
@@ -69,21 +69,22 @@ describe Configuration do
     context "new style" do
 
       it "should still support the misspelled threeshold config item" do
-        create_config_new_style threeshold: threshold
+        create_config threeshold: threshold
         config = Configuration.new
         config[:threeshold].should == config[:threshold]
         config[:threshold].should == threshold
       end
 
       it "should read the threshold from .coco.yml file" do
-        create_config_new_style threshold: threshold
+        create_config threshold: threshold
         config = Configuration.new
         config[:threshold].should == threshold
       end
 
+      # TODO: remove once old version is no longer supported
       it "should ignore old version if new version exists" do
-        create_config threshold: 70
-        create_config_new_style threshold: threshold
+        create_config_old_style threshold: 70
+        create_config threshold: threshold
         config = Configuration.new
         config[:threshold].should == threshold
       end
@@ -93,7 +94,7 @@ describe Configuration do
           before { ENV['COCO'] = 'something' }
 
           def always_run_as(bool)
-            create_config_new_style always_run: bool
+            create_config always_run: bool
             config = Configuration.new
             config.user_wants_to_run?.should be_true
           end
