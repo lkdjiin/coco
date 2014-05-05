@@ -34,6 +34,8 @@ module Coco
         self.merge!(YAML.load_file('.coco.yml'))
       # Deprecated: Support of '.coco' file will be removed in v1.0.
       elsif File.exist?('.coco')
+        warn('Please use `.coco.yml` instead of `.coco`.')
+        warn('Support for `.coco` will be removed in future versions.')
         self.merge!(YAML.load_file('.coco'))
       end
 
