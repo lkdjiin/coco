@@ -70,7 +70,9 @@ describe Configuration do
 
       it "should still support the misspelled threeshold config item" do
         create_config threeshold: threshold
+        v = $VERBOSE; $VERBOSE = nil
         config = Configuration.new
+        $VERBOSE = v
         config[:threeshold].should == config[:threshold]
         config[:threshold].should == threshold
       end
