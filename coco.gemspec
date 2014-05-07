@@ -15,14 +15,16 @@ It display names of uncovered files on console.
 It builds simple html report.
 It reports sources that have no tests.
 It's configurable with a simple yaml file.}
-	
-	readmes = FileList.new('*') do |list|
-		list.exclude(/(^|[^.a-z])[a-z]+/)
-		list.exclude('TODO')
-	end.to_a
-  s.files = FileList['lib/**/*.rb', 'template/**/*', '[A-Z]*'].to_a + readmes
-	s.license = 'GPL-3'
-	s.required_ruby_version = '>= 1.9.3'
+
+  s.files         = `git ls-files`.split($/)
+  s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ['lib']
+
+  s.license = 'GPL-3'
+  s.required_ruby_version = '>= 1.9.3'
+
+  s.add_development_dependency 'bundler', '~> 1.3'
   s.add_development_dependency 'rspec', '~> 2.14'
   s.add_development_dependency 'rake', '>= 10.1.0'
   s.add_development_dependency 'reek', '~> 1.3'
