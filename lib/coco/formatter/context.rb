@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 module Coco
 
   # Contextual information for ERB template, representing each covered files.

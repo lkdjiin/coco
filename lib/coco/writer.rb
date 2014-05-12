@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 require 'coco/writer/file_writer'
 require 'coco/writer/html_directory'
 require 'coco/writer/html_files_writer'

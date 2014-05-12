@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 module Coco
   
   # My childs will format coverages information.

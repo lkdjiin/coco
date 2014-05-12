@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 require 'rake/dsl_definition'
 require 'rake'
 require 'rspec/core/rake_task'
