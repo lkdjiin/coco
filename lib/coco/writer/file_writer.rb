@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 module Coco
   
   # I write one file.

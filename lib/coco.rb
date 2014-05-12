@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 $COCO_PATH = File.expand_path(File.dirname(__FILE__) + '/..')
 
 require 'coco/formatter'

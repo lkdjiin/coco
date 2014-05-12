@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 module Coco
 
   # Public: I populate the coverage/ directory with files, if any.
