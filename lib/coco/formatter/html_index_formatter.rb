@@ -10,7 +10,7 @@ module Coco
     def initialize(raw_coverages, uncovered)
       super(raw_coverages, uncovered)
       @context = nil
-      @template = Template.open File.join($COCO_PATH,'template/index.erb')
+      @template = Template.open File.join(Coco::ROOT, 'template/index.erb')
       @lines = []
       build_lines_for_context
     end

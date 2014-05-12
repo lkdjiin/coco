@@ -78,7 +78,7 @@ describe HtmlFormatter do
 
   # Bug 13
   it "should produce html entities for < and >" do
-    file = File.join($COCO_PATH, 'spec/project/html_entities.rb')
+    file = File.join(Coco::ROOT, 'spec/project/html_entities.rb')
     coverage = {file => [1, 1, 0, nil, 1, 1, nil, nil]}
     formatter = HtmlFormatter.new coverage
     result = formatter.format[file]
