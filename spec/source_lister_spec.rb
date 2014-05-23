@@ -5,28 +5,28 @@ require './spec/helper'
 describe SourceLister do
 
   before :each do
-    FileUtils.rm '.coco', :force => true
+    FileUtils.rm '.coco.yml', :force => true
   end
-  
+
   after :each do
-    FileUtils.rm '.coco', :force => true
+    FileUtils.rm '.coco.yml', :force => true
   end
-  
+
   it "must accept a list of folder" do
     create_config({:directories => ['lib', 'spec']})
     SourceLister.new(Configuration.new)
   end
-  
+
   it "must accept a single folder" do
     create_config(:directories => 'lib')
     SourceLister.new(Configuration.new)
   end
-  
+
   it "must raise an error if a folder doesnt exist" do
     create_config(:directories => ['lib', 'unknown'])
     lambda {SourceLister.new(Configuration.new)}.should raise_error(ArgumentError)
   end
-  
+
   it "must list the rb sources from a single folder" do
     create_config(:directories => 'spec/project/3_rb_files')
     lister = SourceLister.new(Configuration.new)
@@ -36,7 +36,7 @@ describe SourceLister do
       file.match(/.rb$/).should_not == nil
     end
   end
-  
+
   it "must list the rb sources user dont want" do
     create_config(:directories => 'spec/project/3_rb_files', :excludes => ['spec/project/3_rb_files/1.rb'])
     lister = SourceLister.new(Configuration.new)
@@ -46,7 +46,7 @@ describe SourceLister do
       file.match(/.rb$/).should_not == nil
     end
   end
-  
+
   it "must exclude a whole directory" do
     create_config(:directories => 'spec/project', :excludes => ['spec/project/3_rb_files', 'spec/project/4_rb_files'])
     lister = SourceLister.new(Configuration.new)
@@ -57,7 +57,7 @@ describe SourceLister do
     list.include?('six_lines.rb').should == true
     list.include?('ten_lines.rb').should == true
   end
-  
+
   it "must list the rb sources from a list of folders" do
     create_config(:directories => ['spec/project/3_rb_files', 'spec/project/4_rb_files'])
     lister = SourceLister.new(Configuration.new)
