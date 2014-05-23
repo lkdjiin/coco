@@ -8,7 +8,7 @@ module Coco
   class HtmlIndexFormatter < Formatter
     
     def initialize(raw_coverages, uncovered)
-      super(raw_coverages, uncovered)
+      super
       @context = nil
       @template = Template.open File.join(Coco::ROOT, 'template/index.erb')
       @lines = []
