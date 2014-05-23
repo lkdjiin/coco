@@ -8,9 +8,9 @@ module Coco
 
     # Public: Initialize a new HtmlDirectory object.
     def initialize
-      css = File.join($COCO_PATH, 'template/css')
+      css = File.join(Coco::ROOT, 'template/css')
       @css_files = Dir.glob(css + '/*')
-      img = File.join($COCO_PATH, 'template/img')
+      img = File.join(Coco::ROOT, 'template/img')
       @img_files = Dir.glob(img + '/*')
     end
 

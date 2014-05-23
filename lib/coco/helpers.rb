@@ -30,7 +30,7 @@ module Coco
       # Returns String.
       def index_title
         project_name = File.basename(Dir.pwd)
-        version = File.read(File.join($COCO_PATH, 'VERSION')).strip
+        version = File.read(File.join(Coco::ROOT, 'VERSION')).strip
         "#{project_name} - Code coverage (coco #{version})"
       end
 

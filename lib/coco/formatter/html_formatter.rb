@@ -13,7 +13,7 @@ module Coco
       super(raw_coverages, [])
       @formatted_output_files = {}
       @context = nil
-      @template = Template.open File.join($COCO_PATH,'template/file.erb')
+      @template = Template.open File.join(Coco::ROOT, 'template/file.erb')
     end
     
     def format
