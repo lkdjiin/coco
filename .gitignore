@@ -4,6 +4,7 @@
 .bundle
 .config
 .coco
+.coco.yml
 .yardoc
 Gemfile.lock
 InstalledFiles
