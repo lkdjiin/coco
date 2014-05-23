@@ -2,6 +2,14 @@
 
 require './lib/coco'
 require 'fileutils'
+require "rspec/expectations"
+
+RSpec.configure do |config|
+  config.before(:suite) { FileUtils.rm '.coco.yml', :force => true }
+
+  config.after(:suite) { create_config(:excludes => ['lib']) }
+end
+
 include Coco
 
 COVERAGE_100 = {'the/filename/100' => [nil, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
