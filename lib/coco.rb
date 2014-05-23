@@ -9,6 +9,8 @@ require 'coco/lister'
 
 require 'coverage'
 
+# Public: Main namespace of Coco, a code coverage utilily for
+# Ruby from 1.9.3 to 2.1.
 module Coco
 	ROOT = File.expand_path(File.dirname(__FILE__) + '/..').freeze
 end
