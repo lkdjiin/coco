@@ -25,8 +25,8 @@ It's configurable with a simple yaml file.}
 
   s.add_development_dependency 'bundler', '~> 1.3'
   s.add_development_dependency 'rspec', '~> 2.14'
-  s.add_development_dependency 'rake', '>= 10.1.0'
+  s.add_development_dependency 'rake', '~> 10.1'
   s.add_development_dependency 'reek', '~> 1.3'
   s.add_development_dependency 'flay', '~> 2.4'
-  s.add_development_dependency 'yard-tomdoc'
+  s.add_development_dependency 'yard-tomdoc', '~> 0.7'
 end
