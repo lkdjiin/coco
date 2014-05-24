@@ -29,7 +29,7 @@ h2 {
   font-size: 1.1em;
 }
 
-a { 
+a {
 	color:#446;
   text-decoration: none;
 }
@@ -63,7 +63,15 @@ table td {
 }
 
 table.source td {
-  padding: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+thead {
+  font-weight: bold;
+  background-color: #eee;
+  text-align: center;
 }
 
 tr.never {
@@ -106,9 +114,33 @@ td.black {
   font-weight: bold;
 }
 
-td.percentage, td.line-num {
+td.percentage {
   text-align: right;
   padding-right: 20px;
+}
+
+td.line-source {
+  padding-right: 0;
+}
+
+td.line-num, td.line-hits {
+  width: 10%;
+}
+
+td.line-num {
+  color: #444;
+  text-align: right;
+  padding-right: 5px;
+}
+
+td.line-hits {
+  text-align: right;
+  padding-right: 20px;
+}
+
+th {
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 pre {

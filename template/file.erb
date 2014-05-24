@@ -16,6 +16,18 @@
     <p class="date"><%= "#{Time.now}" %></p>
     
     <table class="source">
+
+      <thead>
+        <tr>
+          <th>line num</th>
+          <th>source code</th>
+          <th>
+            <abbr title="Number of time this line has been hit during test.">
+              line hits
+            </abbr>
+          </th>
+        </tr>
+      </thead>
       
       <% @lines.each do |num, text, hit|%>
         <% classes = { nil => 'never', 0 => 'miss' } %>
