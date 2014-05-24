@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 
+require 'bundler/gem_tasks'
 require 'rake/dsl_definition'
 require 'rake'
 require 'rspec/core/rake_task'
@@ -39,14 +40,14 @@ task :metrics do
   Rake::Task['flay'].execute
 end
 
-desc 'Build the gem & install it'
-task :install do
-  sh "gem build coco.gemspec"
-  f = FileList['coco*gem'].to_a
-  sh "gem install #{f.first} --no-rdoc --no-ri"
-end
+namespace :doc do
+  desc 'Generate documentation for developpers'
+  task :create do 
+    exec 'yardoc'
+  end
 
-desc 'Generate yard documentation for developpers'
-task :doc do 
-  exec 'yardoc --title "Coco Documentation" - NEWS COPYING VERSION'
+  desc 'Delete documentation'
+  task :clean do
+    rm_rf 'doc'
+  end
 end

@@ -16,18 +16,27 @@
     <p class="date"><%= "#{Time.now}" %></p>
     
     <table class="source">
+
+      <thead>
+        <tr>
+          <th>line num</th>
+          <th>source code</th>
+          <th>
+            <abbr title="Number of time this line has been hit during test.">
+              line hits
+            </abbr>
+          </th>
+        </tr>
+      </thead>
       
       <% @lines.each do |num, text, hit|%>
-      <%   if hit.nil? %>
-        <tr class="never">
-      <%   elsif hit.zero? %>
-        <tr class="miss">
-      <%   elsif hit > 0 %>
-        <tr class="hit" %>
-      <%   end %>
+        <% classes = { nil => 'never', 0 => 'miss' } %>
+        <% hit_class = classes[hit] || 'hit' %>
 
-      <%= "<td><pre>#{num} </pre></td><td><pre>#{text}</pre></td>" %>
-
+        <tr class="<%= hit_class %>">
+          <td class='line-num'><pre><%= num %> </pre></td>
+          <td class='line-source'><pre><%= text %></pre></td>
+          <td class='line-hits'><%= hit %></td>
         </tr>
       <% end%>
       

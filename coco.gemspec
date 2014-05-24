@@ -16,14 +16,17 @@ It builds simple html report.
 It reports sources that have no tests.
 It's configurable with a simple yaml file.}
 	
-	readmes = FileList.new('*') do |list|
-		list.exclude(/(^|[^.a-z])[a-z]+/)
-		list.exclude('TODO')
-	end.to_a
-  s.files = FileList['lib/**/*.rb', 'template/**/*', '[A-Z]*'].to_a + readmes
-	s.license = 'GPL-3'
-	s.required_ruby_version = '>= 1.9.3'
+  files = FileList['lib/**/*.rb', 'template/**/*', '[A-Z]*']
+  files.exclude('TODO')
+  s.files = files.to_a
+
+  s.license = 'GPL-3'
+  s.required_ruby_version = '>= 1.9.3'
+
+  s.add_development_dependency 'bundler', '~> 1.3'
   s.add_development_dependency 'rspec', '~> 2.14'
+  s.add_development_dependency 'rake', '~> 10.1'
   s.add_development_dependency 'reek', '~> 1.3'
   s.add_development_dependency 'flay', '~> 2.4'
+  s.add_development_dependency 'yard-tomdoc', '~> 0.7'
 end

@@ -19,28 +19,22 @@
     <table class="index">
     
       <% @uncovered.each do |filename| %>
-        <%= "<tr><td class=\"black\">0%</td><td>#{filename}</td></tr>\n" %>
+      <tr><td class="percentage black">0%</td><td><%= filename %></td></tr>
       <% end %>
       
       <% @covered.each do |percentage, filename, href| %>
+        <% level_class = case percentage; when 80..100; 'yellow'; when 70..79; 'orange'; when 69..50; 'pink'; else 'red'; end %>
         <tr>
-      <% if percentage > 80 %>
-        <td class ="yellow">
-      <% elsif percentage > 70 %>
-        <td class="orange">
-      <% elsif percentage > 50 %>
-        <td class="pink">
-      <% else %>
-        <td class="red">
-      <% end %>
-      <%= "#{percentage}%</td><td><a href=\"#{href}\">#{filename}</a></td></tr>\n" %>
+          <td class="percentage <%= level_class %>"><%= percentage %>%</td>
+	  <td><a href="<%= href %>"><%= filename %></a></td>
+        </tr>
       <% end%>
       
     </table>
     
     <p class="license">
     Coco, code coverage for ruby.<br/>
-    Copyright 2011-2013, Xavier Nayrac<br/>
+    Copyright 2011-2014, Xavier Nayrac<br/>
     <br/>
     This program is free software: you can redistribute it and/or modify<br/>
     it under the terms of the GNU General Public License as published by<br/>

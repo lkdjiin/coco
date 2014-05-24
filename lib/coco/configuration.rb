@@ -34,6 +34,8 @@ module Coco
         self.merge!(YAML.load_file('.coco.yml'))
       # Deprecated: Support of '.coco' file will be removed in v1.0.
       elsif File.exist?('.coco')
+        warn('Please use `.coco.yml` instead of `.coco`.')
+        warn('Support for `.coco` will be removed in future versions.')
         self.merge!(YAML.load_file('.coco'))
       end
 
@@ -70,16 +72,20 @@ module Coco
       end
     end
 
-    def add_files dir
+    def add_files(dir)
       Helpers.rb_files_from(dir).each {|file| self[:excludes] << file }
     end
 
     def remove_directories
-      self[:excludes].delete_if {|file_or_dir| File.directory?(file_or_dir)}
+      self[:excludes].delete_if {|file_or_dir| File.directory?(file_or_dir) }
     end
 
     def ensure_threeshold_compatibility
-      self[:threshold] = self[:threeshold] unless self[:threeshold].nil?
+      if !self[:threeshold].nil?
+        warn('Please change `threeshold` to `threshold`.')
+        warn('Support for the misspelt `threeshold` configuration key will be removed in future COCO versions.')
+        self[:threshold] = self[:threeshold]
+      end
     end
 
   end

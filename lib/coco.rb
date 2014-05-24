@@ -1,16 +1,18 @@
 # -*- encoding: utf-8 -*-
 
-$LOAD_PATH.unshift File.dirname(__FILE__)
-$COCO_PATH = File.expand_path(File.expand_path(File.dirname(__FILE__)) + '/..')
 require 'coco/formatter'
 require 'coco/cover'
 require 'coco/writer'
 require 'coco/helpers'
 require 'coco/configuration'
 require 'coco/lister'
+
 require 'coverage'
 
+# Public: Main namespace of Coco, a code coverage utilily for
+# Ruby from 1.9.3 to 2.1.
 module Coco
+	ROOT = File.expand_path(File.dirname(__FILE__) + '/..').freeze
 end
 
 Coverage.start

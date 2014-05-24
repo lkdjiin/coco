@@ -9,11 +9,7 @@ module Coco
     #
     # Returns percent covered and associated filenames as a String.
     def format(single_line_report = false)
-      if single_line_report
-        single_line_message
-      else
-        @formatted_output.join("\n")
-      end
+      single_line_report ? single_line_message : @formatted_output.join("\n")
     end
 
     # Returns String.
@@ -27,8 +23,8 @@ module Coco
 
     # covered   - Hash
     # uncovered - Array
-    def initialize covered, uncovered
-      super(covered, uncovered)
+    def initialize(covered, uncovered)
+      super
       @formatted_output = []
       compute_percentage
       add_percentage_to_uncovered
@@ -53,7 +49,7 @@ module Coco
     end
 
     def add_percentage_to_uncovered
-      @uncovered.each do |filename| @formatted_output << [0, filename] end
+      @uncovered.each {|filename| @formatted_output << [0, filename] }
     end
 
     def single_line_message
