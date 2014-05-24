@@ -1,3 +1,16 @@
+v0.11.0  (2014-05-24)
+=================================================
+
+* Properly escape HTML in report.
+* Implements hit counters.
+* Output warnings for deprecated features.
+* Development/test
+  - Improve documentation for developers.
+  - Add Rake tasks for documentation. 
+  - Fix a random failing test
+  - Remove command line garbage after tests
+  - Update developer dependencies
+
 v0.10.0  (2014-05-03)
 =================================================
 
