@@ -15,10 +15,11 @@ It display names of uncovered files on console.
 It builds simple html report.
 It reports sources that have no tests.
 It's configurable with a simple yaml file.}
-	
+
   files = FileList['lib/**/*.rb', 'template/**/*', '[A-Z]*']
   files.exclude('TODO')
   s.files = files.to_a
+  s.test_files = s.files.grep(%r{^(test|spec|features)/})
 
   s.license = 'GPL-3'
   s.required_ruby_version = '>= 1.9.3'
