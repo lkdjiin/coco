@@ -27,6 +27,10 @@ module Coco
       colorize "\033[33m"
     end
 
+    def green
+      colorize "\033[32m"
+    end
+
     private
 
     def colorize(color_code)

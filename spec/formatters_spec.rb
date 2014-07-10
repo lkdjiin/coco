@@ -26,7 +26,7 @@ describe ConsoleFormatter do
     result = formatter.format
     result.should == "\e[33m80% the/filename/80\e[0m\n" +
                      "\e[33m90% the/filename/90\e[0m\n" +
-                     "\e[33m100% the/filename/100\e[0m"
+                     "\e[32m100% the/filename/100\e[0m"
   end
 
   it "should sort by percentage uncovered too" do
@@ -36,7 +36,7 @@ describe ConsoleFormatter do
                      "\e[31m0% b\e[0m\n" +
                      "\e[33m80% the/filename/80\e[0m\n" +
                      "\e[33m90% the/filename/90\e[0m\n" +
-                     "\e[33m100% the/filename/100\e[0m"
+                     "\e[32m100% the/filename/100\e[0m"
   end
 
   context "when 'single_line_report' is true" do

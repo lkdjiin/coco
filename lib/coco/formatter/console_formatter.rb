@@ -33,6 +33,8 @@ module Coco
         text = ColoredString.new "#{percentage}% #{filename}"
         if percentage <= 50
           text.red
+        elsif percentage == 100
+          text.green
         else
           text.yellow
         end
