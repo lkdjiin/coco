@@ -26,7 +26,7 @@ at_exit do
     sources = Coco::SourceLister.new(config).list
     uncovered = Coco::UncoveredLister.new(sources, result.all_from_domain).list
 
-    cf = Coco::ConsoleFormatter.new(covered, uncovered)
+    cf = Coco::ConsoleFormatter.new(covered, uncovered, config[:threshold])
     puts cf.format(config[:single_line_report])
     puts cf.link if config[:show_link_in_terminal]
 

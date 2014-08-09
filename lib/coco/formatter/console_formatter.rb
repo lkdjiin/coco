@@ -23,8 +23,8 @@ module Coco
 
     # covered   - Hash
     # uncovered - Array
-    def initialize(covered, uncovered)
-      super
+    def initialize(covered, uncovered, threshold)
+      super(covered, uncovered)
       @formatted_output = []
       compute_percentage
       add_percentage_to_uncovered
@@ -33,6 +33,8 @@ module Coco
         text = ColoredString.new "#{percentage}% #{filename}"
         if percentage <= 50
           text.red
+        elsif percentage >= threshold
+          text.green
         else
           text.yellow
         end
