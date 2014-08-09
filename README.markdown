@@ -68,15 +68,16 @@ Configuration is done via a YAML file. You can configure:
 * __directories__: the directories from where coco will search for untested source files
 * __excludes__: a list of files to exclude from the report
 * __single_line_report__: the report's style
+* __exclude_above_threshold__: should we exclude from the console report files with coverage >= threshold
 
-By default, threshold is set to 100 and directories is set to 'lib'.
+By default, threshold is set to 100, exclude_above_threshold is true and directories is set to 'lib'.
 
 To change the default coco configuration, put a `.coco.yml` file at the root of your project.
 
 
 ###Sample config for a Rails project
 
-    :directories: 
+    :directories:
     - app
     - lib
     :excludes:
