@@ -82,6 +82,10 @@ tr.hit {
   background-color: #5BD999;
 }
 
+tr.hit:hover {
+  background-color: #8BF9C9;
+}
+
 tr.miss {
    background-color: #E6567A;
 }
