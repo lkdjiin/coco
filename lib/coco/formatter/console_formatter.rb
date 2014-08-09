@@ -23,6 +23,7 @@ module Coco
 
     # covered   - Hash
     # uncovered - Array
+    # threshold - Integer
     def initialize(covered, uncovered, threshold)
       super(covered, uncovered)
       @formatted_output = []
