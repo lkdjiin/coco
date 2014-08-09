@@ -26,9 +26,10 @@ at_exit do
     sources = Coco::SourceLister.new(config).list
     uncovered = Coco::UncoveredLister.new(sources, result.all_from_domain).list
 
-    cf = Coco::ConsoleFormatter.new(covered, uncovered, config[:threshold])
-    puts cf.format(config[:single_line_report])
-    puts cf.link if config[:show_link_in_terminal]
+    console_formatter = Coco::ConsoleFormatter.new(covered, uncovered,
+                                                   config[:threshold])
+    puts console_formatter.format(config[:single_line_report])
+    puts console_formatter.link if config[:show_link_in_terminal]
 
     html_files = Coco::HtmlFormatter.new(covered).format
     Coco::HtmlFilesWriter.new(html_files).write
