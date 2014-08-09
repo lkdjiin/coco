@@ -92,6 +92,19 @@ See [more examples](https://github.com/lkdjiin/coco/wiki) on the wiki.
 Advanced configuration
 ---------------------------------
 
+### See coverage of all files in the console
+
+By default, Coco will display only the files with a coverage above the
+threshold. And as the threshold is 100% by default, nothing will be
+displayed if your test suite is 100% covered. This could be annoying for
+some people, or worst, you could even feel like Coco doing something the
+wrong way.
+
+So, to display in green the covered files,
+put this in your `.coco.yml` configuration file:
+
+    :exclude_above_threshold: false
+
 ### When to start coco, and when not to start it
 For projects whose complete test suite runs in a matter of seconds,
 running code coverage with every test is fine.
@@ -183,3 +196,6 @@ Contributors
 [Daniel Rice](https://github.com/BigNerdRanchDan)
 
 [Gioele](https://github.com/gioele)
+
+[TiteiKo](https://github.com/TiteiKo)
+

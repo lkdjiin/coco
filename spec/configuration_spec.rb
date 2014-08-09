@@ -46,6 +46,10 @@ describe Configuration do
       @config[:show_link_in_terminal].should be_false
     end
 
+    it "give true for 'exclude_above_threshold'" do
+      @config[:exclude_above_threshold].should be_true
+    end
+
 
   end
 
@@ -161,6 +165,12 @@ describe Configuration do
       create_config single_line_report: true
       config = Configuration.new
       config[:single_line_report].should == true
+    end
+
+    it "should read 'exclude_above_threshold' value from .coco file" do
+      create_config exclude_above_threshold: false
+      config = Configuration.new
+      config[:exclude_above_threshold].should be_false
     end
   end
 

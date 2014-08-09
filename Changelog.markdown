@@ -1,3 +1,11 @@
+v0.12.0  (2014-08-09)
+=================================================
+
+* Allows display of file whose coverage is more than threshold in the
+  console.
+* Highlights hitted lines on mouse over in the HTML report.
+
+
 v0.11.0  (2014-05-24)
 =================================================
 

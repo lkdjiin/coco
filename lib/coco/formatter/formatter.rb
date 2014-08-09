@@ -7,8 +7,14 @@ module Coco
   # method.
   class Formatter
 
-    # raw_coverages - The Hash from Coverage.result.
+    # raw_coverages - The Hash from Coverage.result. Keys are filenames
+    #                 and values are an Array representing each lines of
+    #                 the file :
+    #                 + nil       : Unreacheable (comments, etc).
+    #                 + 0         : Not hit.
+    #                 + 1 or more : Number of hits.
     # uncovered     - An Array list of uncovered files.
+    #
     # TODO I think covered is a better name than raw_coverages
     def initialize(raw_coverages, uncovered)
       @raw_coverages = raw_coverages

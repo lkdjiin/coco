@@ -13,9 +13,9 @@ module Coco
     # Returns a Hash coverage for sources that are not sufficiently
     # covered. More technically, the sources that live in the root
     # project folder and for which the coverage percentage is under the
-    # threshold. 
+    # threshold.
     attr_reader :covered_from_domain
-  
+
     # Public: Initialize a CoverageResult.
     #
     # config      - Hash
@@ -27,29 +27,33 @@ module Coco
       @result = raw_results
       exclude_external_sources
       exclude_files_user_dont_want
-      exclude_sources_above_threshold
+      if config[:exclude_above_threshold]
+        @covered_from_domain = exclude_sources_above_threshold
+      else
+        @covered_from_domain = @all_from_domain
+      end
     end
-    
+
     private
-    
+
     def exclude_external_sources
       here = Dir.pwd
       @all_from_domain = @result.select {|key, value| key.start_with?(here) }
     end
-    
+
     def exclude_files_user_dont_want
       return if @exclude_files.nil?
       @exclude_files.each do |filename|
         @all_from_domain.delete(File.expand_path(filename))
       end
     end
-    
-    def exclude_sources_above_threshold 
-      @covered_from_domain = @all_from_domain.select do |key, value| 
+
+    def exclude_sources_above_threshold
+      @all_from_domain.select do |key, value|
         CoverageStat.coverage_percent(value) < @threshold
       end
     end
-    
+
   end
-  
+
 end
