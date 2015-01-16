@@ -1,6 +1,8 @@
 coco [![Build Status](https://travis-ci.org/lkdjiin/coco.png)](https://travis-ci.org/lkdjiin/coco) [![Gem Version](https://badge.fury.io/rb/coco.png)](http://badge.fury.io/rb/coco) [![Inline docs](http://inch-ci.org/github/lkdjiin/coco.png)](http://inch-ci.org/github/lkdjiin/coco) [![Dependency Status](https://gemnasium.com/lkdjiin/coco.svg)](https://gemnasium.com/lkdjiin/coco)
 ==============================
 
+— *«If it's well-covered it doesn't mean it's well-tested!»* —
+
 Code coverage tool for ruby 1.9.3, 2.0 and 2.1.
 
 Features
