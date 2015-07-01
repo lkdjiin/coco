@@ -24,7 +24,9 @@ describe SourceLister do
 
   it "must raise an error if a folder doesnt exist" do
     create_config(:directories => ['lib', 'unknown'])
-    lambda {SourceLister.new(Configuration.new)}.should raise_error(ArgumentError)
+    lambda {
+      SourceLister.new(Configuration.new)
+    }.should raise_error(ArgumentError)
   end
 
   it "must list the rb sources from a single folder" do
@@ -38,7 +40,8 @@ describe SourceLister do
   end
 
   it "must list the rb sources user dont want" do
-    create_config(:directories => 'spec/project/3_rb_files', :excludes => ['spec/project/3_rb_files/1.rb'])
+    create_config(:directories => 'spec/project/3_rb_files',
+                  :excludes => ['spec/project/3_rb_files/1.rb'])
     lister = SourceLister.new(Configuration.new)
     list = lister.list
     list.size.should == 2
@@ -48,7 +51,9 @@ describe SourceLister do
   end
 
   it "must exclude a whole directory" do
-    create_config(:directories => 'spec/project', :excludes => ['spec/project/3_rb_files', 'spec/project/4_rb_files'])
+    create_config(:directories => 'spec/project',
+                  :excludes => ['spec/project/3_rb_files',
+                                'spec/project/4_rb_files'])
     lister = SourceLister.new(Configuration.new)
     list = lister.list
     list.size.should == 3
@@ -59,7 +64,9 @@ describe SourceLister do
   end
 
   it "must list the rb sources from a list of folders" do
-    create_config(:directories => ['spec/project/3_rb_files', 'spec/project/4_rb_files'], :excludes => [])
+    create_config(:directories => ['spec/project/3_rb_files',
+                                   'spec/project/4_rb_files'],
+                  :excludes => [])
     lister = SourceLister.new(Configuration.new)
     list = lister.list
     list.size.should == 7
