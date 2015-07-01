@@ -30,8 +30,8 @@ describe Configuration do
       @config[:directories].should == ['lib']
     end
 
-    it "should give an empty default list of files to excludes" do
-      @config[:excludes].should == []
+    it "should give the default list of directories to excludes" do
+      @config[:excludes].each {|file| (file =~ /spec|test/).should == 0 }
     end
 
     it "should give false for 'single_line_report'" do
@@ -137,6 +137,12 @@ describe Configuration do
       create_config threshold: threshold
       config = Configuration.new
       config[:threshold].should == threshold
+    end
+
+    it "replaces excludes" do
+      create_config({:excludes => []})
+      config = Configuration.new
+      config[:excludes].should == []
     end
 
     it "should read the excludes files from .coco file" do

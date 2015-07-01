@@ -28,7 +28,7 @@ describe SourceLister do
   end
 
   it "must list the rb sources from a single folder" do
-    create_config(:directories => 'spec/project/3_rb_files')
+    create_config(:directories => 'spec/project/3_rb_files', :excludes => [])
     lister = SourceLister.new(Configuration.new)
     list = lister.list
     list.size.should == 3
@@ -59,7 +59,7 @@ describe SourceLister do
   end
 
   it "must list the rb sources from a list of folders" do
-    create_config(:directories => ['spec/project/3_rb_files', 'spec/project/4_rb_files'])
+    create_config(:directories => ['spec/project/3_rb_files', 'spec/project/4_rb_files'], :excludes => [])
     lister = SourceLister.new(Configuration.new)
     list = lister.list
     list.size.should == 7

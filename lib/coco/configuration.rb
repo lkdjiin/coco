@@ -26,7 +26,7 @@ module Coco
     def initialize
       self[:threshold] = 100
       self[:directories] = ['lib']
-      self[:excludes] = []
+      self[:excludes] = ['spec', 'test']
       self[:single_line_report] = false
       self[:always_run] = true
       self[:show_link_in_terminal] = false
