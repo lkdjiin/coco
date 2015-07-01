@@ -27,6 +27,7 @@ Or directly:
 
     gem install coco
 
+*NOTE: If you're using a Gemfile, don't `:require => false`*
 
 Usage
 --------------------------------
