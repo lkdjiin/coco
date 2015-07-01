@@ -35,19 +35,19 @@ describe Configuration do
     end
 
     it "should give false for 'single_line_report'" do
-      @config[:single_line_report].should be_false
+      @config[:single_line_report].should be false
     end
 
     specify '#user_wants_to_run? returns true' do
-      @config.user_wants_to_run?.should be_true
+      @config.user_wants_to_run?.should be true
     end
 
     it "give false for 'show_link_in_terminal'" do
-      @config[:show_link_in_terminal].should be_false
+      @config[:show_link_in_terminal].should be false
     end
 
     it "give true for 'exclude_above_threshold'" do
-      @config[:exclude_above_threshold].should be_true
+      @config[:exclude_above_threshold].should be true
     end
 
 
@@ -57,13 +57,13 @@ describe Configuration do
     it 'should be false if :always_run is false' do
       create_config always_run: false
       config = Configuration.new
-      config.user_wants_to_run?.should be_false
+      config.user_wants_to_run?.should be false
     end
 
     it 'should be true if :always_run is true' do
       create_config always_run: true
       config = Configuration.new
-      config.user_wants_to_run?.should be_true
+      config.user_wants_to_run?.should be true
     end
   end
 
@@ -102,7 +102,7 @@ describe Configuration do
           def always_run_as(bool)
             create_config always_run: bool
             config = Configuration.new
-            config.user_wants_to_run?.should be_true
+            config.user_wants_to_run?.should be true
           end
 
           it 'should be true if :always_run is false' do
@@ -170,7 +170,7 @@ describe Configuration do
     it "should read 'exclude_above_threshold' value from .coco file" do
       create_config exclude_above_threshold: false
       config = Configuration.new
-      config[:exclude_above_threshold].should be_false
+      config[:exclude_above_threshold].should be false
     end
   end
 
