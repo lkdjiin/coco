@@ -1,7 +1,7 @@
 coco [![Build Status](https://travis-ci.org/lkdjiin/coco.png)](https://travis-ci.org/lkdjiin/coco) [![Gem Version](https://badge.fury.io/rb/coco.png)](http://badge.fury.io/rb/coco) [![Inline docs](http://inch-ci.org/github/lkdjiin/coco.png)](http://inch-ci.org/github/lkdjiin/coco) [![Dependency Status](https://gemnasium.com/lkdjiin/coco.svg)](https://gemnasium.com/lkdjiin/coco)
 ==============================
 
-Code coverage tool for ruby 1.9.3, 2.0, 2.1 and 2.2.
+Code coverage tool for ruby 2.0, 2.1 and 2.2.
 
 Features
 --------------------------------
@@ -11,7 +11,6 @@ Features
 * Display names of uncovered files on console
 * _Simple_ html report _only_ for uncovered files
 * Report sources that have no tests
-* UTF-8 compliant
 * Configurable via a simple yaml file
 * Colorized console output (nix only)
 
@@ -162,7 +161,7 @@ Now, when running tests, you will see something like the following:
 Dependencies
 --------------------------------
 
-ruby >= 1.9.3
+ruby >= 2.0
 
 
 Contributing
