@@ -74,8 +74,14 @@ thead {
   text-align: center;
 }
 
-td {
-  color: #303030;
+td,
+td a {
+  color: #D0D0D0;
+}
+
+td b,
+td a b {
+  color: #505050;
 }
 
 tr.never {
@@ -104,6 +110,7 @@ td.yellow, td.orange, td.pink, td.red, td.black {
 
 td.yellow {
   background-color: #F4BF75;
+  color: #303030;
 }
 
 td.orange {
@@ -129,22 +136,27 @@ td.percentage {
   padding-right: 20px;
 }
 
+td.line-num,
+td.line-hits,
+td.line-source {
+  color: #202020;
+}
+
+td.line-num,
+td.line-hits {
+  width: 10%;
+  text-align: right;
+}
+
 td.line-source {
   padding-right: 0;
 }
 
-td.line-num, td.line-hits {
-  width: 10%;
-}
-
 td.line-num {
-  color: #303030;
-  text-align: right;
   padding-right: 5px;
 }
 
 td.line-hits {
-  text-align: right;
   padding-right: 20px;
 }
 
@@ -156,4 +168,5 @@ th {
 pre {
   margin: 6px 0;
 }
+
 
