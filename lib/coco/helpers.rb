@@ -9,6 +9,27 @@ module Coco
   module Helpers
     class << self
 
+      # Public: Get a String (ruby) source filename ready to be
+      # displayed in the index file.
+      #
+      # name - String full path filename (normaly full path but, who
+      #        knows? may be relative path).
+      #
+      # Examples
+      #
+      #   name = '/home/user/my_project/lib/source.rb'
+      #   Helpers.name_for_html(name)
+      #   #=> 'lib/<b>source.rb</b>'
+      #
+      # Returns the formatted String.
+      def name_for_html(name)
+        name = File.expand_path(name)
+        name = name.sub(Dir.pwd, '')
+        name = name.sub(/^\//, '')
+        base = File.basename(name)
+        name.sub(base, "<b>#{base}</b>")
+      end
+
       # Public: Get html filename (from a ruby filename) suitable for
       # the coverage directory.
       #
@@ -22,7 +43,10 @@ module Coco
       #
       # Returns String HTML filename.
       def rb2html(name)
-        name.sub(Dir.pwd, '').tr('/\\', '_') + '.html'
+        name = name.sub(Dir.pwd, '')
+        name = name.sub(/^\//, '')
+        name = name.tr('/\\', '_')
+        name + '.html'
       end
 
       # Public: Get page title for the index.html file.
