@@ -14,8 +14,8 @@ table.index td {
 }
 
 html {
-  background-color: #fff;
-  color: #222;
+  background-color: #F5F5F5;
+  color: #505050;
 }
 
 body {
@@ -24,13 +24,13 @@ body {
 
 h2 {
   padding: 10px;
-  background-color: #7658F8;
-  color: #fff;
+  background-color: #6A9FB5;
+  color: #F5F5F5;
   font-size: 1.1em;
 }
 
 a {
-	color:#446;
+  color: #505050;
   text-decoration: none;
 }
 
@@ -43,10 +43,10 @@ p.menu a {
 }
 
 p.license {
-  color: #888;
+  color: #B0B0B0;
   margin-top: 20px;
   padding-top: 5px;
-  border-top: 1px solid #888;
+  border-top: 1px solid #D0D0D0;
   font-size: 80%;
 }
 
@@ -70,33 +70,40 @@ table.source td {
 
 thead {
   font-weight: bold;
-  background-color: #eee;
+  background-color: #E0E0E0;
   text-align: center;
 }
 
+td {
+  color: #303030;
+}
+
 tr.never {
-  background-color: #eee;
+  background-color: #F5F5F5;
 }
 
 tr.hit {
-  background-color: #5BD999;
+  background-color: #90A959;
 }
 
 tr.hit:hover {
-  background-color: #8BF9C9;
+  background-color: #C4E679;
 }
 
 tr.miss {
-   background-color: #E6567A;
+   background-color: #AC4142;
+}
+
+tr.miss:hover {
+  background-color: #E65758;
 }
 
 td.yellow, td.orange, td.pink, td.red, td.black {
   width: 45px;
-  color: #fff;
 }
 
 td.yellow {
-  background-color: #EAC14D;
+  background-color: #F4BF75;
 }
 
 td.orange {
@@ -108,14 +115,13 @@ td.pink {
 }
 
 td.red {
-  background-color: #E6567A;
-  font-weight: bold;
+  background-color: #AC4142;
+  color: #F5F5F5;
 }
 
 td.black {
-  background-color: #222;
-  color: #fff;
-  font-weight: bold;
+  background-color: #505050;
+  color: #F5F5F5;
 }
 
 td.percentage {
@@ -132,7 +138,7 @@ td.line-num, td.line-hits {
 }
 
 td.line-num {
-  color: #444;
+  color: #303030;
   text-align: right;
   padding-right: 5px;
 }
@@ -150,3 +156,4 @@ th {
 pre {
   margin: 6px 0;
 }
+
