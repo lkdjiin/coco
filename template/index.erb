@@ -23,7 +23,7 @@
       <% end %>
       
       <% @covered.each do |percentage, filename, href| %>
-        <% level_class = case percentage; when 80..100; 'yellow'; when 70..79; 'orange'; when 69..50; 'pink'; else 'red'; end %>
+        <% level_class = case percentage; when 80..100; 'yellow'; else 'red'; end %>
         <tr>
           <td class="percentage <%= level_class %>"><%= percentage %>%</td>
 	  <td><a href="<%= href %>"><%= filename %></a></td>

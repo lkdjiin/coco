@@ -104,21 +104,13 @@ tr.miss:hover {
   background-color: #E65758;
 }
 
-td.yellow, td.orange, td.pink, td.red, td.black {
+td.yellow, td.red, td.black {
   width: 45px;
 }
 
 td.yellow {
   background-color: #F4BF75;
   color: #303030;
-}
-
-td.orange {
-  background-color: #CB70D7;
-}
-
-td.pink {
-  background-color: #CB70D7;
 }
 
 td.red {
