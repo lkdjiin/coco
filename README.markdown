@@ -23,7 +23,7 @@ Install
 
 In your Gemfile:
 
-    gem coco
+    gem 'coco'
 
 Or directly:
 
