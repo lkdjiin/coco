@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 module Coco
 
   # I retrieve the .rb files from a list of directories.

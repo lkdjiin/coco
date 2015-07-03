@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 module Coco
 
   # I format coverages data for console output.

@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 module Coco
 
   # Public: Collection of application's helpers methods.

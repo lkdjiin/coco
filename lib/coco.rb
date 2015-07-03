@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 require 'coco/formatter'
 require 'coco/cover'
 require 'coco/writer'

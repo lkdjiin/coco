@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 module Coco
 
   # I retrieve the list of uncovered (0%) .rb files.
