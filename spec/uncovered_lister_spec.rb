@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 require './spec/helper'
 
 SOURCE_FILES_1 = [

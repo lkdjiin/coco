@@ -1,3 +1,17 @@
+v0.13.0  (2015-07-03)
+=================================================
+
+* Drop support for Ruby 1.9.3.
+* Remove base path in index file of the HTML report for greater
+  readability.
+* Exclude spec and test folders by default from the coverage. It was
+  weird to sometimes see test files reported.
+* Improve the theme.
+* In HTML report, highlight each lines of code, not only the green ones.
+* Ligthen the first part of the path in the index file of the HTML
+  report for greater readability.
+
+
 v0.12.0  (2014-08-09)
 =================================================
 

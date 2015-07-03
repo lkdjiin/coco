@@ -3,7 +3,8 @@ coco [![Build Status](https://travis-ci.org/lkdjiin/coco.png)](https://travis-ci
 
 — *«If it's well-covered it doesn't mean it's well-tested!»* —
 
-Code coverage tool for ruby 1.9.3, 2.0 and 2.1.
+Code coverage tool for ruby 2.0, 2.1 and 2.2.
+=======
 
 Features
 --------------------------------
@@ -13,7 +14,6 @@ Features
 * Display names of uncovered files on console
 * _Simple_ html report _only_ for uncovered files
 * Report sources that have no tests
-* UTF-8 compliant
 * Configurable via a simple yaml file
 * Colorized console output (nix only)
 
@@ -29,6 +29,7 @@ Or directly:
 
     gem install coco
 
+*NOTE: If you're using a Gemfile, don't `:require => false`*
 
 Usage
 --------------------------------
@@ -163,7 +164,7 @@ Now, when running tests, you will see something like the following:
 Dependencies
 --------------------------------
 
-ruby >= 1.9.3
+ruby >= 2.0
 
 
 Contributing
