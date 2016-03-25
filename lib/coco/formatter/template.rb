@@ -1,7 +1,7 @@
 require 'erb'
 
 module Coco
-  
+
   # From me, you can obtain ERB templates.
   class Template
     # filename - An String ERB template.
@@ -9,7 +9,7 @@ module Coco
     # Returns ERB.
     def self.open(filename)
       io = IO.readlines(filename, nil)
-			ERB.new(io[0], nil, '><')
+      ERB.new(io[0], nil, '><')
     end
   end
 
