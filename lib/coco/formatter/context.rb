@@ -8,18 +8,18 @@ module Coco
     #
     # filename - A String name of the source file.
     # lines    - An Array of lines.
-		def initialize(filename, lines)
-			@filename = filename
+    def initialize(filename, lines)
+      @filename = filename
       @lines = lines
-		end
-		
+    end
+
     # Public: Get the object's binding.
     #
     # Returns Binding.
-		def get_binding
-			binding
-		end
-	end
+    def get_binding
+      binding
+    end
+  end
 
   # Contextual information for ERB template, representing index.html.
   class IndexContext
@@ -38,18 +38,18 @@ module Coco
     # uncovered - Array of String filenames. The filenames are already
     #             formatted, ready to be display in an HTML file.
     #
-		def initialize(title, covered, uncovered)
-			@title = title
+    def initialize(title, covered, uncovered)
+      @title = title
       @covered = covered
       @uncovered = uncovered
-		end
-		
+    end
+
     # Public: Get the object's binding.
     #
     # Returns Binding.
-		def get_binding
-			binding
-		end
-	end
+    def get_binding
+      binding
+    end
+  end
 
 end
