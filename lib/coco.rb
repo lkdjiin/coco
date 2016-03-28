@@ -17,7 +17,7 @@ Coverage.start
 
 at_exit do
   config = Coco::Configuration.new
-  if config.user_wants_to_run?
+  if config.run_anytime?
     result = Coco::CoverageResult.new(config, Coverage.result)
     covered = result.covered_from_domain
 
