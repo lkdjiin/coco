@@ -13,7 +13,7 @@ describe Configuration do
     FileUtils.rm '.coco.yml', force: true
   end
 
-  specify { Configuration.new.should respond_to(:user_wants_to_run?) }
+  specify { expect(Configuration.new).to respond_to(:user_wants_to_run?) }
 
   context "with no config file" do
     before :each do
@@ -21,31 +21,31 @@ describe Configuration do
     end
 
     it "should give a default threshold of 100%" do
-      @config[:threshold].should == 100
+      expect(@config[:threshold]).to eq(100)
     end
 
     it "should give a default list of directories" do
-      @config[:directories].should == ['lib']
+      expect(@config[:directories]).to eq(['lib'])
     end
 
     it "should give the default list of directories to excludes" do
-      @config[:excludes].each {|file| (file =~ /spec|test/).should == 0 }
+      @config[:excludes].each {|file| expect(file =~ /spec|test/).to eq(0) }
     end
 
     it "should give false for 'single_line_report'" do
-      @config[:single_line_report].should be false
+      expect(@config[:single_line_report]).to be false
     end
 
     specify '#user_wants_to_run? returns true' do
-      @config.user_wants_to_run?.should be true
+      expect(@config.user_wants_to_run?).to be true
     end
 
     it "give false for 'show_link_in_terminal'" do
-      @config[:show_link_in_terminal].should be false
+      expect(@config[:show_link_in_terminal]).to be false
     end
 
     it "give true for 'exclude_above_threshold'" do
-      @config[:exclude_above_threshold].should be true
+      expect(@config[:exclude_above_threshold]).to be true
     end
 
 
@@ -55,13 +55,13 @@ describe Configuration do
     it 'should be false if :always_run is false' do
       create_config always_run: false
       config = Configuration.new
-      config.user_wants_to_run?.should be false
+      expect(config.user_wants_to_run?).to be false
     end
 
     it 'should be true if :always_run is true' do
       create_config always_run: true
       config = Configuration.new
-      config.user_wants_to_run?.should be true
+      expect(config.user_wants_to_run?).to be true
     end
   end
 
@@ -75,14 +75,14 @@ describe Configuration do
         v = $VERBOSE; $VERBOSE = nil
         config = Configuration.new
         $VERBOSE = v
-        config[:threeshold].should == config[:threshold]
-        config[:threshold].should == threshold
+        expect(config[:threeshold]).to eq(config[:threshold])
+        expect(config[:threshold]).to eq(threshold)
       end
 
       it "should read the threshold from .coco.yml file" do
         create_config threshold: threshold
         config = Configuration.new
-        config[:threshold].should == threshold
+        expect(config[:threshold]).to eq(threshold)
       end
 
       # TODO: remove once old version is no longer supported
@@ -90,7 +90,7 @@ describe Configuration do
         create_config_old_style threshold: 70
         create_config threshold: threshold
         config = Configuration.new
-        config[:threshold].should == threshold
+        expect(config[:threshold]).to eq(threshold)
       end
 
       describe '#user_wants_to_run?' do
@@ -100,7 +100,7 @@ describe Configuration do
           def always_run_as(bool)
             create_config always_run: bool
             config = Configuration.new
-            config.user_wants_to_run?.should be true
+            expect(config.user_wants_to_run?).to be true
           end
 
           it 'should be true if :always_run is false' do
@@ -134,19 +134,19 @@ describe Configuration do
     it "should read the threshold from .coco file" do
       create_config threshold: threshold
       config = Configuration.new
-      config[:threshold].should == threshold
+      expect(config[:threshold]).to eq(threshold)
     end
 
     it "replaces excludes" do
       create_config({:excludes => []})
       config = Configuration.new
-      config[:excludes].should == []
+      expect(config[:excludes]).to eq([])
     end
 
     it "should read the excludes files from .coco file" do
       create_config({:excludes => ['a', 'b']})
       config = Configuration.new
-      config[:excludes].should == ['a', 'b']
+      expect(config[:excludes]).to eq(['a', 'b'])
     end
 
     it "should read the excludes whole dirs from .coco file" do
@@ -154,7 +154,7 @@ describe Configuration do
                     excludes: ['spec/project/3_rb_files',
                                'spec/project/4_rb_files']
       config = Configuration.new
-      config[:excludes].size.should == 7
+      expect(config[:excludes].size).to eq(7)
     end
 
     it "should read the excludes whole dirs and files from .coco file" do
@@ -162,19 +162,19 @@ describe Configuration do
                     excludes: ['spec/project/3_rb_files',
                                'spec/project/six_lines.rb']
       config = Configuration.new
-      config[:excludes].size.should == 4
+      expect(config[:excludes].size).to eq(4)
     end
 
     it "should read 'single_line_report' value from .coco file" do
       create_config single_line_report: true
       config = Configuration.new
-      config[:single_line_report].should == true
+      expect(config[:single_line_report]).to eq(true)
     end
 
     it "should read 'exclude_above_threshold' value from .coco file" do
       create_config exclude_above_threshold: false
       config = Configuration.new
-      config[:exclude_above_threshold].should be false
+      expect(config[:exclude_above_threshold]).to be false
     end
   end
 

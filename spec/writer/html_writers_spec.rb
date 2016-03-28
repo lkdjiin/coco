@@ -17,12 +17,12 @@ describe HtmlDirectory do
   it "must delete coverage dir if any" do
     FileUtils.makedirs @coverage_dir
     HtmlDirectory.new.clean
-    File.exist?(@coverage_dir).should == false
+    expect(File.exist?(@coverage_dir)).to eq(false)
   end
   
   it "must create coverage and css dir and css files" do
     HtmlDirectory.new.setup
-    File.exist?('coverage/css/coco.css').should == true
+    expect(File.exist?('coverage/css/coco.css')).to eq(true)
   end
   
   def make_fake_dir
@@ -35,13 +35,13 @@ describe HtmlDirectory do
   it "must list html files" do
     make_fake_dir
     list = HtmlDirectory.new.list
-    list.include?('a.html').should == true
-    list.include?('b.html').should == true
-    list.include?('c.not_html').should == false
+    expect(list.include?('a.html')).to eq(true)
+    expect(list.include?('b.html')).to eq(true)
+    expect(list.include?('c.not_html')).to eq(false)
   end
   
   it "must give the coverage folder" do
-    HtmlDirectory.new.coverage_dir.should == 'coverage'
+    expect(HtmlDirectory.new.coverage_dir).to eq('coverage')
   end
 end
 
@@ -56,16 +56,16 @@ describe HtmlFilesWriter do
   it "must write all files" do
     writer = HtmlFilesWriter.new @hash
     writer.write
-    File.exist?('coverage/css/coco.css').should == true
-    File.exist?('coverage/a.html').should == true
-    File.exist?('coverage/q.html').should == true
+    expect(File.exist?('coverage/css/coco.css')).to eq(true)
+    expect(File.exist?('coverage/a.html')).to eq(true)
+    expect(File.exist?('coverage/q.html')).to eq(true)
   end
   
   it "must only remove coverage dir if it have no files to write" do
     FileUtils.makedirs @coverage_dir
     writer = HtmlFilesWriter.new Hash.new
     writer.write
-    File.exist?('coverage').should == false
+    expect(File.exist?('coverage')).to eq(false)
   end
   
 end
@@ -86,6 +86,6 @@ describe HtmlIndexWriter do
   it "must write the index file" do
     FileUtils.makedirs @coverage_dir
     HtmlIndexWriter.new('content').write
-    File.exist?('coverage/index.html').should == true
+    expect(File.exist?('coverage/index.html')).to eq(true)
   end
 end

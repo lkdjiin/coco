@@ -22,18 +22,18 @@ describe SourceLister do
 
   it "must raise an error if a folder doesnt exist" do
     create_config(:directories => ['lib', 'unknown'])
-    lambda {
+    expect {
       SourceLister.new(Configuration.new)
-    }.should raise_error(ArgumentError)
+    }.to raise_error(ArgumentError)
   end
 
   it "must list the rb sources from a single folder" do
     create_config(:directories => 'spec/project/3_rb_files', :excludes => [])
     lister = SourceLister.new(Configuration.new)
     list = lister.list
-    list.size.should == 3
+    expect(list.size).to eq(3)
     list.each do |file|
-      file.match(/.rb$/).should_not == nil
+      expect(file.match(/.rb$/)).not_to eq(nil)
     end
   end
 
@@ -42,9 +42,9 @@ describe SourceLister do
                   :excludes => ['spec/project/3_rb_files/1.rb'])
     lister = SourceLister.new(Configuration.new)
     list = lister.list
-    list.size.should == 2
+    expect(list.size).to eq(2)
     list.each do |file|
-      file.match(/.rb$/).should_not == nil
+      expect(file.match(/.rb$/)).not_to eq(nil)
     end
   end
 
@@ -54,11 +54,11 @@ describe SourceLister do
                                 'spec/project/4_rb_files'])
     lister = SourceLister.new(Configuration.new)
     list = lister.list
-    list.size.should == 3
+    expect(list.size).to eq(3)
     list.map! {|x| File.basename(x)}
-    list.include?('html_entities.rb').should == true
-    list.include?('six_lines.rb').should == true
-    list.include?('ten_lines.rb').should == true
+    expect(list.include?('html_entities.rb')).to eq(true)
+    expect(list.include?('six_lines.rb')).to eq(true)
+    expect(list.include?('ten_lines.rb')).to eq(true)
   end
 
   it "must list the rb sources from a list of folders" do
@@ -67,9 +67,9 @@ describe SourceLister do
                   :excludes => [])
     lister = SourceLister.new(Configuration.new)
     list = lister.list
-    list.size.should == 7
+    expect(list.size).to eq(7)
     list.each do |file|
-      file.match(/.rb$/).should_not == nil
+      expect(file.match(/.rb$/)).not_to eq(nil)
     end
   end
 
