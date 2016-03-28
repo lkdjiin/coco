@@ -17,11 +17,15 @@ RAW_RESULT_2 = {
 describe CoverageResult do
 
   it "must refuse negative threshold" do
-    lambda {CoverageResult.new({:threshold => -1}, RAW_RESULT)}.should raise_error(ArgumentError)
+    lambda {
+      CoverageResult.new({:threshold => -1}, RAW_RESULT)
+    }.should raise_error(ArgumentError)
   end
 
   it "must accept threshold above 100%" do
-    lambda {CoverageResult.new({:threshold => 101}, RAW_RESULT)}.should_not raise_error
+    lambda {
+      CoverageResult.new({:threshold => 101}, RAW_RESULT)
+    }.should_not raise_error
   end
 
   it "must exclude external sources" do
@@ -41,14 +45,18 @@ describe CoverageResult do
   end
 
   it 'can exclude sources above threshold' do
-    result = CoverageResult.new({:threshold => 90, :exclude_above_threshold => true}, RAW_RESULT_2)
+    result = CoverageResult.new({:threshold => 90,
+                                 :exclude_above_threshold => true},
+                                 RAW_RESULT_2)
     good_hash = result.covered_from_domain
     good_hash.size.should == 1
     good_hash[File.join(Dir.pwd, 'internal/one')].should == [0, 1]
   end
 
   it 'can include sources above threshold' do
-    result = CoverageResult.new({:threshold => 90, :exclude_above_threshold => false}, RAW_RESULT_2)
+    result = CoverageResult.new({:threshold => 90,
+                                 :exclude_above_threshold => false},
+                                 RAW_RESULT_2)
     good_hash = result.covered_from_domain
     good_hash.size.should == 2
     good_hash[File.join(Dir.pwd, 'internal/one')].should == [0, 1]
