@@ -4,6 +4,7 @@ Unreleased
 ## Modified
 
 * The license is now MIT.
+* Move contributors list in a file.
 
 
 v0.13.0  (2015-07-03)

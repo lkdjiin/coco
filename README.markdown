@@ -191,14 +191,3 @@ Questions and/or Comments
 Feel free to email [Xavier Nayrac](mailto:xavier.nayrac@gmail.com)
 with any questions, or contact me on [twitter](https://twitter.com/lkdjiin).
 
-Contributors
---------------------------------
-
-[sunaku (Suraj N. Kurapati)](https://github.com/sunaku)
-
-[Daniel Rice](https://github.com/BigNerdRanchDan)
-
-[Gioele](https://github.com/gioele)
-
-[TiteiKo](https://github.com/TiteiKo)
-
