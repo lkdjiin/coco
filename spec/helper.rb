@@ -1,11 +1,14 @@
 require './lib/coco'
 require 'fileutils'
-require "rspec/expectations"
 
 RSpec.configure do |config|
-  config.before(:suite) { FileUtils.rm '.coco.yml', :force => true }
+  config.before(:suite) do
+    FileUtils.rm('.coco.yml', :force => true)
+  end
 
-  config.after(:suite) { create_config(:excludes => ['lib']) }
+  config.after(:suite) do
+    create_config(:excludes => ['lib'])
+  end
 end
 
 include Coco

@@ -1,29 +1,22 @@
 require './spec/helper'
 
 describe ColoredString do
-  it "should act as a string" do
-    instance = ColoredString.new
-    expect(instance.kind_of?(String)).to eq(true)
+  subject { ColoredString.new('azerty') }
+
+  it "acts as a string" do
+    expect(subject).to be_a_kind_of String
   end
 
-  it "should accept a string on instanciation" do
-    instance = ColoredString.new 'azerty'
-    expect(instance).to eq('azerty')
+  it "makes a string green" do
+    expect(subject.green).to eq("\e[32mazerty\e[0m")
   end
 
-  it "should greenify a string" do
-    string = ColoredString.new 'azerty'
-    expect(string.green).to eq("\e[32mazerty\e[0m")
+  it "makes a string red" do
+    expect(subject.red).to eq("\e[31mazerty\e[0m")
   end
 
-  it "should redify a string" do
-    string = ColoredString.new 'azerty'
-    expect(string.red).to eq("\e[31mazerty\e[0m")
-  end
-
-  it "should yellowify a string" do
-    string = ColoredString.new 'azerty'
-    expect(string.yellow).to eq("\e[33mazerty\e[0m")
+  it "makes a string yellow" do
+    expect(subject.yellow).to eq("\e[33mazerty\e[0m")
   end
 end
 

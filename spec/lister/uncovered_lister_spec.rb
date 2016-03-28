@@ -9,12 +9,12 @@ SOURCE_FILES_1 = [
 
 describe UncoveredLister do
 
-  it "must give the list of uncovered files" do
-    uncov = UncoveredLister.new(SOURCE_FILES_1, COVERAGE_30_70)
-    list = uncov.list
-    expect(list.include?(File.join(Coco::ROOT, 'spec/project/uncovered1.rb')))
-      .to eq(true)
-    expect(list.include?(File.join(Coco::ROOT, 'spec/project/uncovered2.rb')))
-      .to eq(true)
+  it "returns the list of uncovered files" do
+    list = UncoveredLister.new(SOURCE_FILES_1, COVERAGE_30_70).list
+
+    file1 = File.join(Coco::ROOT, 'spec/project/uncovered1.rb')
+    file2 = File.join(Coco::ROOT, 'spec/project/uncovered2.rb')
+
+    expect(list).to include(file1, file2)
   end
 end

@@ -4,7 +4,7 @@ require 'erb'
 module Coco
 
   # I format coverages information into html files.
-  # @todo document and change name to HtmlFilesFormatter
+  # TODO document and change name to HtmlFilesFormatter
   class HtmlFormatter < Formatter
 
     def initialize(raw_coverages)

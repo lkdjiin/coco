@@ -49,13 +49,13 @@ module Coco
     # If the configuration key :always_run is set to true, we always
     # run the coverage.
     # In case the configuration key :always_run is set to false, we have
-    # to check for an environement variable named 'COCO' to decide if
+    # to check for an environment variable named 'COCO' to decide if
     # we launch the coverage or not. When 'COCO' doesn't exist, or is
     # the empty string, or '0', or 'false', we don't run coverage.
     # When 'COCO' is set to any other value, we start coverage.
     #
     # Returns true if coverage should start.
-    def user_wants_to_run?
+    def run_anytime?
       if self[:always_run]
         true
       else
