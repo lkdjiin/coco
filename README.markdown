@@ -182,7 +182,7 @@ Contributing
 
 License
 --------------------------------
-GPLv3, see COPYING.
+MIT, see LICENSE.
 
 
 Questions and/or Comments

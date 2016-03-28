@@ -18,7 +18,7 @@ It's configurable with a simple yaml file.}
   files.exclude('TODO')
   s.files = files.to_a
 
-  s.license = 'GPL-3'
+  s.license = 'MIT'
   s.required_ruby_version = '>= 2.0'
 
   s.add_development_dependency 'bundler', '~> 1.11'
