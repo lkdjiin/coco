@@ -22,7 +22,7 @@ It's configurable with a simple yaml file.}
   s.required_ruby_version = '>= 2.0'
 
   s.add_development_dependency 'bundler', '~> 1.11'
-  s.add_development_dependency 'rspec', '~> 2.14'
+  s.add_development_dependency 'rspec', '~> 3.4'
   s.add_development_dependency 'rake', '~> 10.1'
   s.add_development_dependency 'reek', '~> 3.0'
   s.add_development_dependency 'flay', '~> 2.4'
