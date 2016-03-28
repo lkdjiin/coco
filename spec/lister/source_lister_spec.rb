@@ -26,7 +26,7 @@ describe SourceLister do
   describe '#list' do
     let(:list) { subject.list }
 
-    def assert_list(list, size:)
+    def assert_list(list, size: 1)
       expect(list.size).to eq(size)
       expect(list).to all(match(/\.rb$/))
     end

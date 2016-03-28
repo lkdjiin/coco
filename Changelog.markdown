@@ -1,6 +1,10 @@
 Unreleased
 =================================================
 
+## Added
+
+* Add support for Ruby 2.3.
+
 ## Modified
 
 * The license is now MIT.
