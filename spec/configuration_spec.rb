@@ -25,13 +25,12 @@ describe Configuration do
 
     it "returns directories excluded by default" do
       subject[:excludes].each do |file|
-        expect(file =~ /spec|test/).to eq(0)
         expect(file).to match /spec|test/
       end
     end
 
-    it "isn't a single line report" do
-      expect(subject).to include(:single_line_report => false)
+    it "is a single line report" do
+      expect(subject).to include(:single_line_report => true)
     end
 
     it 'runs anytime' do

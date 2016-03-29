@@ -9,6 +9,7 @@ Unreleased
 
 ## Modified
 
+* The single line report (on the console) is now the default behavior.
 * The license is now MIT.
 * Move contributors list in a file.
 

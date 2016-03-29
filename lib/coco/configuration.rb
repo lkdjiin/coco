@@ -18,14 +18,16 @@ module Coco
   #
   # Note you can set the threshold above 100% (to be sure to see all
   # files) but you cannot set it under 0.
+  #
   class Configuration < Hash
 
     # Public: Initialize a Configuration.
+    #
     def initialize
       self[:threshold] = 100
       self[:directories] = ['lib']
       self[:excludes] = ['spec', 'test']
-      self[:single_line_report] = false
+      self[:single_line_report] = true
       self[:always_run] = true
       self[:show_link_in_terminal] = false
       self[:exclude_above_threshold] = true
@@ -81,8 +83,9 @@ module Coco
 
     def ensure_threeshold_compatibility
       if !self[:threeshold].nil?
-        warn('Please change `threeshold` to `threshold`.')
-        warn('Support for the misspelt `threeshold` configuration key will be removed in future COCO versions.')
+        warn("Please change `threeshold` to `threshold`.\n" +
+             "Support for the misspelt `threeshold` configuration key will " +
+             "be removed in future COCO versions.")
         self[:threshold] = self[:threeshold]
       end
     end
