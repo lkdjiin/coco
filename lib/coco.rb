@@ -28,8 +28,9 @@ at_exit do
     console_formatter = Coco::ConsoleFormatter.new(covered,
                                                    uncovered,
                                                    config[:threshold],
-                                                   result)
-    puts console_formatter.format(config[:single_line_report])
+                                                   result,
+                                                   config)
+    puts console_formatter.format
     puts console_formatter.link if config[:show_link_in_terminal]
 
     html_files = Coco::HtmlFormatter.new(covered).format

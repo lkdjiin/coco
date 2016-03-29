@@ -1,21 +1,22 @@
 module Coco
 
   # I format coverages data for console output.
+  #
   class ConsoleFormatter < Formatter
 
     # Public: Get a colored report, formatted for console output.
     #
-    # single_line_report - Boolean
-    #
     # Returns percent covered and associated filenames as a multilines
-    # String
-    def format(single_line_report = false)
-      single_line_report ? single_line_message : multilines_message
+    # or a single line String.
+    #
+    def format
+      @config[:single_line_report] ? single_line_message : multilines_message
     end
 
     # Get the link for the report's index file.
     #
     # Returns String.
+    #
     def link
       unless @formatted_output.empty?
         "See file://" +
@@ -29,8 +30,10 @@ module Coco
     # covered   - See base class Formatter.
     # uncovered - See base class Formatter.
     # threshold - The Fixnum percentage threshold.
-    # result    - A CoverageResult object.
-    def initialize(covered, uncovered, threshold, result)
+    # result    - A CoverageResult.
+    # config    - A Configuration.
+    #
+    def initialize(covered, uncovered, threshold, result, config)
       super(covered, uncovered)
       @formatted_output = []
       compute_percentage
@@ -47,6 +50,7 @@ module Coco
         end
       end
       @summary = Summary.new(result)
+      @config = config
     end
 
     private
