@@ -20,7 +20,7 @@ describe CoverageResult do
   describe 'API' do
     let(:result) { described_class.new(config, RAW_RESULT) }
 
-    specify { expect(result).to respond_to :all_from_domain }
+    specify { expect(result).to respond_to :coverable_files }
     specify { expect(result).to respond_to :covered_from_domain }
     specify { expect(result).to respond_to :count }
     specify { expect(result).to respond_to :uncovered_count }
@@ -39,10 +39,10 @@ describe CoverageResult do
     end
   end
 
-  describe '#all_from_domain' do
+  describe '#coverable_files' do
     it "excludes external sources" do
       result = CoverageResult.new(config, RAW_RESULT)
-      good_hash = result.all_from_domain
+      good_hash = result.coverable_files
 
       expect(good_hash.size).to eq(2)
       expect(good_hash).to eq({
@@ -54,7 +54,7 @@ describe CoverageResult do
     it "excludes files user don't need" do
       config = {:threshold => 90, :excludes => ['internal/two']}
       result = CoverageResult.new(config, RAW_RESULT)
-      good_hash = result.all_from_domain
+      good_hash = result.coverable_files
 
       expect(good_hash.size).to eq(1)
       expect(good_hash).to eq({

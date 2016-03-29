@@ -23,7 +23,7 @@ at_exit do
     covered = result.covered_from_domain
 
     sources = Coco::SourceLister.new(config).list
-    uncovered = Coco::UncoveredLister.new(sources, result.all_from_domain).list
+    uncovered = Coco::UncoveredLister.new(sources, result.coverable_files).list
 
     console_formatter = Coco::ConsoleFormatter.new(covered,
                                                    uncovered,

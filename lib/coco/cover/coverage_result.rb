@@ -8,7 +8,7 @@ module Coco
     # Returns a Hash coverage for all the sources that live in the root
     # project folder.
     #
-    attr_reader :all_from_domain
+    attr_reader :coverable_files
 
     # Returns a Hash coverage for sources that are not sufficiently
     # covered. More technically, the sources that live in the root
@@ -32,7 +32,7 @@ module Coco
       if config[:exclude_above_threshold]
         @covered_from_domain = exclude_sources_above_threshold
       else
-        @covered_from_domain = @all_from_domain
+        @covered_from_domain = @coverable_files
       end
     end
 
@@ -41,7 +41,7 @@ module Coco
     # Returns the Fixnum number of files.
     #
     def count
-      all_from_domain.size
+      coverable_files.size
     end
 
     # Public: Count the number of uncovered files, that is, files with a
@@ -75,18 +75,18 @@ module Coco
 
     def exclude_external_sources
       here = Dir.pwd
-      @all_from_domain = @result.select {|key, _| key.start_with?(here) }
+      @coverable_files = @result.select {|key, _| key.start_with?(here) }
     end
 
     def exclude_files_user_dont_want
       return if @exclude_files.nil?
       @exclude_files.each do |filename|
-        @all_from_domain.delete(File.expand_path(filename))
+        @coverable_files.delete(File.expand_path(filename))
       end
     end
 
     def exclude_sources_above_threshold
-      @all_from_domain.select do |_, value|
+      @coverable_files.select do |_, value|
         CoverageStat.coverage_percent(value) < @threshold
       end
     end
@@ -94,7 +94,7 @@ module Coco
     # Returns the Float sum of all files' percentage.
     #
     def sum
-      @all_from_domain.values.map do |hits|
+      @coverable_files.values.map do |hits|
         CoverageStat.real_percent(hits)
       end.reduce(&:+)
     end
