@@ -3,14 +3,18 @@ Unreleased
 
 ## Added
 
-* Support for Ruby 2.3.
-* A summary (rate of coverage, number of uncovered files and total number of
+* Add support for Ruby 2.3.
+* Add a summary (rate of coverage, number of uncovered files and total number of
   files) in the index and on the console.
 
 ## Modified
 
 * The license is now MIT.
 * Move contributors list in a file.
+
+## Removed
+
+* Removed the license's mention in the index.
 
 
 v0.13.0  (2015-07-03)
