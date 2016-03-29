@@ -15,7 +15,7 @@ module Coco
     # project folder and for which the coverage percentage is under the
     # threshold.
     #
-    attr_reader :covered_from_domain
+    attr_reader :not_covered_enough
 
     # Public: Initialize a CoverageResult.
     #
@@ -30,9 +30,9 @@ module Coco
       exclude_external_sources
       exclude_files_user_dont_want
       if config[:exclude_above_threshold]
-        @covered_from_domain = exclude_sources_above_threshold
+        @not_covered_enough = exclude_sources_above_threshold
       else
-        @covered_from_domain = @coverable_files
+        @not_covered_enough = @coverable_files
       end
     end
 
@@ -50,7 +50,7 @@ module Coco
     # Returns the Fixnum number of uncovered files.
     #
     def uncovered_count
-      covered_from_domain.select do |_, hits|
+      not_covered_enough.select do |_, hits|
         CoverageStat.coverage_percent(hits).zero?
       end.size
     end

@@ -21,7 +21,7 @@ describe CoverageResult do
     let(:result) { described_class.new(config, RAW_RESULT) }
 
     specify { expect(result).to respond_to :coverable_files }
-    specify { expect(result).to respond_to :covered_from_domain }
+    specify { expect(result).to respond_to :not_covered_enough }
     specify { expect(result).to respond_to :count }
     specify { expect(result).to respond_to :uncovered_count }
     specify { expect(result).to respond_to :average }
@@ -63,12 +63,12 @@ describe CoverageResult do
     end
   end
 
-  describe '#covered_from_domain' do
+  describe '#not_covered_enough' do
     it 'excludes sources above threshold' do
       result = CoverageResult.new({:threshold => 90,
                                    :exclude_above_threshold => true},
                                    RAW_RESULT_2)
-      good_hash = result.covered_from_domain
+      good_hash = result.not_covered_enough
 
       expect(good_hash.size).to eq(1)
       expect(good_hash[File.join(Dir.pwd, 'internal/one')]).to eq([0, 1])
@@ -78,7 +78,7 @@ describe CoverageResult do
       result = CoverageResult.new({:threshold => 90,
                                    :exclude_above_threshold => false},
                                    RAW_RESULT_2)
-      good_hash = result.covered_from_domain
+      good_hash = result.not_covered_enough
 
       expect(good_hash.size).to eq(2)
       expect(good_hash[File.join(Dir.pwd, 'internal/one')]).to eq([0, 1])
