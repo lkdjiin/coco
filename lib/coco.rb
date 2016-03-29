@@ -8,7 +8,8 @@ require 'coco/lister'
 require 'coverage'
 
 # Public: Main namespace of Coco, a code coverage utilily for
-# Ruby from 1.9.3 to 2.1.
+# Ruby from 2.0 to 2.3.
+#
 module Coco
 	ROOT = File.expand_path(File.dirname(__FILE__) + '/..').freeze
 end
@@ -24,15 +25,17 @@ at_exit do
     sources = Coco::SourceLister.new(config).list
     uncovered = Coco::UncoveredLister.new(sources, result.all_from_domain).list
 
-    console_formatter = Coco::ConsoleFormatter.new(covered, uncovered,
-                                                   config[:threshold])
+    console_formatter = Coco::ConsoleFormatter.new(covered,
+                                                   uncovered,
+                                                   config[:threshold],
+                                                   result)
     puts console_formatter.format(config[:single_line_report])
     puts console_formatter.link if config[:show_link_in_terminal]
 
     html_files = Coco::HtmlFormatter.new(covered).format
     Coco::HtmlFilesWriter.new(html_files).write
 
-    index = Coco::HtmlIndexFormatter.new(covered, uncovered).format
+    index = Coco::HtmlIndexFormatter.new(covered, uncovered, result).format
     Coco::HtmlIndexWriter.new(index).write
   end
 end

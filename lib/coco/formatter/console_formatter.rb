@@ -10,7 +10,7 @@ module Coco
     # Returns percent covered and associated filenames as a multilines
     # String
     def format(single_line_report = false)
-      single_line_report ? single_line_message : @formatted_output.join("\n")
+      single_line_report ? single_line_message : multilines_message
     end
 
     # Get the link for the report's index file.
@@ -29,7 +29,8 @@ module Coco
     # covered   - See base class Formatter.
     # uncovered - See base class Formatter.
     # threshold - The Fixnum percentage threshold.
-    def initialize(covered, uncovered, threshold)
+    # result    - A CoverageResult object.
+    def initialize(covered, uncovered, threshold, result)
       super(covered, uncovered)
       @formatted_output = []
       compute_percentage
@@ -45,6 +46,7 @@ module Coco
           text.yellow
         end
       end
+      @summary = Summary.new(result)
     end
 
     private
@@ -64,10 +66,13 @@ module Coco
       if @uncovered.empty?
         ""
       else
-        ColoredString.new("Some files are uncovered").yellow
+        ColoredString.new(@summary.to_s).yellow
       end
     end
 
+    def multilines_message
+      @formatted_output.join("\n") + "\n" + @summary.to_s + "\n"
+    end
   end
 
 end

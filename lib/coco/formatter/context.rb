@@ -1,6 +1,7 @@
 module Coco
 
   # Contextual information for ERB template, representing each covered files.
+  #
   class Context
 
     # Public: Initialize a Context for a covered file shown in the HTML
@@ -8,20 +9,23 @@ module Coco
     #
     # filename - A String name of the source file.
     # lines    - An Array of lines.
-		def initialize(filename, lines)
-			@filename = filename
+    #
+    def initialize(filename, lines)
+      @filename = filename
       @lines = lines
-		end
+    end
 		
     # Public: Get the object's binding.
     #
     # Returns Binding.
-		def get_binding
-			binding
-		end
-	end
+    #
+    def get_binding
+      binding
+    end
+  end
 
   # Contextual information for ERB template, representing index.html.
+  #
   class IndexContext
 
     # Public: Initialize an IndexContext for the index file in the HTML
@@ -37,19 +41,22 @@ module Coco
     #             FIXME Need a class to handle subarrays.
     # uncovered - Array of String filenames. The filenames are already
     #             formatted, ready to be display in an HTML file.
+    # summary   - A Summary object.
     #
-		def initialize(title, covered, uncovered)
-			@title = title
+    def initialize(title, covered, uncovered, summary)
+      @title = title
       @covered = covered
       @uncovered = uncovered
-		end
+      @summary = summary
+    end
 		
     # Public: Get the object's binding.
     #
     # Returns Binding.
-		def get_binding
-			binding
-		end
-	end
+    #
+    def get_binding
+      binding
+    end
+  end
 
 end

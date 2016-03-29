@@ -12,17 +12,27 @@ module Coco
   module CoverageStat
     extend self
 
-    # Public: Compute the percentage of code coverage for a file.
+    # Public: Compute the decimal percentage of code coverage for a file.
     # The file is represented by an array of hits.
     #
     # hits - Array of Integer.
     #
-    # Returns a Integer (rounded) percentage.
-    def coverage_percent(hits)
+    # Returns a Float percentage of coverage.
+    def real_percent(hits)
       hits = hits.compact
       return 0 if hits.empty?
       one_percent = 100.0 / hits.size
-      (number_of_covered_lines(hits) * one_percent).to_i
+      number_of_covered_lines(hits) * one_percent
+    end
+
+    # Public: Compute the integer percentage of code coverage for a file.
+    # The file is represented by an array of hits.
+    #
+    # hits - Array of Integer.
+    #
+    # Returns a Integer rounded percentage of coverage.
+    def coverage_percent(hits)
+      real_percent(hits).round
     end
 
     # Compute the total of covered lines in a hits array.

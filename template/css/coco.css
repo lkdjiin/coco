@@ -161,4 +161,12 @@ pre {
   margin: 6px 0;
 }
 
+.summary {
+  font-size: 150%;
+}
 
+.summary-rate, .summary-uncovered, .summary-files {
+  background-color: #E0E0E0;
+  padding: 5px 10px;
+  margin-right: 20px;
+}

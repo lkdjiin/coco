@@ -3,10 +3,12 @@ require 'erb'
 module Coco
 
   # I format the index.html
+  #
   class HtmlIndexFormatter < Formatter
 
-    def initialize(raw_coverages, uncovered)
-      super
+    def initialize(raw_coverages, uncovered, result)
+      super(raw_coverages, uncovered)
+      @summary = Summary.new(result)
       @context = nil
       @template = Template.open(File.join(Coco::ROOT, 'template/index.erb'))
       @lines = []
@@ -17,7 +19,9 @@ module Coco
       @context = IndexContext.new(
         Helpers.index_title,
         @lines,
-        @uncovered.map {|filename| Helpers.name_for_html(filename) })
+        @uncovered.map {|filename| Helpers.name_for_html(filename) },
+        @summary
+      )
       @template.result(@context.get_binding)
     end
 

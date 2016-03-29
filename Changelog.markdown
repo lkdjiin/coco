@@ -3,7 +3,9 @@ Unreleased
 
 ## Added
 
-* Add support for Ruby 2.3.
+* Support for Ruby 2.3.
+* A summary (rate of coverage, number of uncovered files and total number of
+  files) in the index and on the console.
 
 ## Modified
 
