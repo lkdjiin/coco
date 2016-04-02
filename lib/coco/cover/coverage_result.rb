@@ -28,7 +28,7 @@ module Coco
       raise ArgumentError if @threshold < 0
       @result = raw_results
       exclude_external_sources
-      exclude_files_user_dont_want
+      exclude_files_user_dont_want if @exclude_files
       if config[:exclude_above_threshold]
         @not_covered_enough = exclude_sources_above_threshold
       else
@@ -79,7 +79,6 @@ module Coco
     end
 
     def exclude_files_user_dont_want
-      return if @exclude_files.nil?
       @exclude_files.each do |filename|
         @coverable_files.delete(File.expand_path(filename))
       end

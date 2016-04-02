@@ -82,12 +82,16 @@ module Coco
     end
 
     def ensure_threeshold_compatibility
-      if !self[:threeshold].nil?
+      if threeshold_present?
         warn("Please change `threeshold` to `threshold`.\n" +
              "Support for the misspelt `threeshold` configuration key will " +
              "be removed in future COCO versions.")
         self[:threshold] = self[:threeshold]
       end
+    end
+
+    def threeshold_present?
+      self[:threeshold]
     end
 
   end

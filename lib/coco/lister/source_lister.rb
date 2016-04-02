@@ -25,7 +25,7 @@ module Coco
     def list
       look_for_sources
       @list.map! {|file| File.expand_path(file) }
-      exclude_files_user_dont_want
+      exclude_files_user_dont_want if @exclude_files
       @list
     end
     
@@ -36,8 +36,6 @@ module Coco
     end
     
     def exclude_files_user_dont_want
-      return if @exclude_files.nil?
-      
       @exclude_files.each do |filename|
         full_path = File.expand_path(filename)
         if File.file?(full_path)
