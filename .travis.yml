@@ -7,4 +7,10 @@ rvm:
   - "ruby-head"
   - "rbx-2"
   - "jruby-head"
+os:
+  - linux
+  - osx
+matrix:
+  allow_failures:
+    - os: osx
 before_install: gem install bundler

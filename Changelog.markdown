@@ -9,6 +9,7 @@ v0.14.0-development (Unreleased)
 * [Experimental] Add support for head of MRI Ruby.
 * [Experimental] Add support for Rubinius 2.x.
 * [Experimental] Add support for (latest version of) JRuby.
+* [Experimental] Add support for OSX.
 
 ## Modified
 
