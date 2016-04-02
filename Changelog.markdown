@@ -6,6 +6,9 @@ v0.14.0-development (Unreleased)
 * Add a summary (rate of coverage, number of uncovered files and total number of
   files) in the index and on the console.
 * Add support for Ruby 2.3.
+* Now you can choose between a dark theme and the (old) light one, for the HTML
+  report. The choice is made with a new configuration key : `:theme`. The
+  default theme is the light one.
 * [Experimental] Add support for head of MRI Ruby.
 * [Experimental] Add support for Rubinius 2.x.
 * [Experimental] Add support for (latest version of) JRuby.
