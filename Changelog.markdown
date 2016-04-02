@@ -6,6 +6,7 @@ v0.14.0-development (Unreleased)
 * Add a summary (rate of coverage, number of uncovered files and total number of
   files) in the index and on the console.
 * Add support for Ruby 2.3.
+* [Experimental] Add support for head of MRI Ruby.
 * [Experimental] Add support for Rubinius 2.x.
 * [Experimental] Add support for (latest version of) JRuby.
 
