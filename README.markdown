@@ -55,6 +55,7 @@ Basic Configuration
 
 Configuration is done via a YAML file. You can configure:
 
+* __theme__: Choose between a light and a dark theme for the HTML report
 * __threshold__: the percentage threshold
 * __directories__: the directories from where coco will search for untested source files
 * __excludes__: a list of files to exclude from the report, if any
@@ -77,7 +78,22 @@ To change this default configuration, put a `.coco.yml` file at the root of your
 _Note: YAML is very punctilious with the syntax. In particular, paid attention
 to not put any leading spaces or tab at all._
 
-See [more examples](https://github.com/lkdjiin/coco/wiki) on the wiki.
+### Theme
+
+You can choose between a light and a dark theme. The light theme is the
+default one. For a dark theme, add this line in the configuration file:
+
+    :theme: dark
+
+**Light theme**
+
+[TODO add a screeshot]
+
+**Dark theme**
+
+[TODO add a screeshot]
+
+See [more configuration examples](https://github.com/lkdjiin/coco/wiki) on the wiki.
 
 Advanced configuration
 ---------------------------------

@@ -31,6 +31,7 @@ module Coco
       self[:always_run] = true
       self[:show_link_in_terminal] = false
       self[:exclude_above_threshold] = true
+      self[:theme] = 'light'
       if File.exist?('.coco.yml')
         self.merge!(YAML.load_file('.coco.yml'))
       # Deprecated: Support of '.coco' file will be removed in v1.0.
@@ -40,6 +41,7 @@ module Coco
         self.merge!(YAML.load_file('.coco'))
       end
 
+      ensure_known_theme
       ensure_threeshold_compatibility
       expand_directories
       remove_directories
@@ -94,6 +96,12 @@ module Coco
       self[:threeshold]
     end
 
+    def ensure_known_theme
+      unless %w( light dark ).include?(self[:theme])
+        warn("\n\nThe theme '#{self[:theme]}' didn't exist.\n\n")
+        self[:theme] = 'light'
+      end
+    end
   end
 
 end

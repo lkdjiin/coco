@@ -15,34 +15,16 @@ describe Configuration do
   end
 
   context "with no config file" do
-    it "returns a default threshold of 100%" do
-      expect(subject).to include(:threshold => 100)
-    end
-
-    it "returns directories included by default" do
-      expect(subject).to include(:directories => ['lib'])
-    end
+    it { is_expected.to include(:threshold => 100) }
+    it { is_expected.to include(:directories => ['lib']) }
+    it { is_expected.to include(:single_line_report => true) }
+    it { is_expected.to be_a_run_anytime }
+    it { is_expected.to include(:show_link_in_terminal => false) }
+    it { is_expected.to include(:exclude_above_threshold => true) }
+    it { is_expected.to include(:theme => 'light') }
 
     it "returns directories excluded by default" do
-      subject[:excludes].each do |file|
-        expect(file).to match /spec|test/
-      end
-    end
-
-    it "is a single line report" do
-      expect(subject).to include(:single_line_report => true)
-    end
-
-    it 'runs anytime' do
-      expect(subject).to be_a_run_anytime
-    end
-
-    it "returns false for 'show_link_in_terminal'" do
-      expect(subject).to include(:show_link_in_terminal => false)
-    end
-
-    it "returns true for 'exclude_above_threshold'" do
-      expect(subject).to include(:exclude_above_threshold => true)
+      expect(subject[:excludes]).to all(match(/spec|test/))
     end
   end
 
@@ -149,13 +131,29 @@ describe Configuration do
 
     it "reads 'single_line_report' value from .coco file" do
       create_config single_line_report: true
-      expect(subject[:single_line_report]).to eq(true)
+      expect(subject).to include(single_line_report: true)
     end
 
     it "reads 'exclude_above_threshold' value from .coco file" do
       create_config exclude_above_threshold: false
-      expect(subject[:exclude_above_threshold]).to be false
+      expect(subject).to include(exclude_above_threshold: false)
     end
+
+    it "reads the theme from .coco file" do
+      create_config theme: 'dark'
+      expect(subject).to include(theme: 'dark')
+    end
+
+    context "when the theme is missing" do
+      it "falls back to default" do
+        create_config theme: 'missing'
+        v = $VERBOSE; $VERBOSE = nil
+        config = Configuration.new
+        $VERBOSE = v
+        expect(config).to include(theme: 'light')
+      end
+    end
+
   end
 
 end
