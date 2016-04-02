@@ -67,11 +67,7 @@ module Coco
     end
 
     def single_line_message
-      if @uncovered.empty?
-        ""
-      else
-        ColoredString.new(@summary.to_s).yellow
-      end
+      ColoredString.new(@summary.to_s).yellow
     end
 
     def multilines_message

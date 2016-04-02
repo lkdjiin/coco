@@ -69,7 +69,7 @@ describe ConsoleFormatter do
   context "when it is a single line report" do
 
     context "with some uncovered files" do
-      it "returns a message" do
+      it "returns the summary" do
         formatter = ConsoleFormatter.new(COVERAGE_90, ['a', 'b', 'c'], 100,
                                          cr, config_single)
         result = formatter.format
@@ -79,12 +79,12 @@ describe ConsoleFormatter do
     end
 
     context "with no uncovered files" do
-      it "returns nothing" do
+      it "returns the summary" do
         formatter = ConsoleFormatter.new(COVERAGE_90, [], 100, cr,
                                         config_single)
         result = formatter.format
 
-        expect(result).to eq("")
+        expect(result).to include("Cover", "uncovered", "files")
       end
     end
 
