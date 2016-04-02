@@ -12,7 +12,7 @@ require 'coverage'
 # Ruby from 2.0 to 2.3.
 #
 module Coco
-	ROOT = File.expand_path(File.dirname(__FILE__) + '/..').freeze
+  ROOT = File.expand_path(File.dirname(__FILE__) + '/..').freeze
 end
 
 Coverage.start

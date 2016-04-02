@@ -19,7 +19,7 @@ module Coco
     #
     def link
       unless @formatted_output.empty?
-        "See file://" +
+        'See file://' +
           File.expand_path(File.join(Coco::HtmlDirectory.new.coverage_dir,
                                      'index.html'))
       end
@@ -35,6 +35,7 @@ module Coco
     #
     def initialize(covered, uncovered, threshold, result, config)
       super(covered, uncovered)
+
       @formatted_output = []
       compute_percentage
       add_percentage_to_uncovered
@@ -63,7 +64,7 @@ module Coco
     end
 
     def add_percentage_to_uncovered
-      @uncovered.each {|filename| @formatted_output << [0, filename] }
+      @uncovered.each { |filename| @formatted_output << [0, filename] }
     end
 
     def single_line_message
@@ -74,5 +75,4 @@ module Coco
       @formatted_output.join("\n") + "\n" + @summary.to_s + "\n"
     end
   end
-
 end

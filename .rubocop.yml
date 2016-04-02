@@ -1,0 +1,12 @@
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+# Constructors can be longer.
+Metrics/MethodLength:
+  Max: 5

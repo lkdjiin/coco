@@ -19,5 +19,4 @@ module Coco
       @uncovered = uncovered
     end
   end
-
 end

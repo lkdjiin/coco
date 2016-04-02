@@ -23,20 +23,23 @@ module Coco
     # raw_results - Hash results obtained from Coverage.result.
     #
     def initialize(config, raw_results)
+      raise ArgumentError if config[:threshold] < 0
+
       @exclude_files = config[:excludes]
       @threshold = config[:threshold]
-      raise ArgumentError if @threshold < 0
       @result = raw_results
+
       exclude_external_sources
       exclude_files_user_dont_want if @exclude_files
-      if config[:exclude_above_threshold]
-        @not_covered_enough = exclude_sources_above_threshold
-      else
-        @not_covered_enough = @coverable_files
-      end
+
+      @not_covered_enough = if config[:exclude_above_threshold]
+                              exclude_sources_above_threshold
+                            else
+                              @coverable_files
+                            end
     end
 
-    # Public: Count the number of «coverable» files.
+    # Public: Count the number of "coverable" files.
     #
     # Returns the Fixnum number of files.
     #
@@ -60,7 +63,7 @@ module Coco
     #
     # N = number of files
     # f = a file
-    # average = Σ(f_i%) / N
+    # average = sum(f_i%) / N
     #
     # In words: Take the sum of the coverage's percentage of all files
     # and divide this sum by the number of files.
@@ -68,14 +71,14 @@ module Coco
     # Returns the Fixnum rounded average rate of coverage.
     #
     def average
-      if files_present? then (sum / count).round else 0 end
+      files_present? ? (sum / count).round : 0
     end
 
     private
 
     def exclude_external_sources
       here = Dir.pwd
-      @coverable_files = @result.select {|key, _| key.start_with?(here) }
+      @coverable_files = @result.select { |key, _| key.start_with?(here) }
     end
 
     def exclude_files_user_dont_want
@@ -101,7 +104,5 @@ module Coco
     def files_present?
       count > 0
     end
-
   end
-
 end

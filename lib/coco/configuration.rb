@@ -21,24 +21,28 @@ module Coco
   #
   class Configuration < Hash
 
+    DEFAULT_OPTIONS = {
+      threshold: 100,
+      directories: ['lib'],
+      excludes: %w( spec test ),
+      single_line_report: true,
+      always_run: true,
+      show_link_in_terminal: false,
+      exclude_above_threshold: true,
+      theme: 'light',
+    }.freeze
+
     # Public: Initialize a Configuration.
     #
     def initialize
-      self[:threshold] = 100
-      self[:directories] = ['lib']
-      self[:excludes] = ['spec', 'test']
-      self[:single_line_report] = true
-      self[:always_run] = true
-      self[:show_link_in_terminal] = false
-      self[:exclude_above_threshold] = true
-      self[:theme] = 'light'
+      merge!(DEFAULT_OPTIONS)
       if File.exist?('.coco.yml')
-        self.merge!(YAML.load_file('.coco.yml'))
+        merge!(YAML.load_file('.coco.yml'))
       # Deprecated: Support of '.coco' file will be removed in v1.0.
       elsif File.exist?('.coco')
         warn('Please use `.coco.yml` instead of `.coco`.')
         warn('Support for `.coco` will be removed in future versions.')
-        self.merge!(YAML.load_file('.coco'))
+        merge!(YAML.load_file('.coco'))
       end
 
       ensure_known_theme
@@ -76,20 +80,24 @@ module Coco
     end
 
     def add_files(dir)
-      Helpers.rb_files_from(dir).each {|file| self[:excludes] << file }
+      Helpers.rb_files_from(dir).each { |file| self[:excludes] << file }
     end
 
     def remove_directories
-      self[:excludes].delete_if {|file_or_dir| File.directory?(file_or_dir) }
+      self[:excludes].delete_if { |file_or_dir| File.directory?(file_or_dir) }
     end
 
     def ensure_threeshold_compatibility
       if threeshold_present?
-        warn("Please change `threeshold` to `threshold`.\n" +
-             "Support for the misspelt `threeshold` configuration key will " +
-             "be removed in future COCO versions.")
+        warn(threeshold_message)
         self[:threshold] = self[:threeshold]
       end
+    end
+
+    def threeshold_message
+      "Please change `threeshold` to `threshold`.\n" \
+      'Support for the misspelt `threeshold` configuration key will ' \
+      'be removed in future COCO versions.'
     end
 
     def threeshold_present?
@@ -103,5 +111,4 @@ module Coco
       end
     end
   end
-
 end

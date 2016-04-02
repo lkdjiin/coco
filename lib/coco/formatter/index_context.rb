@@ -25,14 +25,13 @@ module Coco
       @uncovered = uncovered
       @summary = summary
     end
-		
+
     # Public: Get the object's binding.
     #
     # Returns Binding.
     #
-    def get_binding
+    def variables
       binding
     end
   end
-
 end

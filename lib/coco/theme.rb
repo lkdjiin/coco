@@ -1,5 +1,7 @@
 module Coco
 
+  # A CSS theme for the report.
+  #
   class Theme
 
     def initialize(name)
@@ -9,6 +11,5 @@ module Coco
     def filename
       File.join(Coco::ROOT, 'template/css', @name)
     end
-
   end
 end

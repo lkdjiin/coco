@@ -7,7 +7,7 @@ module Coco
     # Public: Initialize a new ColoredString object.
     #
     # str - A String.
-    def initialize(str="")
+    def initialize(str = '')
       super(str)
     end
 

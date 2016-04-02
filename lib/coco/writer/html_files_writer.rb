@@ -16,12 +16,13 @@ module Coco
     # Public: Write HTML files in the right place.
     #
     # Returns nothing.
+    #
     def write
       @html_dir.clean
-      if @html_files.size > 0
-        @html_dir.setup
-        write_each_file
-      end
+      return if @html_files.empty?
+
+      @html_dir.setup
+      write_each_file
     end
 
     private

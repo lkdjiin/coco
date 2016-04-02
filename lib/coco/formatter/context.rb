@@ -14,14 +14,13 @@ module Coco
       @filename = filename
       @lines = lines
     end
-		
+
     # Public: Get the object's binding.
     #
     # Returns Binding.
     #
-    def get_binding
+    def variables
       binding
     end
   end
-
 end

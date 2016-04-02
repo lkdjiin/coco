@@ -7,7 +7,7 @@ describe IndexContext do
     uncovered = "c"
     summary = "d"
 
-    context = IndexContext.new(title, covered, uncovered, summary).get_binding
+    context = IndexContext.new(title, covered, uncovered, summary).variables
 
     expect(eval("@title", context)).to eq "a"
     expect(eval("@covered", context)).to eq "b"

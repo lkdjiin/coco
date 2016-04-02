@@ -23,7 +23,7 @@ module Coco
       def name_for_html(name)
         name = File.expand_path(name)
         name = name.sub(Dir.pwd, '')
-        name = name.sub(/^\//, '')
+        name = name.sub(%r{^/}, '')
         base = File.basename(name)
         name.sub(base, "<b>#{base}</b>")
       end
@@ -42,7 +42,7 @@ module Coco
       # Returns String HTML filename.
       def rb2html(name)
         name = name.sub(Dir.pwd, '')
-        name = name.sub(/^\//, '')
+        name = name.sub(%r{^/}, '')
         name = name.tr('/\\', '_')
         name + '.html'
       end
@@ -62,7 +62,7 @@ module Coco
       #
       # Returns an Array of String.
       def expand(files)
-        files.map {|file| File.expand_path(file) }
+        files.map { |file| File.expand_path(file) }
       end
 
       # Public: Get all ruby files from a directory, including
@@ -72,11 +72,9 @@ module Coco
       #
       # Returns an Array of String.
       def rb_files_from(directory)
-        rb_files = File.join(directory, "**", "*.rb")
+        rb_files = File.join(directory, '**', '*.rb')
         Dir.glob(rb_files)
       end
     end
-
   end
-
 end

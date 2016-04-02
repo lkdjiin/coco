@@ -3,7 +3,7 @@ module Coco
   # Public: I prepare the coverage/ directory for html files.
   #
   class HtmlDirectory
-    COVERAGE_DIR = 'coverage'
+    COVERAGE_DIR = 'coverage'.freeze
 
     # Public: Initialize a new HtmlDirectory object.
     #
@@ -48,7 +48,7 @@ module Coco
     # Returns nothing.
     def list
       files = Dir.glob("#{coverage_dir}/*.html")
-      files.map {|file| File.basename(file) }
+      files.map { |file| File.basename(file) }
     end
 
     private
