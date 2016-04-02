@@ -1,4 +1,4 @@
-Unreleased
+v0.14.0-development (Unreleased)
 =================================================
 
 ## Added
@@ -7,6 +7,7 @@ Unreleased
   files) in the index and on the console.
 * Add support for Ruby 2.3.
 * [Experimental] Add support for Rubinius 2.x.
+* [Experimental] Add support for (latest version of) JRuby.
 
 ## Modified
 
