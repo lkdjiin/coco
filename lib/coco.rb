@@ -1,3 +1,4 @@
+require 'coco/theme'
 require 'coco/formatter'
 require 'coco/cover'
 require 'coco/writer'
@@ -34,7 +35,7 @@ at_exit do
     puts console_formatter.link if config[:show_link_in_terminal]
 
     html_files = Coco::HtmlFormatter.new(covered).format
-    Coco::HtmlFilesWriter.new(html_files).write
+    Coco::HtmlFilesWriter.new(html_files, config[:theme]).write
 
     index = Coco::HtmlIndexFormatter.new(covered, uncovered, result).format
     Coco::HtmlIndexWriter.new(index).write

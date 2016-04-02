@@ -1,13 +1,17 @@
 module Coco
 
   # Public: I prepare the coverage/ directory for html files.
+  #
   class HtmlDirectory
     COVERAGE_DIR = 'coverage'
 
     # Public: Initialize a new HtmlDirectory object.
-    def initialize
-      css = File.join(Coco::ROOT, 'template/css')
-      @css_files = Dir.glob(css + '/*')
+    #
+    # theme - The String name of the theme. There is 2 builtin themes :
+    #         light & dark. The default one is light.
+    #
+    def initialize(theme = 'light')
+      @theme = Theme.new(theme)
       img = File.join(Coco::ROOT, 'template/img')
       @img_files = Dir.glob(img + '/*')
     end
@@ -34,7 +38,7 @@ module Coco
     def setup
       FileUtils.makedirs(css_dir)
       FileUtils.makedirs(image_dir)
-      FileUtils.cp(@css_files, css_dir)
+      FileUtils.cp(@theme.filename, File.join(css_dir, 'coco.css'))
       FileUtils.cp(@img_files, image_dir)
     end
 

@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+/*
+ * Dark theme for Coco.
+ */
+
+table.source {
+  border-collapse:collapse;
+  border-spacing: 0;
+}
+
+table.index tr {
+  height: 1.8em;
+}
+
+table.index td {
+  padding-left: 0.5em;
+}
+
+html {
+  background-color: #505050;
+  color: #F5F5F5;
+}
+
+body {
+  margin: 0;
+}
+
+h2 {
+  padding: 10px;
+  background-color: #6A9FB5;
+  color: #F5F5F5;
+  font-size: 1.1em;
+}
+
+a {
+  color: #F5F5F5;
+  text-decoration: none;
+}
+
+p {
+  margin: 1em;
+}
+
+p.menu a {
+  font-weight: bold;
+}
+
+p.date {
+  font-size: 80%;
+}
+
+table {
+  width: 100%;
+}
+
+table td {
+  border-width: 0;
+}
+
+table.source td {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+thead {
+  font-weight: bold;
+  background-color: #404040;
+  text-align: center;
+}
+
+td,
+td a {
+  color: #B0B0B0;
+}
+
+td b,
+td a b {
+  color: #F5F5F5;
+}
+
+tr.never {
+  background-color: #505050;
+}
+
+tr.hit {
+  background-color: #506939;
+}
+
+tr.hit:hover {
+  background-color: #90A959;
+}
+
+tr.miss {
+   background-color: #AC4142;
+}
+
+tr.miss:hover {
+  background-color: #E65758;
+}
+
+td.yellow, td.red, td.black {
+  width: 45px;
+}
+
+td.yellow {
+  background-color: #F4BF75;
+  color: #202020;
+}
+
+td.red {
+  background-color: #AC4142;
+  color: #F5F5F5;
+}
+
+td.black {
+  background-color: #E0E0E0;
+  color: #F5F5F5;
+}
+
+td.percentage {
+  text-align: right;
+  padding-right: 20px;
+}
+
+td.line-num,
+td.line-hits,
+td.line-source {
+  color: #F5F5F5;
+}
+
+td.line-num,
+td.line-hits {
+  width: 10%;
+  text-align: right;
+}
+
+td.line-source {
+  padding-right: 0;
+}
+
+td.line-num {
+  padding-right: 5px;
+}
+
+td.line-hits {
+  padding-right: 20px;
+}
+
+th {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+pre {
+  margin: 6px 0;
+}
+
+.summary {
+  font-size: 150%;
+  color: #F5F5F5;
+}
+
+.summary-rate, .summary-uncovered, .summary-files {
+  background-color: #6A9FB5;
+  padding: 5px 10px;
+  margin-right: 20px;
+}
+

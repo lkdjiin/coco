@@ -18,5 +18,21 @@ describe HtmlFilesWriter do
     expect(File).not_to exist(coverage_dir)
   end
 
+  context 'with the default light theme' do
+    it 'includes the CSS' do
+      HtmlFilesWriter.new({'a' => 'azerty'}).write
+      css_file = File.read("#{coverage_dir}/css/coco.css")
+      expect(css_file).to include("Default light theme for Coco")
+    end
+  end
+
+  context 'with the dark theme' do
+    it 'includes the CSS' do
+      HtmlFilesWriter.new({'a' => 'azerty'}, 'dark').write
+      css_file = File.read("#{coverage_dir}/css/coco.css")
+      expect(css_file).to include("Dark theme for Coco")
+    end
+  end
+
 end
 
