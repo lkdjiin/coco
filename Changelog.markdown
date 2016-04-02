@@ -3,9 +3,10 @@ Unreleased
 
 ## Added
 
-* Add support for Ruby 2.3.
 * Add a summary (rate of coverage, number of uncovered files and total number of
   files) in the index and on the console.
+* Add support for Ruby 2.3.
+* [Experimental] Add support for Rubinius 2.x.
 
 ## Modified
 
@@ -16,6 +17,7 @@ Unreleased
 ## Removed
 
 * Removed the license's mention in the index.
+* Removed the gems reek and flay from the development dependencies.
 
 
 v0.13.0  (2015-07-03)
