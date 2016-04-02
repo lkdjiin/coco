@@ -19,6 +19,10 @@ Or directly:
 
 *NOTE: If you're using a Gemfile, don't `:require => false`*
 
+And in case you want to test the latest development:
+
+    gem 'coco', github: 'lkdjiin/coco', branch: 'development'
+
 Usage
 --------------------------------
 Require the coco library at the beginning of your tests:
