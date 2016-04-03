@@ -4,7 +4,7 @@ describe HtmlIndexFormatter do
   let(:result) {
     instance_double(CoverageResult, coverable_files: COVERAGE_50_70)
   }
-  let(:formatter) { HtmlIndexFormatter.new(COVERAGE_50_70, [], result) }
+  let(:formatter) { HtmlIndexFormatter.new([], result) }
   let(:index) { formatter.format }
 
   describe 'API' do

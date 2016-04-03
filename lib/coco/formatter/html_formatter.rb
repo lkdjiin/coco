@@ -5,10 +5,10 @@ module Coco
 
   # I format coverages information into html files.
   # TODO document and change name to HtmlFilesFormatter
-  class HtmlFormatter < Formatter
+  class HtmlFormatter
 
     def initialize(raw_coverages)
-      super(raw_coverages, [])
+      @raw_coverages = raw_coverages
       @formatted_output_files = {}
       @context = nil
       @template = Template.open(File.join(Coco::ROOT, 'template/file.erb'))

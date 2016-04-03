@@ -2,7 +2,7 @@ module Coco
 
   # I format coverages data for console output.
   #
-  class ConsoleFormatter < Formatter
+  class ConsoleFormatter
 
     # Public: Get a colored report, formatted for console output.
     #
@@ -27,14 +27,14 @@ module Coco
 
     # Public: Creates a new ConsoleFormatter.
     #
-    # covered   - See base class Formatter.
-    # uncovered - See base class Formatter.
+    # uncovered - An Array list of uncovered files.
     # threshold - The Fixnum percentage threshold.
     # result    - A CoverageResult.
     # config    - A Configuration.
     #
-    def initialize(covered, uncovered, threshold, result, config)
-      super(covered, uncovered)
+    def initialize(uncovered, threshold, result, config)
+      @uncovered = uncovered
+      @result = result
 
       @formatted_output = []
       compute_percentage
@@ -57,7 +57,7 @@ module Coco
     private
 
     def compute_percentage
-      @raw_coverages.each do |filename, coverage|
+      @result.not_covered_enough.each do |filename, coverage|
         percentage = CoverageStat.coverage_percent(coverage)
         @formatted_output << [percentage, filename]
       end

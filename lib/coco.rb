@@ -21,13 +21,11 @@ at_exit do
   config = Coco::Configuration.new
   if config.run_anytime?
     result = Coco::CoverageResult.new(config, Coverage.result)
-    covered = result.not_covered_enough
 
     sources = Coco::SourceLister.new(config).list
     uncovered = Coco::UncoveredLister.new(sources, result.coverable_files).list
 
-    console_formatter = Coco::ConsoleFormatter.new(covered,
-                                                   uncovered,
+    console_formatter = Coco::ConsoleFormatter.new(uncovered,
                                                    config[:threshold],
                                                    result,
                                                    config)
@@ -37,7 +35,8 @@ at_exit do
     html_files = Coco::HtmlFormatter.new(result.coverable_files).format
     Coco::HtmlFilesWriter.new(html_files, config[:theme]).write
 
-    index = Coco::HtmlIndexFormatter.new(covered, uncovered, result, config[:threshold]).format
+    index = Coco::HtmlIndexFormatter.new(uncovered, result,
+                                         config[:threshold]).format
     Coco::HtmlIndexWriter.new(index).write
   end
 end

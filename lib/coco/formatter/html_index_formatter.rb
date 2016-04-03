@@ -4,10 +4,14 @@ module Coco
 
   # I format the index.html
   #
-  class HtmlIndexFormatter < Formatter
+  class HtmlIndexFormatter
 
-    def initialize(raw_coverages, uncovered, result, threshold = 100)
-      super(raw_coverages, uncovered)
+    # uncovered - An Array list of uncovered files.
+    # result    - CoverageResult.
+    # threshold - Fixnum.
+    #
+    def initialize(uncovered, result, threshold = 100)
+      @uncovered = uncovered
       @result = result
       @threshold = threshold
       @summary = Summary.new(result, uncovered)

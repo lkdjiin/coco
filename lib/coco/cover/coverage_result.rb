@@ -20,7 +20,12 @@ module Coco
     # Public: Initialize a CoverageResult.
     #
     # config      - Hash
-    # raw_results - Hash results obtained from Coverage.result.
+    # raw_results - The Hash from Coverage.result. Keys are filenames
+    #               and values are an Array representing each lines of
+    #               the file :
+    #               + nil       : Unreacheable (comments, etc).
+    #               + 0         : Not hit.
+    #               + 1 or more : Number of hits.
     #
     def initialize(config, raw_results)
       raise ArgumentError if config[:threshold] < 0
