@@ -10,7 +10,7 @@ module Coco
       super(raw_coverages, uncovered)
       @result = result
       @threshold = threshold
-      @summary = Summary.new(result)
+      @summary = Summary.new(result, uncovered)
       @context = nil
       @template = Template.open(File.join(Coco::ROOT, 'template/index.erb'))
       @lines = []
@@ -26,7 +26,6 @@ module Coco
     private
 
     def build_lines_for_context
-      # @raw_coverages.each do |filename, coverage|
       @result.coverable_files.to_a.each do |filename, coverage|
         @lines << build_line(filename, coverage)
       end

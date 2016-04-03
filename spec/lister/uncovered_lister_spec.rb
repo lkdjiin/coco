@@ -10,7 +10,7 @@ SOURCE_FILES_1 = [
 describe UncoveredLister do
 
   it "returns the list of uncovered files" do
-    list = UncoveredLister.new(SOURCE_FILES_1, COVERAGE_30_70).list
+    list = UncoveredLister.new(SOURCE_FILES_1, COVERAGE_50_70).list
 
     file1 = File.join(Coco::ROOT, 'spec/project/uncovered1.rb')
     file2 = File.join(Coco::ROOT, 'spec/project/uncovered2.rb')

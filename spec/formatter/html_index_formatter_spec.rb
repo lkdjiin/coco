@@ -2,10 +2,9 @@ require './spec/helper'
 
 describe HtmlIndexFormatter do
   let(:result) {
-    instance_double(CoverageResult, count: 123, uncovered_count: 17,
-                    average: 60, coverable_files: COVERAGE_30_70)
+    instance_double(CoverageResult, coverable_files: COVERAGE_50_70)
   }
-  let(:formatter) { HtmlIndexFormatter.new(COVERAGE_30_70, [], result) }
+  let(:formatter) { HtmlIndexFormatter.new(COVERAGE_50_70, [], result) }
   let(:index) { formatter.format }
 
   describe 'API' do
@@ -17,7 +16,7 @@ describe HtmlIndexFormatter do
   end
 
   it 'includes a summary' do
-    expect(index).to include('Rate 60%', 'Uncovered 17', 'Files 123')
+    expect(index).to include('Rate 60%', 'Uncovered 0', 'Files 2')
   end
 end
 

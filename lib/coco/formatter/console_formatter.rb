@@ -50,7 +50,7 @@ module Coco
           text.yellow
         end
       end
-      @summary = Summary.new(result)
+      @summary = Summary.new(result, uncovered)
       @config = config
     end
 

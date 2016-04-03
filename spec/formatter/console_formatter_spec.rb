@@ -2,10 +2,10 @@ require './spec/helper'
 
 describe ConsoleFormatter do
 
-  let(:cr) {
-    instance_double(CoverageResult, count: 123, uncovered_count: 17,
-                             average: 60)
+  let(:coverable) {
+    {'a' => [1, 1], 'b' => [0, 1, 1], 'c' => [0, 1, 1, 1]}
   }
+  let(:cr) { instance_double(CoverageResult, coverable_files: coverable) }
 
   let(:config_single) { {single_line_report: true} }
   let(:config_multi) { {single_line_report: false} }
@@ -74,7 +74,7 @@ describe ConsoleFormatter do
                                          cr, config_single)
         result = formatter.format
 
-        expect(result).to eq("\e[33mCover 60% | 17 uncovered | 123 files\e[0m")
+        expect(result).to eq("\e[33mCover 40% | 3 uncovered | 6 files\e[0m")
       end
     end
 

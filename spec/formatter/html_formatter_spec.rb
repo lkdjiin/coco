@@ -3,7 +3,7 @@ require './spec/helper'
 describe HtmlFormatter do
 
   it "returns the right number of html file(s)" do
-    formatter = HtmlFormatter.new(COVERAGE_30_70)
+    formatter = HtmlFormatter.new(COVERAGE_50_70)
     result = formatter.format
 
     expect(result.size).to eq(2)
