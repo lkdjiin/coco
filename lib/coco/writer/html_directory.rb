@@ -36,10 +36,10 @@ module Coco
     #
     # Returns nothing.
     def setup
-      FileUtils.makedirs(css_dir)
-      FileUtils.makedirs(image_dir)
+      FileUtils.makedirs([css_dir, image_dir, js_dir])
       FileUtils.cp(@theme.filename, File.join(css_dir, 'coco.css'))
       FileUtils.cp(@img_files, image_dir)
+      FileUtils.cp(File.join(Coco::ROOT, 'template/js/coco.js'), js_dir)
     end
 
     # Public: I list the html files from the directory where the HTML
@@ -59,6 +59,10 @@ module Coco
 
     def image_dir
       "#{COVERAGE_DIR}/img"
+    end
+
+    def js_dir
+      "#{COVERAGE_DIR}/js"
     end
   end
 end

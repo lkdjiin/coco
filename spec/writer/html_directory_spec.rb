@@ -21,9 +21,10 @@ describe HtmlDirectory do
     expect(File).not_to exist(coverage_dir)
   end
 
-  it "creates coverage and css dir and css files" do
+  it "creates all dirs & files" do
     subject.setup
     expect(File).to exist('coverage/css/coco.css')
+    expect(File).to exist('coverage/js/coco.js')
   end
 
   def make_fake_dir

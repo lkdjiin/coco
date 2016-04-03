@@ -26,19 +26,30 @@
     </section>
 
     <table class="index">
+    <% @uncovered.each do |filename| %>
+    <tr><td class="percentage black">0%</td><td><%= filename %></td></tr>
+    <% end %>
     
-      <% @uncovered.each do |filename| %>
-      <tr><td class="percentage black">0%</td><td><%= filename %></td></tr>
-      <% end %>
-      
-      <% @covered.each do |percentage, filename, href| %>
-        <% level_class = case percentage; when 80..100; 'yellow'; else 'red'; end %>
-        <tr>
-          <td class="percentage <%= level_class %>"><%= percentage %>%</td>
-	  <td><a href="<%= href %>"><%= filename %></a></td>
-        </tr>
-      <% end%>
-      
+    <% @covered.each do |percentage, filename, href| %>
+      <tr>
+        <td class="percentage <%= Helpers.level_class(percentage) %>"><%= percentage %>%</td>
+        <td><a href="<%= href %>"><%= filename %></a></td>
+      </tr>
+    <% end%>
     </table>
+
+
+    <p><a id='toggle-bis' href='#'>Show other files…</a></p>
+
+    <table class="index" id="bis">
+    <% @greens.each do |percentage, filename, href| %>
+      <tr>
+        <td class="percentage <%= Helpers.level_class(percentage) %>"><%= percentage %>%</td>
+        <td><a href="<%= href %>"><%= filename %></a></td>
+      </tr>
+    <% end %>
+    </table>
+
+  <script src="js/coco.js"></script>
   </body>
 </html>

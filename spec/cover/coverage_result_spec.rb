@@ -4,14 +4,20 @@ RAW_RESULT = {
   '/external/1' => [1],
   '/external/2' => [1],
   "#{File.join(Dir.pwd, 'internal/one')}" => [0, 1],
-  "#{File.join(Dir.pwd, 'internal/two')}" => [0, 1]
+  "#{File.join(Dir.pwd, 'internal/two')}" => [0, 1],
 }
 
 RAW_RESULT_2 = {
   '/external/1' => [1],
   '/external/2' => [1],
   "#{File.join(Dir.pwd, 'internal/one')}" => [0, 1],
-  "#{File.join(Dir.pwd, 'internal/two')}" => [1, 1]
+  "#{File.join(Dir.pwd, 'internal/two')}" => [1, 1],
+}
+
+RAW_RESULT_3 = {
+  "#{File.join(Dir.pwd, 'internal/a')}" => [0, 0],
+  "#{File.join(Dir.pwd, 'internal/b')}" => [0, 1],
+  "#{File.join(Dir.pwd, 'internal/c')}" => [1, 1],
 }
 
 describe CoverageResult do

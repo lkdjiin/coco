@@ -4,6 +4,7 @@ module Coco
   #
   # TODO The app is full of `Dir.pwd`. This is the root project
   # directory and must be in Configuration class (or Coco module ?).
+  #
   module Helpers
     class << self
 
@@ -20,6 +21,7 @@ module Coco
       #   #=> 'lib/<b>source.rb</b>'
       #
       # Returns the formatted String.
+      #
       def name_for_html(name)
         name = File.expand_path(name)
         name = name.sub(Dir.pwd, '')
@@ -40,6 +42,7 @@ module Coco
       #   #=> '_lib_source.rb.html'
       #
       # Returns String HTML filename.
+      #
       def rb2html(name)
         name = name.sub(Dir.pwd, '')
         name = name.sub(%r{^/}, '')
@@ -50,6 +53,7 @@ module Coco
       # Public: Get page title for the index.html file.
       #
       # Returns String.
+      #
       def index_title
         project_name = File.basename(Dir.pwd)
         version = File.read(File.join(Coco::ROOT, 'VERSION')).strip
@@ -61,6 +65,7 @@ module Coco
       # files - List of filenames as an Array of String.
       #
       # Returns an Array of String.
+      #
       def expand(files)
         files.map { |file| File.expand_path(file) }
       end
@@ -71,9 +76,31 @@ module Coco
       # directory - String directory to look into.
       #
       # Returns an Array of String.
+      #
       def rb_files_from(directory)
         rb_files = File.join(directory, '**', '*.rb')
         Dir.glob(rb_files)
+      end
+
+      # Public: Get the CSS class given a percentage. To use in the
+      # index file.
+      #
+      # percentage - A Fixnum.
+      #
+      # Examples
+      #
+      #   Helpers.level_class(100)
+      #   #=> 'green'
+      #
+      # Returns the String CSS class name.
+      #
+      def level_class(percentage)
+        case percentage
+        when 100 then 'green'
+        when 80..99 then 'yellow'
+        else
+          'red'
+        end
       end
     end
   end

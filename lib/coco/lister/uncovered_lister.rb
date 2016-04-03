@@ -15,11 +15,7 @@ module Coco
     # Returns Array of String list of uncovered filenames.
     #
     def list
-      list = []
-      @source_files.each do |elem|
-        list << elem unless @covered_files.include?(elem)
-      end
-      list
+      @source_files.select { |elem| !@covered_files.include?(elem) }
     end
   end
 end

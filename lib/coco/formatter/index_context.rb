@@ -8,7 +8,7 @@ module Coco
     # report.
     #
     # title     - The String title for the report.
-    # covered   - Array of subarrays. Each subarray is:
+    # all       - Array of subarrays. Each subarray is:
     #             [
     #               Fixnum coverage percentage,
     #               String formatted filename (HTML ready),
@@ -18,10 +18,11 @@ module Coco
     # uncovered - Array of String filenames. The filenames are already
     #             formatted, ready to be display in an HTML file.
     # summary   - A Summary object.
+    # threshold - Fixnum.
     #
-    def initialize(title, covered, uncovered, summary)
+    def initialize(title, all, uncovered, summary, threshold)
       @title = title
-      @covered = covered
+      @covered, @greens = all.partition { |e| e.first < threshold }
       @uncovered = uncovered
       @summary = summary
     end

@@ -32,4 +32,10 @@ describe Helpers do
     end
   end
 
+  describe '.level_class' do
+    specify { expect(Helpers.level_class(100)).to eq 'green' }
+    specify { expect(Helpers.level_class(99)).to eq 'yellow' }
+    specify { expect(Helpers.level_class(79)).to eq 'red' }
+  end
+
 end

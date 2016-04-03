@@ -34,10 +34,10 @@ at_exit do
     puts console_formatter.format
     puts console_formatter.link if config[:show_link_in_terminal]
 
-    html_files = Coco::HtmlFormatter.new(covered).format
+    html_files = Coco::HtmlFormatter.new(result.coverable_files).format
     Coco::HtmlFilesWriter.new(html_files, config[:theme]).write
 
-    index = Coco::HtmlIndexFormatter.new(covered, uncovered, result).format
+    index = Coco::HtmlIndexFormatter.new(covered, uncovered, result, config[:threshold]).format
     Coco::HtmlIndexWriter.new(index).write
   end
 end

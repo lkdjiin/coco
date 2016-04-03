@@ -100,7 +100,7 @@ tr.miss:hover {
   background-color: #E65758;
 }
 
-td.yellow, td.red, td.black {
+td.yellow, td.red, td.black, td.green {
   width: 45px;
 }
 
@@ -116,6 +116,11 @@ td.red {
 
 td.black {
   background-color: #505050;
+  color: #F5F5F5;
+}
+
+td.green {
+  background-color: #90A959;
   color: #F5F5F5;
 }
 
@@ -165,4 +170,8 @@ pre {
   background-color: #E0E0E0;
   padding: 5px 10px;
   margin-right: 20px;
+}
+
+#bis {
+  display: none;
 }

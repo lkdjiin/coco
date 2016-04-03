@@ -3,7 +3,7 @@ require './spec/helper'
 describe HtmlIndexFormatter do
   let(:result) {
     instance_double(CoverageResult, count: 123, uncovered_count: 17,
-                    average: 60)
+                    average: 60, coverable_files: COVERAGE_30_70)
   }
   let(:formatter) { HtmlIndexFormatter.new(COVERAGE_30_70, [], result) }
   let(:index) { formatter.format }
