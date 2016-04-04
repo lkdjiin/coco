@@ -66,18 +66,6 @@ no files are excluded and the console report is a single line one.
 
 To change this default configuration, put a `.coco.yml` file at the root of your project.
 
-
-### Sample config for a Rails project
-
-    :directories: 
-    - app
-    - lib
-    :excludes:
-    - config/initializers
-
-_Note: YAML is very punctilious with the syntax. In particular, paid attention
-to not put any leading spaces or tab at all._
-
 ### Theme
 
 You can choose between a light and a dark theme. The light theme is the
@@ -93,7 +81,68 @@ default one. For a dark theme, add this line in the configuration file:
 
 [TODO add a screeshot]
 
-See [more configuration examples](https://github.com/lkdjiin/coco/wiki) on the wiki.
+### Threshold
+
+Add the following line to your .coco.yml file to set the threshold to 80%.
+
+    :threshold: 80
+
+Only files under 80% of coverage will be directly reported in the report.
+I strongly advice to use the default threshold (100%).
+
+### Directories
+
+Add the following lines to your .coco.yml file to set the directories to both
+'lib' and “ext':
+
+    :directories: 
+    - lib
+    - ext
+
+### Excludes
+
+Add the following lines to your .coco.yml file to exclude a file from the
+report:
+
+    :excludes:
+    - lib/project/file1.rb
+
+Add the following lines to your .coco.yml file to exclude a whole folder's
+content from the report:
+
+    :excludes:
+    - config/initializers
+
+Of course you can mix files and folders:
+
+    :excludes:
+    - path/to/file1
+    - path/to/file2
+    - folder1
+    - path/to/folder2
+
+### Single line report
+
+By default, the console's reports a brief, one line, summary. If instead, you
+want to display the coverage of all files under the threeshold, put this line
+in your .coco.yml file:
+
+    :single_line_report: false
+
+Advice: Don't do this!
+
+## Sample config for a Rails project
+
+    :directories: 
+    - app
+    - custom_dir
+    - lib
+    :excludes:
+    - config/initializers
+
+_Note: YAML is very punctilious with the syntax. In particular, paid attention
+to not put any leading spaces or tab at all._
+
 
 Advanced configuration
 ---------------------------------
