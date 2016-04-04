@@ -213,10 +213,20 @@ Now, when running tests, you will see something like the following:
     See file:///path/to/your/coverage/index.html
 
 
-Dependencies
+How is this different than [SimpleCov](https://github.com/colszowka/simplecov) ?
 --------------------------------
 
-ruby >= 2.0
+I designed Coco from the start to have only the features I need. And I don't
+need much: 95% of the time, all I want is a tiny one line summary in my console.
+
+It's easier. Add a single line of code at the start of your spec helper and
+you are good to go.
+
+It's faster. Because Coco has no dependencies and less features, analyzing and
+reporting are so fast you don't even notice them.
+
+To synthesize, if you have big needs, give SimpleCov a try ; if you have small
+needs, give Coco a try.
 
 
 Contributing
