@@ -11,6 +11,7 @@ v0.14.0-development (Unreleased)
 * Now you can choose between a dark theme and the (old) light one, for the HTML
   report. The choice is made with a new configuration key : `:theme`. The
   default theme is the light one.
+* Add acceptance testing with Cucumber.
 * [Experimental] Add support for head of MRI Ruby.
 * [Experimental] Add support for Rubinius 2.x.
 * [Experimental] Add support for (latest version of) JRuby.
