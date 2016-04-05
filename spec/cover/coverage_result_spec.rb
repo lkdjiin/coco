@@ -23,14 +23,15 @@ RAW_RESULT_3 = {
 describe CoverageResult do
   let(:config) { {threshold: 90} }
 
-  describe 'API' do
-    let(:result) { described_class.new(config, RAW_RESULT) }
+  subject { described_class.new(config, RAW_RESULT) }
 
-    specify { expect(result).to respond_to :coverable_files }
-    specify { expect(result).to respond_to :not_covered_enough }
-    specify { expect(result).to respond_to :count }
-    specify { expect(result).to respond_to :uncovered_count }
-    specify { expect(result).to respond_to :average }
+  describe 'API' do
+
+    it { is_expected.to respond_to :coverable_files }
+    it { is_expected.to respond_to :not_covered_enough }
+    it { is_expected.to respond_to :count }
+    it { is_expected.to respond_to :uncovered_count }
+    it { is_expected.to respond_to :average }
 
     it "refuses negative threshold" do
       expect {
@@ -47,11 +48,10 @@ describe CoverageResult do
 
   describe '#coverable_files' do
     it "excludes external sources" do
-      result = CoverageResult.new(config, RAW_RESULT)
-      good_hash = result.coverable_files
+      files = subject.coverable_files
 
-      expect(good_hash.size).to eq(2)
-      expect(good_hash).to eq({
+      expect(files.size).to eq(2)
+      expect(files).to eq({
         "#{File.join(Dir.pwd, 'internal/one')}" => [0, 1],
         "#{File.join(Dir.pwd, 'internal/two')}" => [0, 1]
       })
@@ -60,10 +60,10 @@ describe CoverageResult do
     it "excludes files user don't need" do
       config = {:threshold => 90, :excludes => ['internal/two']}
       result = CoverageResult.new(config, RAW_RESULT)
-      good_hash = result.coverable_files
+      files = result.coverable_files
 
-      expect(good_hash.size).to eq(1)
-      expect(good_hash).to eq({
+      expect(files.size).to eq(1)
+      expect(files).to eq({
         "#{File.join(Dir.pwd, 'internal/one')}" => [0, 1]
       })
     end
@@ -74,20 +74,20 @@ describe CoverageResult do
       result = CoverageResult.new({:threshold => 90,
                                    :exclude_above_threshold => true},
                                    RAW_RESULT_2)
-      good_hash = result.not_covered_enough
+      files = result.not_covered_enough
 
-      expect(good_hash.size).to eq(1)
-      expect(good_hash[File.join(Dir.pwd, 'internal/one')]).to eq([0, 1])
+      expect(files.size).to eq(1)
+      expect(files[File.join(Dir.pwd, 'internal/one')]).to eq([0, 1])
     end
 
     it 'includes sources above threshold' do
       result = CoverageResult.new({:threshold => 90,
                                    :exclude_above_threshold => false},
                                    RAW_RESULT_2)
-      good_hash = result.not_covered_enough
+      files = result.not_covered_enough
 
-      expect(good_hash.size).to eq(2)
-      expect(good_hash[File.join(Dir.pwd, 'internal/one')]).to eq([0, 1])
+      expect(files.size).to eq(2)
+      expect(files[File.join(Dir.pwd, 'internal/one')]).to eq([0, 1])
     end
   end
 
