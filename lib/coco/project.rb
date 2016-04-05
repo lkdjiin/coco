@@ -17,7 +17,7 @@ module Coco
     end
 
     def run
-      return unless @config.run_anytime?
+      return unless @config.run_this_time?
 
       report_on_console
       report_in_html

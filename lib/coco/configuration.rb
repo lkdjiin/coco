@@ -63,7 +63,7 @@ module Coco
     # When 'COCO' is set to any other value, we start coverage.
     #
     # Returns true if coverage should start.
-    def run_anytime?
+    def run_this_time?
       if self[:always_run]
         true
       else

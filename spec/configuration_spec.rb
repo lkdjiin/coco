@@ -3,6 +3,12 @@ require 'yaml'
 
 describe Configuration do
 
+  RSpec::Matchers.define :run_this_time do
+    match do |obj|
+      obj.run_this_time? == true
+    end
+  end
+
   subject { Configuration.new }
 
   after :each do
@@ -11,14 +17,14 @@ describe Configuration do
   end
 
   describe 'API' do
-    it { is_expected.to respond_to :run_anytime? }
+    it { is_expected.to respond_to :run_this_time? }
   end
 
   context "with no config file" do
     it { is_expected.to include(:threshold => 100) }
     it { is_expected.to include(:directories => ['lib']) }
     it { is_expected.to include(:single_line_report => true) }
-    it { is_expected.to be_a_run_anytime }
+    it { is_expected.to run_this_time }
     it { is_expected.to include(:show_link_in_terminal => false) }
     it { is_expected.to include(:exclude_above_threshold => true) }
     it { is_expected.to include(:theme => 'light') }
@@ -31,12 +37,12 @@ describe Configuration do
   shared_examples 'COCO environment variable false, zero or nil' do
     it 'is false when :always_run is false' do
       create_config always_run: false
-      expect(subject).not_to be_a_run_anytime
+      expect(subject).not_to run_this_time
     end
 
     it 'is true when :always_run is true' do
       create_config always_run: true
-      expect(subject).to be_a_run_anytime
+      expect(subject).to run_this_time
     end
   end
 
@@ -66,18 +72,18 @@ describe Configuration do
         expect(subject).to include(:threshold => threshold)
       end
 
-      describe '#run_anytime?' do
+      describe '#run_this_time?' do
         context 'with COCO=something' do
           before { ENV['COCO'] = 'something' }
 
           it 'is true when :always_run is false' do
             create_config always_run: false
-            expect(subject).to be_a_run_anytime
+            expect(subject).to run_this_time
           end
 
           it 'is true when :always_run is true' do
             create_config always_run: true
-            expect(subject).to be_a_run_anytime
+            expect(subject).to be_run_this_time
           end
         end
 
