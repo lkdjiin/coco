@@ -1,3 +1,4 @@
+require 'coco/project'
 require 'coco/theme'
 require 'coco/formatter'
 require 'coco/cover'
@@ -17,26 +18,8 @@ end
 
 Coverage.start
 
+# The coverage's analysis happens at the very end of the test suite.
+#
 at_exit do
-  config = Coco::Configuration.new
-  if config.run_anytime?
-    result = Coco::CoverageResult.new(config, Coverage.result)
-
-    sources = Coco::SourceLister.new(config).list
-    uncovered = Coco::UncoveredLister.new(sources, result.coverable_files).list
-
-    console_formatter = Coco::ConsoleFormatter.new(uncovered,
-                                                   config[:threshold],
-                                                   result,
-                                                   config)
-    puts console_formatter.format
-    puts console_formatter.link if config[:show_link_in_terminal]
-
-    html_files = Coco::HtmlFormatter.new(result.coverable_files).format
-    Coco::HtmlFilesWriter.new(html_files, config[:theme]).write
-
-    index = Coco::HtmlIndexFormatter.new(uncovered, result,
-                                         config[:threshold]).format
-    Coco::HtmlIndexWriter.new(index).write
-  end
+  Coco::Project.run(Coverage.result)
 end
