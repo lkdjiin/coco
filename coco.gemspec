@@ -23,6 +23,7 @@ It is configurable if you need to.}
 
   s.add_development_dependency 'bundler', '~> 1.11'
   s.add_development_dependency 'rspec', '~> 3.4'
+  s.add_development_dependency 'cucumber'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'yard-tomdoc', '~> 0.7'
 end
