@@ -40,8 +40,7 @@ module Coco
         merge!(YAML.load_file('.coco.yml'))
       # Deprecated: Support of '.coco' file will be removed in v1.0.
       elsif File.exist?('.coco')
-        warn('Please use `.coco.yml` instead of `.coco`.')
-        warn('Support for `.coco` will be removed in future versions.')
+        warn(DeprecatedMessage.for_legacy_config_file)
         merge!(YAML.load_file('.coco'))
       end
 
@@ -91,7 +90,7 @@ module Coco
 
     def ensure_threeshold_compatibility
       if threeshold_present?
-        warn(threeshold_message)
+        warn(DeprecatedMessage.for_threeshold)
         self[:threshold] = self[:threeshold]
       end
     end
@@ -100,15 +99,9 @@ module Coco
       self[:threeshold]
     end
 
-    def threeshold_message
-      "Please change `threeshold` to `threshold`.\n" \
-      'Support for the misspelt `threeshold` configuration key will ' \
-      'be removed in future Coco versions.'
-    end
-
     def ensure_directories_compatibility
       if directories_present?
-        warn(directories_message)
+        warn(DeprecatedMessage.for_directories)
         self[:include] = self[:directories]
       end
     end
@@ -117,27 +110,15 @@ module Coco
       self[:directories]
     end
 
-    def directories_message
-      "Please change `directories` to `include`.\n" \
-      'Support for `directories` configuration key will ' \
-      'be removed in future Coco versions.'
-    end
-
     def ensure_excludes_compatibility
       if excludes_present?
-        warn(excludes_message)
+        warn(DeprecatedMessage.for_excludes)
         self[:exclude] = self[:excludes]
       end
     end
 
     def excludes_present?
       self[:excludes]
-    end
-
-    def excludes_message
-      "Please change `excludes` to `exclude`.\n" \
-      'Support for `excludes` configuration key will ' \
-      'be removed in future Coco versions.'
     end
 
     def ensure_known_theme

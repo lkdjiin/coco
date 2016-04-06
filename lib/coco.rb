@@ -6,6 +6,7 @@ require 'coco/writer'
 require 'coco/helpers'
 require 'coco/configuration'
 require 'coco/lister'
+require 'coco/deprecated_message'
 
 require 'coverage'
 
