@@ -34,3 +34,9 @@ def create_config options
   f.write options.to_yaml
   f.close
 end
+
+RSpec::Matchers.define :run_this_time do
+  match do |obj|
+    obj.run_this_time? == true
+  end
+end
