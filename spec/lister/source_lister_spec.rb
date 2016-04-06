@@ -9,17 +9,17 @@ describe SourceLister do
   end
 
   it "accepts a list of folder" do
-    create_config({:directories => ['lib', 'spec']})
+    create_config({:include => ['lib', 'spec']})
     expect { subject }.not_to raise_error
   end
 
   it "accepts a single folder" do
-    create_config(:directories => 'lib')
+    create_config(:include => 'lib')
     expect { subject }.not_to raise_error
   end
 
   it "raises an error if a folder doesnt exist" do
-    create_config(:directories => ['lib', 'unknown'])
+    create_config(:include => ['lib', 'unknown'])
     expect { subject }.to raise_error(ArgumentError)
   end
 
@@ -32,25 +32,25 @@ describe SourceLister do
     end
 
     it "lists the rb sources from a single folder" do
-      create_config(:directories => 'spec/project/3_rb_files', :excludes => [])
+      create_config(:include => 'spec/project/3_rb_files', :excludes => [])
       assert_list(list, size: 3)
     end
 
     it "lists the rb sources user dont want" do
-      create_config(:directories => 'spec/project/3_rb_files',
+      create_config(:include => 'spec/project/3_rb_files',
                     :excludes => ['spec/project/3_rb_files/1.rb'])
       assert_list(list, size: 2)
     end
 
     it "lists the rb sources from a list of folders" do
-      create_config(:directories => ['spec/project/3_rb_files',
+      create_config(:include => ['spec/project/3_rb_files',
                                      'spec/project/4_rb_files'],
                     :excludes => [])
       assert_list(list, size: 7)
     end
 
     it "excludes a whole directory" do
-      create_config(:directories => 'spec/project',
+      create_config(:include => 'spec/project',
                     :excludes => ['spec/project/3_rb_files',
                                   'spec/project/4_rb_files'])
       list.map! {|x| File.basename(x)}

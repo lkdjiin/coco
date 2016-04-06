@@ -23,7 +23,7 @@ module Coco
 
     DEFAULT_OPTIONS = {
       threshold: 100,
-      directories: ['lib'],
+      include: ['lib'],
       excludes: %w( spec test ),
       single_line_report: true,
       always_run: true,
@@ -47,6 +47,7 @@ module Coco
 
       ensure_known_theme
       ensure_threeshold_compatibility
+      ensure_directories_compatibility
       expand_directories
       remove_directories
     end
@@ -94,14 +95,31 @@ module Coco
       end
     end
 
+    def threeshold_present?
+      self[:threeshold]
+    end
+
     def threeshold_message
       "Please change `threeshold` to `threshold`.\n" \
       'Support for the misspelt `threeshold` configuration key will ' \
-      'be removed in future COCO versions.'
+      'be removed in future Coco versions.'
     end
 
-    def threeshold_present?
-      self[:threeshold]
+    def ensure_directories_compatibility
+      if directories_present?
+        warn(directories_message)
+        self[:include] = self[:directories]
+      end
+    end
+
+    def directories_present?
+      self[:directories]
+    end
+
+    def directories_message
+      "Please change `directories` to `include`.\n" \
+      'Support for `directories` configuration key will ' \
+      'be removed in future Coco versions.'
     end
 
     def ensure_known_theme

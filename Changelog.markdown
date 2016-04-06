@@ -17,7 +17,7 @@ v0.14.0-development (Unreleased)
 * [Experimental] Add support for (latest version of) JRuby.
 * [Experimental] Add support for OSX.
 
-## Modified
+## Changed
 
 * The single line report (on the console) is now the default behavior.
 * The license is now MIT.
@@ -27,6 +27,11 @@ v0.14.0-development (Unreleased)
 
 * Removed the license's mention in the index.
 * Removed the gems reek and flay from the development dependencies.
+
+## Deprecated
+
+* The configuration key `directories` will be removed in a future version, the
+  new key to use is `include`.
 
 
 v0.13.0  (2015-07-03)
