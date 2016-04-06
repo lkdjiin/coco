@@ -57,8 +57,8 @@ Configuration is done via a YAML file. You can configure:
 
 * __theme__: Choose between a light and a dark theme for the HTML report
 * __threshold__: the percentage threshold
-* __directories__: the directories from where coco will search for untested source files
-* __excludes__: a list of files to exclude from the report, if any
+* __include__: the directories from where coco will search for untested source files
+* __exclude__: a list of files and/or directories to exclude from the report, if any
 * __single_line_report__: style of the report in the console
 
 By default, threshold is set to 100, the list of directories is set to `['lib']`,
@@ -90,32 +90,32 @@ Add the following line to your .coco.yml file to set the threshold to 80%.
 Only files under 80% of coverage will be directly reported in the report.
 I strongly advice to use the default threshold (100%).
 
-### Directories
+### Directories Included
 
 Add the following lines to your .coco.yml file to set the directories to both
 'lib' and “ext':
 
-    :directories: 
+    :include: 
     - lib
     - ext
 
-### Excludes
+### Files and Directories Excludes
 
 Add the following lines to your .coco.yml file to exclude a file from the
 report:
 
-    :excludes:
+    :exclude:
     - lib/project/file1.rb
 
 Add the following lines to your .coco.yml file to exclude a whole folder's
 content from the report:
 
-    :excludes:
+    :exclude:
     - config/initializers
 
 Of course you can mix files and folders:
 
-    :excludes:
+    :exclude:
     - path/to/file1
     - path/to/file2
     - folder1
@@ -133,11 +133,11 @@ Advice: Don't do this!
 
 ## Sample config for a Rails project
 
-    :directories: 
+    :include: 
     - app
     - custom_dir
     - lib
-    :excludes:
+    :exclude:
     - config/initializers
 
 _Note: YAML is very punctilious with the syntax. In particular, paid attention
