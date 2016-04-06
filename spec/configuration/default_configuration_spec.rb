@@ -13,6 +13,6 @@ describe "Default configuration (no config file)" do
   it { is_expected.to include(:theme => 'light') }
 
   it "returns directories excluded by default" do
-    expect(subject[:excludes]).to all(match(/spec|test/))
+    expect(subject[:exclude]).to all(match(/spec|test/))
   end
 end

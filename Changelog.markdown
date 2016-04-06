@@ -32,6 +32,8 @@ v0.14.0-development (Unreleased)
 
 * The configuration key `directories` will be removed in a future version, the
   new key to use is `include`.
+* The configuration key `excludes` will be removed in a future version, the
+  new key to use is `exclude`.
 
 
 v0.13.0  (2015-07-03)

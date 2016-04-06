@@ -5,7 +5,7 @@ module Coco
 
     # config - Hash.
     def initialize(config)
-      @exclude_files = config[:excludes]
+      @exclude_files = config[:exclude]
       dirs = config[:include]
       @folders = [*dirs]
       @folders.each do |folder|

@@ -19,25 +19,25 @@ describe "Configuration with a config file" do
   end
 
   it "replaces excludes" do
-    expect_to_have_an_item(:excludes, [])
+    expect_to_have_an_item(:exclude, [])
   end
 
   it "reads the excludes files" do
-    expect_to_have_an_item(:excludes, %w(a b))
+    expect_to_have_an_item(:exclude, %w(a b))
   end
 
   it "reads the excludes whole dirs" do
     create_config include: ['spec/project'],
-                  excludes: ['spec/project/3_rb_files',
+                  exclude: ['spec/project/3_rb_files',
                              'spec/project/4_rb_files']
-    expect(subject[:excludes].size).to eq(7)
+    expect(subject[:exclude].size).to eq(7)
   end
 
   it "reads the excludes whole dirs and files" do
     create_config include: ['spec/project'],
-                  excludes: ['spec/project/3_rb_files',
+                  exclude: ['spec/project/3_rb_files',
                              'spec/project/six_lines.rb']
-    expect(subject[:excludes].size).to eq(4)
+    expect(subject[:exclude].size).to eq(4)
   end
 
   it "reads 'single_line_report' value" do

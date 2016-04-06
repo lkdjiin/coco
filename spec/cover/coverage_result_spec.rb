@@ -58,7 +58,7 @@ describe CoverageResult do
     end
 
     it "excludes files user don't need" do
-      config = {:threshold => 90, :excludes => ['internal/two']}
+      config = {:threshold => 90, :exclude => ['internal/two']}
       result = CoverageResult.new(config, RAW_RESULT)
       files = result.coverable_files
 

@@ -7,7 +7,7 @@ RSpec.configure do |config|
   end
 
   config.after(:suite) do
-    create_config(:excludes => ['lib'])
+    create_config(:exclude => ['lib'])
   end
 end
 

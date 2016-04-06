@@ -24,7 +24,7 @@ module Coco
     DEFAULT_OPTIONS = {
       threshold: 100,
       include: ['lib'],
-      excludes: %w( spec test ),
+      exclude: %w( spec test ),
       single_line_report: true,
       always_run: true,
       show_link_in_terminal: false,
@@ -48,6 +48,7 @@ module Coco
       ensure_known_theme
       ensure_threeshold_compatibility
       ensure_directories_compatibility
+      ensure_excludes_compatibility
       expand_directories
       remove_directories
     end
@@ -75,17 +76,17 @@ module Coco
     private
 
     def expand_directories
-      self[:excludes].each do |file_or_dir|
+      self[:exclude].each do |file_or_dir|
         add_files file_or_dir if File.directory?(file_or_dir)
       end
     end
 
     def add_files(dir)
-      Helpers.rb_files_from(dir).each { |file| self[:excludes] << file }
+      Helpers.rb_files_from(dir).each { |file| self[:exclude] << file }
     end
 
     def remove_directories
-      self[:excludes].delete_if { |file_or_dir| File.directory?(file_or_dir) }
+      self[:exclude].delete_if { |file_or_dir| File.directory?(file_or_dir) }
     end
 
     def ensure_threeshold_compatibility
@@ -119,6 +120,23 @@ module Coco
     def directories_message
       "Please change `directories` to `include`.\n" \
       'Support for `directories` configuration key will ' \
+      'be removed in future Coco versions.'
+    end
+
+    def ensure_excludes_compatibility
+      if excludes_present?
+        warn(excludes_message)
+        self[:exclude] = self[:excludes]
+      end
+    end
+
+    def excludes_present?
+      self[:excludes]
+    end
+
+    def excludes_message
+      "Please change `excludes` to `exclude`.\n" \
+      'Support for `excludes` configuration key will ' \
       'be removed in future Coco versions.'
     end
 

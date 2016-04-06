@@ -30,7 +30,7 @@ module Coco
     def initialize(config, raw_results)
       raise ArgumentError if config[:threshold] < 0
 
-      @exclude_files = config[:excludes]
+      @exclude_files = config[:exclude]
       @threshold = config[:threshold]
       @result = raw_results
 

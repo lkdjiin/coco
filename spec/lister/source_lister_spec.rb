@@ -32,26 +32,26 @@ describe SourceLister do
     end
 
     it "lists the rb sources from a single folder" do
-      create_config(:include => 'spec/project/3_rb_files', :excludes => [])
+      create_config(:include => 'spec/project/3_rb_files', :exclude => [])
       assert_list(list, size: 3)
     end
 
     it "lists the rb sources user dont want" do
       create_config(:include => 'spec/project/3_rb_files',
-                    :excludes => ['spec/project/3_rb_files/1.rb'])
+                    :exclude => ['spec/project/3_rb_files/1.rb'])
       assert_list(list, size: 2)
     end
 
     it "lists the rb sources from a list of folders" do
       create_config(:include => ['spec/project/3_rb_files',
                                      'spec/project/4_rb_files'],
-                    :excludes => [])
+                    :exclude => [])
       assert_list(list, size: 7)
     end
 
     it "excludes a whole directory" do
       create_config(:include => 'spec/project',
-                    :excludes => ['spec/project/3_rb_files',
+                    :exclude => ['spec/project/3_rb_files',
                                   'spec/project/4_rb_files'])
       list.map! {|x| File.basename(x)}
 
