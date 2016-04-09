@@ -31,17 +31,9 @@ module Coco
 
     def build_lines_for_context
       @result.coverable_files.to_a.each do |filename, coverage|
-        @lines << build_line(filename, coverage)
+        @lines << IndexLine.build(filename, coverage)
       end
       @lines.sort!
-    end
-
-    def build_line(filename, coverage)
-      [
-        CoverageStat.coverage_percent(coverage),
-        Helpers.name_for_html(filename),
-        Helpers.rb2html(filename),
-      ]
     end
 
     def uncovered_files

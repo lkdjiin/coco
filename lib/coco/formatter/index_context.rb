@@ -22,7 +22,7 @@ module Coco
     #
     def initialize(title, all, uncovered, summary, threshold)
       @title = title
-      @covered, @greens = all.partition { |e| e.first < threshold }
+      @covered, @greens = all.partition { |file| file.first < threshold }
       @uncovered = uncovered
       @summary = summary
     end

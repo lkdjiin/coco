@@ -6,9 +6,9 @@ module Coco
     attr_reader :count, :uncovered_count
 
     def initialize(result, uncovered)
-      @coverable_files = result.coverable_files
-      @count = result.coverable_files.size + uncovered.size
       @uncovered_count = uncovered.size
+      @coverable_files = result.coverable_files
+      @count = @coverable_files.size + @uncovered_count
     end
 
     def to_s

@@ -1,5 +1,7 @@
 module Coco
 
+  # A project reports statistics about the code coverage.
+  #
   class Project
 
     # raw_result - The hash obtain by the call to `Coverage.result`.
