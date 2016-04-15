@@ -2,9 +2,6 @@ module Coco
 
   # Public: Collection of application's helpers methods.
   #
-  # TODO The app is full of `Dir.pwd`. This is the root project
-  # directory and must be in Configuration class (or Coco module ?).
-  #
   module Helpers
 
     # Public: Get a String (ruby) source filename ready to be

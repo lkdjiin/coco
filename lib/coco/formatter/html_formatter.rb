@@ -3,8 +3,8 @@ require 'erb'
 
 module Coco
 
-  # I format coverages information into html files.
-  # TODO document and change name to HtmlFilesFormatter
+  # I format coverage's data into html files.
+  #
   class HtmlFormatter
 
     def initialize(raw_coverages)

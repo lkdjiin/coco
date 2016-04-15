@@ -14,7 +14,6 @@ module Coco
     #               String formatted filename (HTML ready),
     #               String real filename
     #             ]
-    #             FIXME Need a class to handle subarrays.
     # uncovered - Array of String filenames. The filenames are already
     #             formatted, ready to be display in an HTML file.
     # summary   - A Summary object.
