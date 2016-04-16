@@ -6,20 +6,23 @@ module Coco
     # Public: Initialize a new HtmlFilesWriter.
     #
     # html_files - Hash, key is filename, value is html content.
-    def initialize(html_files)
+    # theme      - The String name of the theme. Default is light.
+    #
+    def initialize(html_files, theme = 'light')
       @html_files = html_files
-      @html_dir = HtmlDirectory.new
+      @html_dir = HtmlDirectory.new(theme)
     end
 
     # Public: Write HTML files in the right place.
     #
     # Returns nothing.
+    #
     def write
       @html_dir.clean
-      if @html_files.size > 0
-        @html_dir.setup
-        write_each_file
-      end
+      return if @html_files.empty?
+
+      @html_dir.setup
+      write_each_file
     end
 
     private

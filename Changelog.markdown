@@ -1,3 +1,45 @@
+Next version (Unreleased)
+=================================================
+
+
+v0.14.0 (2016-04-16)
+=================================================
+
+## Added
+
+* Add a summary (rate of coverage, number of uncovered files and total number of
+  files) in the HTML report and on the console.
+* You can now view all files in the HTML report, even those equal to or above
+  the threshold. This feature allow you to view the line's hit for every files.
+* Add support for Ruby 2.3.
+* Now you can choose between a dark theme and the (old) light one, for the HTML
+  report. The choice is made with a new configuration key : `:theme`. The
+  default theme is the light one.
+* Add acceptance testing with Cucumber.
+* [Experimental] Add support for head of MRI Ruby.
+* [Experimental] Add support for Rubinius 2.x.
+* [Experimental] Add support for (latest version of) JRuby.
+* [Experimental] Add support for OSX.
+
+## Changed
+
+* The single line report (on the console) is now the default behavior.
+* The license is now MIT.
+* Move contributors list in a file.
+
+## Removed
+
+* Removed the license's mention in the reports's index.
+* Removed the gems reek and flay from the development dependencies.
+
+## Deprecated
+
+* The configuration key `directories` will be removed in a future version, the
+  new key to use is `include`.
+* The configuration key `excludes` will be removed in a future version, the
+  new key to use is `exclude`.
+
+
 v0.13.0  (2015-07-03)
 =================================================
 

@@ -7,47 +7,49 @@
   </head>
   <body>
     <p class="menu">
-      <a href="index.html">Index</a> <img src="img/coconut16.png" width="16" height="16" />
-      <a href="https://github.com/lkdjiin/coco/wiki">Wiki</a> <img src="img/coconut16.png" width="16" height="16" />
-      <a href="https://github.com/lkdjiin/coco">Source</a> <img src="img/coconut16.png" width="16" height="16" />
+      <a href="index.html">Index</a> |
+      <a href="https://github.com/lkdjiin/coco/wiki">Wiki</a> |
+      <a href="https://github.com/lkdjiin/coco">Source</a> |
       <a href="http://lkdjiin.github.com/coco/">Web site</a>
     </p>
     <h2><%= @title %></h2>
     <p class="date">
       <%= "#{Time.now}" %>
     </p>
+
+    <section class="summary">
+      <p>
+      <span class="summary-rate">Rate <%= @summary.average %>%</span>
+      <span class="summary-uncovered">Uncovered <%= @summary.uncovered_count %></span>
+      <span class="summary-files">Files <%= @summary.count %></span>
+      </p>
+    </section>
+
     <table class="index">
+    <% @uncovered.each do |filename| %>
+    <tr><td class="percentage black">0%</td><td><%= filename %></td></tr>
+    <% end %>
     
-      <% @uncovered.each do |filename| %>
-      <tr><td class="percentage black">0%</td><td><%= filename %></td></tr>
-      <% end %>
-      
-      <% @covered.each do |percentage, filename, href| %>
-        <% level_class = case percentage; when 80..100; 'yellow'; else 'red'; end %>
-        <tr>
-          <td class="percentage <%= level_class %>"><%= percentage %>%</td>
-	  <td><a href="<%= href %>"><%= filename %></a></td>
-        </tr>
-      <% end%>
-      
+    <% @covered.each do |percentage, filename, href| %>
+      <tr>
+        <td class="percentage <%= Helpers.level_class(percentage) %>"><%= percentage %>%</td>
+        <td><a href="<%= href %>"><%= filename %></a></td>
+      </tr>
+    <% end%>
     </table>
-    
-    <p class="license">
-    Coco, code coverage for ruby.<br/>
-    Copyright 2011-<%= Time.now.year %>, Xavier Nayrac<br/>
-    <br/>
-    This program is free software: you can redistribute it and/or modify<br/>
-    it under the terms of the GNU General Public License as published by<br/>
-    the Free Software Foundation, either version 3 of the License, or<br/>
-    (at your option) any later version.<br/>
-    <br/>
-    This program is distributed in the hope that it will be useful,<br/>
-    but WITHOUT ANY WARRANTY; without even the implied warranty of<br/>
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<br/>
-    GNU General Public License for more details.<br/>
-    <br/>
-    You should have received a copy of the GNU General Public License<br/>
-    along with this program.  If not, see http://www.gnu.org/licenses/.<br/>
-    </p>
+
+
+    <p><a id='toggle-bis' href='#'>&gt;&gt;&gt; Toggle fully covered files… &lt;&lt;&lt;</a></p>
+
+    <table class="index" id="bis">
+    <% @greens.each do |percentage, filename, href| %>
+      <tr>
+        <td class="percentage <%= Helpers.level_class(percentage) %>"><%= percentage %>%</td>
+        <td><a href="<%= href %>"><%= filename %></a></td>
+      </tr>
+    <% end %>
+    </table>
+
+  <script src="js/coco.js"></script>
   </body>
 </html>

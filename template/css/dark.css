@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+/*
+ * Dark theme for Coco.
+ */
+
 table.source {
   border-collapse:collapse;
   border-spacing: 0;
@@ -14,8 +18,8 @@ table.index td {
 }
 
 html {
-  background-color: #F5F5F5;
-  color: #505050;
+  background-color: #505050;
+  color: #F5F5F5;
 }
 
 body {
@@ -30,7 +34,7 @@ h2 {
 }
 
 a {
-  color: #505050;
+  color: #F5F5F5;
   text-decoration: none;
 }
 
@@ -40,14 +44,6 @@ p {
 
 p.menu a {
   font-weight: bold;
-}
-
-p.license {
-  color: #B0B0B0;
-  margin-top: 20px;
-  padding-top: 5px;
-  border-top: 1px solid #D0D0D0;
-  font-size: 80%;
 }
 
 p.date {
@@ -70,7 +66,7 @@ table.source td {
 
 thead {
   font-weight: bold;
-  background-color: #E0E0E0;
+  background-color: #404040;
   text-align: center;
 }
 
@@ -81,19 +77,19 @@ td a {
 
 td b,
 td a b {
-  color: #505050;
+  color: #F5F5F5;
 }
 
 tr.never {
-  background-color: #F5F5F5;
+  background-color: #505050;
 }
 
 tr.hit {
-  background-color: #90A959;
+  background-color: #506939;
 }
 
 tr.hit:hover {
-  background-color: #C4E679;
+  background-color: #90A959;
 }
 
 tr.miss {
@@ -104,13 +100,13 @@ tr.miss:hover {
   background-color: #E65758;
 }
 
-td.yellow, td.red, td.black {
+td.yellow, td.red, td.black, td.green {
   width: 45px;
 }
 
 td.yellow {
   background-color: #F4BF75;
-  color: #303030;
+  color: #202020;
 }
 
 td.red {
@@ -119,7 +115,12 @@ td.red {
 }
 
 td.black {
-  background-color: #505050;
+  background-color: #404040;
+  color: #F5F5F5;
+}
+
+td.green {
+  background-color: #90A959;
   color: #F5F5F5;
 }
 
@@ -131,7 +132,7 @@ td.percentage {
 td.line-num,
 td.line-hits,
 td.line-source {
-  color: #202020;
+  color: #F5F5F5;
 }
 
 td.line-num,
@@ -161,4 +162,17 @@ pre {
   margin: 6px 0;
 }
 
+.summary {
+  font-size: 150%;
+  color: #F5F5F5;
+}
 
+.summary-rate, .summary-uncovered, .summary-files {
+  background-color: #6A9FB5;
+  padding: 5px 10px;
+  margin-right: 20px;
+}
+
+#bis {
+  display: none;
+}
