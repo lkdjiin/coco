@@ -3,8 +3,8 @@
 <head>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <meta charset='UTF-8'>
-<title>Coco, code coverage for ruby 2.0 2.1 and 2.2</title>
-<meta name="description" content="Code coverage tool for standalone ruby application and Rails."/>
+<title>Coco, code coverage for ruby 2.0, 2.1, 2.2 and 2.3</title>
+<meta name="description" content="Code coverage tool for standalone ruby applications and Rails."/>
 <link rel="stylesheet" href="css/coco.css" type="text/css" />
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -13,7 +13,7 @@
 <body>
   <section class ="sec-features">
     <h1>coco</h1>
-    <h2>code coverage for ruby 2.0, 2.1 and 2.2</h2>
+    <h2>code coverage for ruby 2.0 to 2.3</h2>
     <h2><a class="btn" href="https://github.com/lkdjiin/coco">Download from Github</a></h2>
     <ul>
       <li>Easy setup</li>
@@ -30,8 +30,8 @@
   </section>
 
   <section class ="sec-news">
-    <h1>Version 0.13.0</h1>
-    <h2>released on 2015-07-03</h2>
+    <h1>Version 0.14.0</h1>
+    <h2>released on 2016-07-16</h2>
   </section>
 
   <section class ="sec-usage">
@@ -52,16 +52,17 @@
     <h1>Config</h1>
     <p>Configuration is done via a YAML file.</p>
     <h2>Sample config for a Rails project</h2>
-    <code><pre>:directories: 
+    <code><pre>:include: 
 - lib
-:excludes:
+:exclude:
 - config/initializers
-:single_line_report: true</pre></code>
+:always_run: false
+:theme: light</pre></code>
   </section>
 
   <section class ="sec-copy">
     <h1><a href="https://github.com/lkdjiin/coco">Download from Github</a></h1>
-    <h2>License GPLv3</h2>
+    <h2>MIT License</h2>
   </section>
 
   <section class ="sec-contact">
