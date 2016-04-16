@@ -8,11 +8,10 @@ Gem::Specification.new do |s|
   s.summary = 'Code coverage tool for ruby 2.x'
   s.homepage = 'http://lkdjiin.github.com/coco/'
   s.description = %q{"Code coverage tool for ruby 2.0 to 2.3.
-Use it by "require 'coco'" from rspec or unit/test.
-It display names of uncovered files on console.
-It builds simple html report.
-It reports sources that have no tests.
-It is configurable if you need to.}
+Simply "require 'coco'" from rspec or unit/test.
+Build simple html report.
+Report sources that have no tests.
+Configurable if you need to.}
 	
   files = FileList['lib/**/*.rb', 'template/**/*', '[A-Z]*']
   files.exclude('TODO')
@@ -25,5 +24,4 @@ It is configurable if you need to.}
   s.add_development_dependency 'rspec', '~> 3.4'
   s.add_development_dependency 'cucumber'
   s.add_development_dependency 'rake'
-  s.add_development_dependency 'yard-tomdoc', '~> 0.7'
 end

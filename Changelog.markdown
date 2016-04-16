@@ -1,4 +1,8 @@
-v0.14.0-development (Unreleased)
+Next version (Unreleased)
+=================================================
+
+
+v0.14.0 (2016-04-16)
 =================================================
 
 ## Added
@@ -25,7 +29,7 @@ v0.14.0-development (Unreleased)
 
 ## Removed
 
-* Removed the license's mention in the index.
+* Removed the license's mention in the reports's index.
 * Removed the gems reek and flay from the development dependencies.
 
 ## Deprecated

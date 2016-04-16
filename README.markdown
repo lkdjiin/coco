@@ -75,11 +75,11 @@ default one. For a dark theme, add this line in the configuration file:
 
 **Light theme**
 
-[TODO add a screeshot]
+![light](theme-light.png)
 
 **Dark theme**
 
-[TODO add a screeshot]
+![dark](theme-dark.png)
 
 ### Threshold
 
