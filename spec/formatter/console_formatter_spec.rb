@@ -54,7 +54,7 @@ describe ConsoleFormatter do
 
     context "with some uncovered files" do
       it "returns the summary" do
-        expected = "\e[33mCover 40% | 3 uncovered | 6 files\e[0m"
+        expected = "\e[33mCover 40.28% | 3 uncovered | 6 files\e[0m"
         expect(result(%w(a b c), 100, config_single)).to eq(expected)
       end
     end
