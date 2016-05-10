@@ -16,7 +16,6 @@ describe HtmlIndexFormatter do
   end
 
   it 'includes a summary' do
-    expect(index).to include('Rate 60%', 'Uncovered 0', 'Files 2')
+    expect(index).to include('Rate 60.00%', 'Uncovered 0', 'Files 2')
   end
 end
-
