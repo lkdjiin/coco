@@ -1,6 +1,12 @@
 Next version (Unreleased)
 =================================================
 
+## Changed
+
+* The coverage rate is now displayed in decimal format. So it's 12.34% instead
+  of 12%. This change affect the console summary as well as the index page of
+  the HTML report.
+
 
 v0.14.0 (2016-04-16)
 =================================================
