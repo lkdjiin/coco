@@ -19,7 +19,7 @@
 
     <section class="summary">
       <p>
-      <span class="summary-rate">Rate <%= @summary.average %>%</span>
+      <span class="summary-rate">Rate <%= '%.2f' % @summary.average %>%</span>
       <span class="summary-uncovered">Uncovered <%= @summary.uncovered_count %></span>
       <span class="summary-files">Files <%= @summary.count %></span>
       </p>

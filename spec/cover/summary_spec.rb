@@ -9,6 +9,6 @@ describe Summary do
     result = instance_double(CoverageResult, coverable_files: coverable)
     uncovered = ['untested']
     summary = Summary.new(result, uncovered)
-    expect(summary.to_s).to eq 'Cover 60% | 1 uncovered | 4 files'
+    expect(summary.to_s).to eq 'Cover 60.42% | 1 uncovered | 4 files'
   end
 end
