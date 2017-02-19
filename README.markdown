@@ -3,11 +3,9 @@ coco [![Build Status](https://travis-ci.org/lkdjiin/coco.png)](https://travis-ci
 
 — *«If it's well-covered it doesn't mean it's well-tested!»* —
 
-Code coverage tool for ruby 2.0, 2.1, 2.2 and 2.3.
-=======
+# Code coverage tool for ruby 2.x
 
-Install
---------------------------------
+## Install
 
 In your Gemfile:
 
@@ -23,8 +21,7 @@ And in case you want to test the latest development:
 
     gem 'coco', github: 'lkdjiin/coco', branch: 'development'
 
-Usage
---------------------------------
+## Usage
 Require the coco library at the beginning of your tests:
 
     require 'coco'
@@ -50,8 +47,7 @@ the `coverage/index.html` to access a line by line report.
 _Note: files with a coverage of 0% are only listed in index.html ; there
 is no line by line report for such files._
 
-Basic Configuration
-----------------------------------
+## Basic Configuration
 
 Configuration is done via a YAML file. You can configure:
 
@@ -144,8 +140,7 @@ _Note: YAML is very punctilious with the syntax. In particular, paid attention
 to not put any leading spaces or tab at all._
 
 
-Advanced configuration
----------------------------------
+## Advanced configuration
 
 ### See coverage of all files in the console
 
@@ -213,8 +208,7 @@ Now, when running tests, you will see something like the following:
     See file:///path/to/your/coverage/index.html
 
 
-How is this different than [SimpleCov](https://github.com/colszowka/simplecov) ?
---------------------------------
+## How is this different than [SimpleCov](https://github.com/colszowka/simplecov) ?
 
 I designed Coco from the start to have only the features I need. And I don't
 need much: 95% of the time, all I want is a tiny one line summary in my console.
@@ -229,26 +223,22 @@ To synthesize, if you have big needs, give SimpleCov a try ; if you have small
 needs, give Coco a try.
 
 
-Contributing
---------------------------------
+## Contributing
 
 1. Fork it.
-2. Create your feature branch **from the development branch**:
-   - `git checkout development`
-   - `git pull origin development`
+2. Create your feature branch
+   - `git pull origin master`
    - `git checkout -b my-new-feature`
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a Pull Request.
 
 
-License
---------------------------------
+## License
 MIT, see LICENSE.
 
 
-Questions and/or Comments
---------------------------------
+## Questions and/or Comments
 
 Feel free to email [Xavier Nayrac](mailto:xavier.nayrac@gmail.com)
 with any questions, or contact me on [twitter](https://twitter.com/lkdjiin).
