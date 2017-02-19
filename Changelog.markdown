@@ -1,6 +1,13 @@
 Next version (Unreleased)
 =================================================
 
+## Added
+
+* It's now possible to exit (with code status 2) from coco when the coverage
+  is less than the threshold. This feature allow the build to fail in
+  continuous integration. This behavior is controlled by the option
+  `:exit_if_low_coverage` and is false by default.
+
 ## Changed
 
 * The coverage rate is now displayed in decimal format. So it's 12.34% instead

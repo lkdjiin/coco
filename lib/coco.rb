@@ -11,7 +11,7 @@ require 'coco/deprecated_message'
 require 'coverage'
 
 # Public: Main namespace of Coco, a code coverage utilily for
-# Ruby from 2.0 to 2.3.
+# Ruby 2.x.
 #
 module Coco
   ROOT = File.expand_path(File.dirname(__FILE__) + '/..').freeze
