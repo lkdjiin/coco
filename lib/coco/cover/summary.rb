@@ -12,7 +12,7 @@ module Coco
     end
 
     def to_s
-      "Cover #{average}% | #{uncovered_count} uncovered | #{count} files"
+      "Cover #{'%.2f' % average}% | #{uncovered_count} uncovered | #{count} files"
     end
 
     # Public: Computes the average coverage rate.
@@ -25,10 +25,10 @@ module Coco
     # In words: Take the sum of the coverage's percentage of all files
     # and divide this sum by the number of files.
     #
-    # Returns the Fixnum rounded average rate of coverage.
+    # Returns the Float average rate of coverage.
     #
     def average
-      files_present? ? (sum / count).round : 0
+      files_present? ? sum / count : 0
     end
 
     private
