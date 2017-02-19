@@ -3,6 +3,7 @@ module Coco
   # A project reports statistics about the code coverage.
   #
   class Project
+    EXIT_ON_LOW_COVERAGE_CODE = 2
 
     # raw_result - The hash obtain by the call to `Coverage.result`.
     # out        - The output where results will be displayed, by
@@ -23,9 +24,23 @@ module Coco
 
       report_on_console
       report_in_html
+
+      maybe_exit_if_low_coverage
     end
 
     private
+
+    def maybe_exit_if_low_coverage
+      return if coverage_is_satisfying?
+
+      @out.puts "Sadly, the code coverage is below the required value of " +
+                "#{@config[:exit_if_coverage_below]}%"
+      exit(EXIT_ON_LOW_COVERAGE_CODE)
+    end
+
+    def coverage_is_satisfying?
+      Summary.new(result, uncovered).average >= @config[:exit_if_coverage_below]
+    end
 
     def report_on_console
       formatter = ConsoleFormatter.new(uncovered, @config[:threshold],

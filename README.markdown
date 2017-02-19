@@ -176,14 +176,16 @@ environement variable `COCO`, like this:
 ### Exit with code 2 if coverage is under the threshold
 
 If you're using some kind of continuous integration, there is some chance you
-want the build to fail if the coverage is under the threshold. In such case
-set the `exit_if_low_coverage` option to true.
+want the build to fail if the coverage is under a certain threshold. In such case
+set the `exit_if_coverage_below` option.
 
 #### Example
 
 Put this in your `.coco.yml` configuration file:
 
-    :exit_if_low_coverage: true
+    :exit_if_coverage_below: 95
+
+This will make coco fail if the coverage percentage is below 95%.
 
 
 ### See coverage of all files in the console
