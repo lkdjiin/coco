@@ -4,9 +4,9 @@ Next version (Unreleased)
 ## Added
 
 * It's now possible to exit (with code status 2) from coco when the coverage
-  is less than the threshold. This feature allow the build to fail in
+  is less than a particular threshold. This feature allow the build to fail in
   continuous integration. This behavior is controlled by the option
-  `:exit_if_low_coverage` and is false by default.
+  `:exit_if_coverage_below` and is to 0 by default (that is it's not active).
 
 ## Changed
 

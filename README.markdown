@@ -173,11 +173,11 @@ environement variable `COCO`, like this:
 
     COCO=1 rspec
 
-### Exit with code 2 if coverage is under the threshold
+### Premature exit if coverage is under a particular threshold
 
 If you're using some kind of continuous integration, there is some chance you
-want the build to fail if the coverage is under a certain threshold. In such case
-set the `exit_if_coverage_below` option.
+would like the build to fail if the coverage is under a particular threshold.
+In such case you want to set the `exit_if_coverage_below` option.
 
 #### Example
 
