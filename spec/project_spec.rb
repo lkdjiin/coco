@@ -17,8 +17,9 @@ RSpec.describe Project do
       begin
         project.run
       rescue SystemExit => ex
-        expect(output.string)
-          .to eq "Sadly, the code coverage is below the required value of 87%\n"
+        red_code = "31m"
+        message = "Sadly, the code coverage is below the required value of 87%"
+        expect(output.string).to match "#{red_code}#{message}"
         expect(ex.status).to eq Project::EXIT_ON_LOW_COVERAGE_CODE
       else
         expect(true).to eq false # We really want to exit!

@@ -33,8 +33,10 @@ module Coco
     def maybe_exit_if_low_coverage
       return if coverage_is_satisfying?
 
-      @out.puts "Sadly, the code coverage is below the required value of " +
+      message = "Sadly, the code coverage is below the required value of " +
                 "#{@config[:exit_if_coverage_below]}%"
+      @out.puts ColoredString.new(message).red
+
       exit(EXIT_ON_LOW_COVERAGE_CODE)
     end
 
