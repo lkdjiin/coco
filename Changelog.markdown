@@ -1,6 +1,10 @@
 Next version (Unreleased)
 =================================================
 
+
+v0.15.0 (2017-02-27)
+=================================================
+
 ## Added
 
 * It's now possible to exit (with code status 2) from coco when the coverage
