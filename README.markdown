@@ -142,19 +142,6 @@ to not put any leading spaces or tab at all._
 
 ## Advanced configuration
 
-### See coverage of all files in the console
-
-By default, with a multilines report style on the console, Coco will display
-only the files with a coverage above the threshold. And as the threshold is
-100% by default, nothing will be displayed if your test suite is 100% covered.
-This could be annoying for some people, or worst, you could even feel like Coco
-doing something the wrong way.
-
-So, to display in green the covered files, put this in your `.coco.yml`
-configuration file:
-
-    :exclude_above_threshold: false
-
 ### When to start coco, and when not to start it
 
 For projects whose complete test suite runs in a matter of seconds, running
@@ -185,6 +172,34 @@ Now, when you run:
 environement variable `COCO`, like this:
 
     COCO=1 rspec
+
+### Premature exit if coverage is under a particular threshold
+
+If you're using some kind of continuous integration, there is some chance you
+would like the build to fail if the coverage is under a particular threshold.
+In such case you want to set the `exit_if_coverage_below` option.
+
+#### Example
+
+Put this in your `.coco.yml` configuration file:
+
+    :exit_if_coverage_below: 95
+
+This will make coco fail if the coverage percentage is below 95%.
+
+
+### See coverage of all files in the console
+
+By default, with a multilines report style on the console, Coco will display
+only the files with a coverage above the threshold. And as the threshold is
+100% by default, nothing will be displayed if your test suite is 100% covered.
+This could be annoying for some people, or worst, you could even feel like Coco
+doing something the wrong way.
+
+So, to display in green the covered files, put this in your `.coco.yml`
+configuration file:
+
+    :exclude_above_threshold: false
 
 ### Index page URI in your terminal
 

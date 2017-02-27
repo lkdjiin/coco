@@ -30,6 +30,7 @@ module Coco
       show_link_in_terminal: false,
       exclude_above_threshold: true,
       theme: 'light',
+      exit_if_coverage_below: 0,
     }.freeze
 
     # Public: Initialize a Configuration.

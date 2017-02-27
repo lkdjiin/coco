@@ -4,8 +4,9 @@ rvm:
   - "2.1.1"
   - "2.2.4"
   - "2.3.0"
+  - "2.4.0"
   - "ruby-head"
-  - "rbx-2"
+  - "rbx-head"
   - "jruby-head"
 os:
   - linux
@@ -13,4 +14,5 @@ os:
 matrix:
   allow_failures:
     - os: osx
+    - rvm: "rbx-head"
 before_install: gem install bundler
