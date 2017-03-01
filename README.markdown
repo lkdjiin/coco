@@ -187,6 +187,20 @@ Put this in your `.coco.yml` configuration file:
 
 This will make coco fail if the coverage percentage is below 95%.
 
+### Change the output directory
+
+The HTML output goes into a folder named `coverage`. This is fine 99.9% of the
+time. For the remaining 0.1% this is customisable.
+
+#### Example
+
+Put this in your `.coco.yml` configuration file:
+
+    :output_directory: 'code_coverage'
+
+Or even outside of the current folder if you need to :
+
+    :output_directory: '../outside/coverage'
 
 ### See coverage of all files in the console
 
