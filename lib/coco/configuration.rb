@@ -31,6 +31,7 @@ module Coco
       exclude_above_threshold: true,
       theme: 'light',
       exit_if_coverage_below: 0,
+      output_directory: 'coverage',
     }.freeze
 
     # Public: Initialize a Configuration.
