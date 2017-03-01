@@ -7,10 +7,11 @@ module Coco
     # Public: Initialize a new HtmlIndexWriter object.
     #
     # index - A String HTML document.
+    # config - A Coco::Configuration object.
     #
-    def initialize(index)
+    def initialize(index, config)
       @index = index
-      @dir = HtmlDirectory.new.coverage_dir
+      @dir = HtmlDirectory.new(config).coverage_dir
     end
 
     # Public: Write the index file in the right place.

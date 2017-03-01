@@ -12,7 +12,9 @@ describe ConsoleFormatter do
                              not_covered_enough: not_enough) }
 
   let(:config_single) { {single_line_report: true} }
-  let(:config_multi) { {single_line_report: false} }
+  let(:config_multi) do
+    {single_line_report: false, output_directory: 'coverage'}
+  end
 
   def result(uncovered = [], threshold = 100, conf = config_multi)
     ConsoleFormatter.new(uncovered, threshold, cr, conf).format

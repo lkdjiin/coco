@@ -20,8 +20,8 @@ module Coco
     def link
       unless @formatted_output.empty?
         'See file://' +
-          File.expand_path(File.join(Coco::HtmlDirectory.new.coverage_dir,
-                                     'index.html'))
+        File.expand_path(File.join(HtmlDirectory.new(@config).coverage_dir,
+                                   'index.html'))
       end
     end
 

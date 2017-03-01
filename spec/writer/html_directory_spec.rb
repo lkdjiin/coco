@@ -2,7 +2,7 @@ require './spec/helper'
 
 describe HtmlDirectory do
   let(:coverage_dir) { 'coverage' }
-  subject { HtmlDirectory.new }
+  subject { HtmlDirectory.new({theme: 'light', output_directory: 'coverage'}) }
 
   after :each do
     FileUtils.remove_dir(coverage_dir) if File.exist?(coverage_dir)
@@ -41,8 +41,20 @@ describe HtmlDirectory do
     expect(list).not_to include('c.not_html')
   end
 
-  it "returns the coverage folder" do
-    expect(subject.coverage_dir).to eq(coverage_dir)
+  describe "coverage directory" do
+    context "with a default config" do
+      it "returns the default directory" do
+        expect(subject.coverage_dir).to eq(coverage_dir)
+      end
+    end
+
+    context "with overridden config" do
+      it "returns the directory" do
+        directory = "whatever"
+        html_dir = HtmlDirectory.new({output_directory: directory,
+                                      theme: "light"})
+        expect(html_dir.coverage_dir).to eq(directory)
+      end
+    end
   end
 end
-

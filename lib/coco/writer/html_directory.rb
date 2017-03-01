@@ -3,15 +3,14 @@ module Coco
   # Public: I prepare the coverage/ directory for html files.
   #
   class HtmlDirectory
-    COVERAGE_DIR = 'coverage'.freeze
 
     # Public: Initialize a new HtmlDirectory object.
     #
-    # theme - The String name of the theme. There is 2 builtin themes :
-    #         light & dark. The default one is light.
+    # config - A Coco::Configuration object.
     #
-    def initialize(theme = 'light')
-      @theme = Theme.new(theme)
+    def initialize(config)
+      @config = config
+      @theme = Theme.new(@config[:theme])
       img = File.join(Coco::ROOT, 'template/img')
       @img_files = Dir.glob(img + '/*')
     end
@@ -21,7 +20,7 @@ module Coco
     #
     # Returns String.
     def coverage_dir
-      COVERAGE_DIR
+      @coverage_dir ||= @config[:output_directory]
     end
 
     # Public: Delete the directory where the HTML report is stored.
@@ -54,15 +53,15 @@ module Coco
     private
 
     def css_dir
-      "#{COVERAGE_DIR}/css"
+      "#{coverage_dir}/css"
     end
 
     def image_dir
-      "#{COVERAGE_DIR}/img"
+      "#{coverage_dir}/img"
     end
 
     def js_dir
-      "#{COVERAGE_DIR}/js"
+      "#{coverage_dir}/js"
     end
   end
 end

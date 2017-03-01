@@ -58,13 +58,13 @@ module Coco
 
     def report_code_files
       files = HtmlFormatter.new(result.coverable_files).format
-      HtmlFilesWriter.new(files, @config[:theme]).write
+      HtmlFilesWriter.new(files, @config).write
     end
 
     def report_index
       index = HtmlIndexFormatter.new(uncovered, result,
                                      @config[:threshold]).format
-      HtmlIndexWriter.new(index).write
+      HtmlIndexWriter.new(index, @config).write
     end
 
     def result
