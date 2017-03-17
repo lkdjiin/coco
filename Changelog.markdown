@@ -1,6 +1,11 @@
 Next version (Unreleased)
 =================================================
 
+## Added
+
+* Now you can change the output directory. It's the coverage folder by default
+  as always, but it's customisable with the new `:output_directory` option.
+
 
 v0.15.0 (2017-02-27)
 =================================================

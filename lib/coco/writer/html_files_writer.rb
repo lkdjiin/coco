@@ -6,11 +6,11 @@ module Coco
     # Public: Initialize a new HtmlFilesWriter.
     #
     # html_files - Hash, key is filename, value is html content.
-    # theme      - The String name of the theme. Default is light.
+    # config - A Coco::Configuration object.
     #
-    def initialize(html_files, theme = 'light')
+    def initialize(html_files, config)
       @html_files = html_files
-      @html_dir = HtmlDirectory.new(theme)
+      @html_dir = HtmlDirectory.new(config)
     end
 
     # Public: Write HTML files in the right place.

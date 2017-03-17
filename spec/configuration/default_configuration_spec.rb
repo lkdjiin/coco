@@ -12,6 +12,7 @@ describe "Default configuration (no config file)" do
   it { is_expected.to include(:exclude_above_threshold => true) }
   it { is_expected.to include(:theme => 'light') }
   it { is_expected.to include(:exit_if_coverage_below => 0) }
+  it { is_expected.to include(:output_directory => "coverage") }
 
   it "returns directories excluded by default" do
     expect(subject[:exclude]).to all(match(/spec|test/))
